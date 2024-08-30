@@ -1,0 +1,51 @@
+/* Homepage.css */
+
+.tooltip {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
+  position: absolute;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+}
+
+.tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+  display: block; /* Show when popper is active */
+}
+
+/* src/css/Homepage.css */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes up at least the full height of the viewport */
+}
+
+main {
+  flex: 1 0 auto; /* Main content should expand to fill the remaining space */
+  padding-top: 70px; /* Adjust padding-top to match the height of the fixed header */
+  margin: 0; /* Ensure there is no margin causing extra space */
+}
+
+.img-custom {
+  max-height: 400px; /* Set the maximum height you want */
+  object-fit: cover; /* Ensures the image covers the element, maintaining aspect ratio */
+  width: auto; /* Optional: allows the image to scale proportionally */
+}
+
+.list-group-item {
+  background-color: transparent !important; /* Removes the background color */
+  border: none !important; /* Optional: Removes the border */
+}

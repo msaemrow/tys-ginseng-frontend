@@ -1,0 +1,9 @@
+:root {
+  --primary-color: goldenrod;
+  --secondary-color: rgb(254, 23, 23);
+  --tertiary-color: green;
+}
+
+.bg-custom-gold {
+  background-color: var(--primary-color);
+}

@@ -1,0 +1,17 @@
+#root {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.navbar {
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.navbar-nav .nav-link {
+  color: #007bff; /* Custom link color */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Larger brand font size */
+}
