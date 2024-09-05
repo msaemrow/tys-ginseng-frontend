@@ -34,7 +34,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Photos
+                Pictures
               </a>
             </li>
             <li className="nav-item dropdown">
