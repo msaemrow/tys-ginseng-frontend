@@ -7,8 +7,10 @@ const AppRoutes = () => {
   return (
     <div className="AppRoutes">
       <Routes>
-        <Route exact path="/" element={<Homepage />} />
-        <Route exact path="/products" element={<ProductList />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/products" element={<ProductList />} />
+
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
