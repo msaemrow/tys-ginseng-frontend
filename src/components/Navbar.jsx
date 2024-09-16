@@ -27,13 +27,13 @@ const NavBar = () => {
               <a
                 className="nav-link text-dark"
                 aria-current="page"
-                href="/tys-ginseng-frontend/products"
+                href="/products"
               >
                 Products
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-dark" href="#">
+              <a className="nav-link text-dark" href="/pictures">
                 Pictures
               </a>
             </li>
