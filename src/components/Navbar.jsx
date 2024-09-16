@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "./CartProvider";
 
 const NavBar = () => {
+  const { cartContents } = useContext(CartContext);
+
   return (
     <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top">
       <div className="container">
@@ -72,7 +75,7 @@ const NavBar = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <a className="nav-link text-success" href="#">
-                Cart
+                Cart ({cartContents.contents})
               </a>
             </li>
           </ul>
