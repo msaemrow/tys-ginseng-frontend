@@ -25,21 +25,21 @@ const NavBar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
               <a
-                className="nav-link active"
+                className="nav-link text-dark"
                 aria-current="page"
-                href="/products"
+                href="/tys-ginseng-frontend/products"
               >
                 Products
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link text-dark" href="#">
                 Pictures
               </a>
             </li>
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle text-dark"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -68,9 +68,11 @@ const NavBar = () => {
                 </li>
               </ul>
             </li>
+          </ul>
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
+              <a className="nav-link text-success" href="#">
+                Cart
               </a>
             </li>
           </ul>

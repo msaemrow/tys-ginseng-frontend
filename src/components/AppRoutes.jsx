@@ -9,7 +9,10 @@ const AppRoutes = () => {
     <div className="AppRoutes">
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/products" element={<ProductList />} />
+        <Route
+          path="/tys-ginseng-frontend/products"
+          element={<ProductList />}
+        />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
