@@ -16,7 +16,7 @@ const Product = ({ id, name, price, description, servings, url }) => {
   };
 
   return (
-    <div className="d-flex flex-wrap flex-column border border-dark rounded m-3 p-4 w-25 justify-content-start align-items-center">
+    <div className="Product d-flex flex-wrap flex-column border border-dark rounded m-3 p-4 w-25 justify-content-start align-items-center">
       <h3>{name}</h3>
       <h6>{price}</h6>
       <p>Servings: {servings}</p>

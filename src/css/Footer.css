@@ -1,0 +1,9 @@
+.Footer {
+  height: 340px;
+  background-color: #fdb913;
+}
+
+.Footer-logo {
+  margin-bottom: 10px;
+  height: 100px;
+}

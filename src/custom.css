@@ -1,9 +1,9 @@
 :root {
-  --primary-color: goldenrod;
-  --secondary-color: rgb(254, 23, 23);
-  --tertiary-color: green;
+  --logo-gold-color: #fdb913;
+  --logo-red-color: #d6001c;
+  --logo-green-color: #78be21;
 }
 
 .bg-custom-gold {
-  background-color: var(--primary-color);
+  background-color: var(--logo-red-color);
 }

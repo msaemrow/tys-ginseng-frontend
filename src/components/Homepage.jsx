@@ -26,7 +26,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="container-fluid bg-custom-gold">
+    <div className="container-fluid">
       <main className="mt-4">
         <h1 className="text-center">Ty's Ginseng</h1>
         <div id="top-row" className="d-flex justify-content-evenly  mt-4 mb-5">
@@ -104,7 +104,7 @@ const Homepage = () => {
           ref={tooltipRef}
           className={`tooltip ${tooltipVisible ? "show" : ""}`}
         >
-          Check out our Ginseng Products
+          <p>Check out our Ginseng Products</p>
         </div>
       </main>
     </div>

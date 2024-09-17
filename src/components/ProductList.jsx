@@ -6,7 +6,7 @@ import "../css/ProductList.css";
 const ProductList = () => {
   return (
     <div className="pt-5">
-      <h1 className="Products-title">PRODUCTS</h1>
+      <h1 className="Products-title">Products</h1>
       <div className="d-flex flex-wrap justify-content-center">
         {products.map((product) => (
           <Product

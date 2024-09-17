@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import NavBar from "./components/Navbar";
+import Footer from "./components/Footer";
 import AppRoutes from "./components/AppRoutes";
 import { CartProvider } from "./components/CartProvider";
 
@@ -10,6 +11,7 @@ function App() {
       <CartProvider>
         <NavBar />
         <AppRoutes />
+        <Footer />
       </CartProvider>
     </>
   );

@@ -1,15 +1,17 @@
 import React, { useContext } from "react";
 import { CartContext } from "./CartProvider";
+import Logo from "../assets/TysGinsengLogo.png";
+import "../css/Navbar.css";
 
 const NavBar = () => {
   const { cartContents } = useContext(CartContext);
 
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top">
+    <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light bg-light fixed-top">
       <div className="container">
         {/* Brand name or logo */}
         <a className="navbar-brand" href="/">
-          Ty's Ginseng
+          <img className="navbar-logo" src={Logo} />
         </a>
         {/* Toggle button for mobile view */}
         <button
@@ -27,22 +29,18 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
-              <a
-                className="nav-link text-dark"
-                aria-current="page"
-                href="/products"
-              >
+              <a className="nav-link" aria-current="page" href="/products">
                 Products
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-dark" href="/pictures">
+              <a className="nav-link" href="/pictures">
                 Pictures
               </a>
             </li>
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle text-dark"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -74,7 +72,7 @@ const NavBar = () => {
           </ul>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link text-success" href="#">
+              <a className="nav-link" href="#">
                 Cart ({cartContents.contents})
               </a>
             </li>
