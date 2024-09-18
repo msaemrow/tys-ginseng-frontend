@@ -35,7 +35,7 @@ body {
 
 main {
   flex: 1 0 auto; /* Main content should expand to fill the remaining space */
-  padding-top: 70px; /* Adjust padding-top to match the height of the fixed header */
+  padding-top: 20px; /* Adjust padding-top to match the height of the fixed header */
   margin: 0; /* Ensure there is no margin causing extra space */
 }
 

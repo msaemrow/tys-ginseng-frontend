@@ -1,16 +1,28 @@
-import React, { act, useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "./CartProvider";
 import Logo from "../assets/TysGinsengLogo.png";
 import "../css/Navbar.css";
 
 const NavBar = () => {
-  const { cartContents, isCartShowing, toggleIsCartShowing } =
-    useContext(CartContext);
+  const {
+    cartContents,
+    isCartShowing,
+    toggleIsCartShowing,
+    removeFromCart,
+    addToCart,
+  } = useContext(CartContext);
 
   const handleClickCartBtn = (e) => {
     toggleIsCartShowing();
   };
 
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  };
+
+  const handleIncrementCartItem = (productId) => {
+    addToCart(productId);
+  };
   const calculateTotal = (cartContents) => {
     return Object.values(cartContents).reduce((acc, el) => {
       if (el.price && el.quantity) {
@@ -102,7 +114,21 @@ const NavBar = () => {
                       .filter(([key]) => key !== "contents")
                       .map(([productId, product]) => (
                         <li key={productId} className="dropdown-item pt-2 pb-2">
-                          <p className="m-0 fw-bold">{product.name}</p>
+                          <p className="m-0 fw-bold">
+                            {product.name}
+                            <button
+                              className="btn btn-secondary pt-0 pb-0 ps-2 pe-2 m-1 border rounded-5"
+                              onClick={() => handleRemoveFromCart(productId)}
+                            >
+                              -
+                            </button>
+                            <button
+                              className="btn btn-secondary pt-0 pb-0 ps-2 pe-2 m-1 border rounded-5"
+                              onClick={() => handleIncrementCartItem(productId)}
+                            >
+                              +
+                            </button>
+                          </p>
                           <p className="m-0">QTY: {product.quantity}</p>
                           <p className="m-0">
                             Price ${product.price * product.quantity}

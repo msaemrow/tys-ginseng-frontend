@@ -1,10 +1,27 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import ginsengPlant from "../assets/ginseng_plant.webp";
 import "../css/PictureList.css";
 
 const PictureList = () => {
   return (
     <div className="pt-5">
+      <Helmet>
+        <title>Ty's Ginseng | Pictures</title>
+        <meta
+          name="description"
+          content="Images of premium wild simulated Ginseng Roots, Ginseng Roots, and Ginseng Plants."
+        />
+        <meta
+          name="keywords"
+          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Plant, Ginseng Bed, Ginseng, Premium Ginseng, Bulk Ginseng, Ginseng Roots"
+        />
+        <meta property="og:title" content="Ty's Ginseng - Pictures" />
+        <meta
+          property="og:description"
+          content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
+        />
+      </Helmet>
       <h1 className="Products-title">Pictures</h1>
       <div className="d-flex flex-wrap justify-content-center">
         <img

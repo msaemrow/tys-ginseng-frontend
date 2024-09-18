@@ -44,12 +44,22 @@ export const CartProvider = ({ children }) => {
 
       if (newCart[productId]) {
         if (newCart[productId].quantity > 1) {
-          newCart[productId].quantity -= 1;
+          console.log("MULIPLE CONTENTS");
+          newCart[productId] = {
+            ...newCart[productId],
+            quantity: newCart[productId].quantity - 1,
+          };
         } else {
+          console.log("SINGLE ITEM");
           delete newCart[productId];
         }
+
+        newCart.contents = Object.values(newCart)
+          .filter((item) => item.quantity)
+          .reduce((total, item) => total + item.quantity, 0);
+
+        return newCart;
       }
-      return newCart;
     });
   };
 

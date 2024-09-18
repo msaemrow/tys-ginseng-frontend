@@ -1,5 +1,6 @@
 // src/components/Homepage.jsx
 import React, { useRef, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { createPopper } from "@popperjs/core";
 import "../css/Homepage.css";
 import ginsengPlant from "../assets/ginseng_plant.webp";
@@ -9,24 +10,25 @@ const Homepage = () => {
   const tooltipRef = useRef(null);
   const [tooltipVisible, setTooltipVisible] = useState(false);
 
-  useEffect(() => {
-    if (buttonRef.current && tooltipRef.current) {
-      createPopper(buttonRef.current, tooltipRef.current, {
-        placement: "bottom",
-        modifiers: [
-          {
-            name: "offset",
-            options: {
-              offset: [0, 8],
-            },
-          },
-        ],
-      });
-    }
-  }, []);
-
   return (
     <div className="container-fluid">
+      <Helmet>
+        <title>Ty's Ginseng | Homepage</title>
+        <meta
+          name="description"
+          content="Welcome to Ty's Ginseng. We offer premium Wild Simulated Ginseng and ginseng products. Learn about the benefits and visit us at the Minneapolis Farmers Market."
+        />
+        <meta
+          name="keywords"
+          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Powder, Minneapolis Farmers Market"
+        />
+        <meta property="og:title" content="Ty's Ginseng - Homepage" />
+        <meta
+          property="og:description"
+          content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
+        />
+        <meta property="og:image" content={ginsengPlant} />
+      </Helmet>
       <main className="mt-4">
         <h1 className="text-center">Ty's Ginseng</h1>
         <div id="top-row" className="d-flex justify-content-evenly  mt-4 mb-5">
@@ -91,20 +93,6 @@ const Homepage = () => {
             alt="Ginseng Plant"
             className="img-fluid img-custom rounded"
           />
-        </div>
-        <button
-          ref={buttonRef}
-          className="btn btn-primary mt-4"
-          onMouseEnter={() => setTooltipVisible(true)}
-          onMouseLeave={() => setTooltipVisible(false)}
-        >
-          Products
-        </button>
-        <div
-          ref={tooltipRef}
-          className={`tooltip ${tooltipVisible ? "show" : ""}`}
-        >
-          <p>Check out our Ginseng Products</p>
         </div>
       </main>
     </div>
