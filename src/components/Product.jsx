@@ -17,7 +17,7 @@ const Product = ({ id, name, price, description, servings, url }) => {
   };
 
   return (
-    <div className="Product d-flex flex-wrap flex-column border border-dark rounded m-3 p-4 w-25 justify-content-start align-items-center">
+    <div className="Product d-flex flex-wrap flex-column border border-dark rounded m-3 p-2 w-25 justify-content-start align-items-center">
       <h3>{name}</h3>
       <p>Servings: {servings}</p>
       <p>{description}</p>
@@ -28,11 +28,8 @@ const Product = ({ id, name, price, description, servings, url }) => {
       />
       <h3 className="mt-2 mb-0">${price}</h3>
 
-      <button className="btn btn-success m-2" onClick={handleAddToCart}>
+      <button className="btn add-to-cart-btn m-2" onClick={handleAddToCart}>
         Add to cart
-      </button>
-      <button className="btn btn-success m-2" onClick={viewCart}>
-        View cart
       </button>
     </div>
   );

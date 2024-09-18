@@ -21,7 +21,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light bg-light fixed-top">
+    <nav className="navbar pb-0 pt-1 navbar-expand-sm navbar-light fixed-top">
       <div className="container">
         {/* Brand name or logo */}
         <a className="navbar-brand" href="/">

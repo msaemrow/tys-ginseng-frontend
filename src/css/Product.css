@@ -4,4 +4,9 @@
 
 .Product {
   min-width: 250px;
+  background-color: white;
+}
+
+.add-to-cart-btn {
+  background-color: #fdb913 !important;
 }

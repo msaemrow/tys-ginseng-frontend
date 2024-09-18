@@ -1,3 +1,19 @@
+nav {
+  background-color: tan !important;
+}
+
+.navbar {
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.navbar-nav .nav-link {
+  color: white; /* Custom link color */
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Larger brand font size */
+}
+
 .navbar-logo {
   height: 35px;
 }

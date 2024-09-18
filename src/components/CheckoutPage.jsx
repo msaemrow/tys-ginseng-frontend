@@ -12,40 +12,45 @@ const CheckoutPage = () => {
       {cartContents.contents === 0 ? (
         <div>
           <h4>Your cart is empty</h4>
+          <a className="btn checkout-button mt-2 mb-2 fs-5" href="/products">
+            Go to products
+          </a>
         </div>
       ) : (
-        <table className="cart-summary table mb-1 border">
-          <thead>
-            <tr>
-              <th>Item Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Item Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(cartContents)
-              .filter(([key]) => key !== "contents")
-              .map(([productId, product]) => (
-                <CartItem
-                  key={productId}
-                  name={product.name}
-                  price={product.price}
-                  quantity={product.quantity}
-                />
-              ))}
-            <tr>
-              <td colSpan="3" className="text-end">
-                Cart Total:
-              </td>
-              <td>${calculateTotal(cartContents)}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div>
+          <table className="cart-summary table mb-1 border">
+            <thead>
+              <tr>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Item Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(cartContents)
+                .filter(([key]) => key !== "contents")
+                .map(([productId, product]) => (
+                  <CartItem
+                    key={productId}
+                    name={product.name}
+                    price={product.price}
+                    quantity={product.quantity}
+                  />
+                ))}
+              <tr>
+                <td colSpan="3" className="text-end">
+                  Cart Total:
+                </td>
+                <td>${calculateTotal(cartContents)}</td>
+              </tr>
+            </tbody>
+          </table>
+          <a className="btn checkout-button mt-2 mb-2 fs-5" href="/checkout">
+            Checkout
+          </a>
+        </div>
       )}
-      <a className="btn checkout-button mt-2 mb-2 fs-5" href="/checkout">
-        Checkout
-      </a>
     </div>
   );
 };
