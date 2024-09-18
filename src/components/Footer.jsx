@@ -13,12 +13,12 @@ const Footer = () => {
       <h6>Follow Us</h6>
       <div>
         <span>
-          <i class="fa-brands fa-instagram"></i> Instgram: tysginseng
+          <i className="fa-brands fa-instagram"></i> Instgram: tysginseng
         </span>
       </div>
       <div>
         <span>
-          <i class="fa-brands fa-facebook"></i> Facebook: Ty's Ginseng
+          <i className="fa-brands fa-facebook"></i> Facebook: Ty's Ginseng
         </span>
       </div>
     </div>

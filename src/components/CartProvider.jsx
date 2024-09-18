@@ -5,6 +5,7 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const emptyCart = { contents: 0 };
 
+  const [isCartShowing, setIsCartShowing] = useState(false);
   const [cartContents, setCartContents] = useState(() => {
     const storedCart = localStorage.getItem("cartContents");
     try {
@@ -48,13 +49,38 @@ export const CartProvider = ({ children }) => {
           delete newCart[productId];
         }
       }
-
       return newCart;
     });
   };
 
+  const toggleIsCartShowing = () => {
+    if (isCartShowing) {
+      setIsCartShowing(false);
+    } else {
+      setIsCartShowing(true);
+    }
+  };
+
+  const calculateTotal = (cartContents) => {
+    return Object.values(cartContents).reduce((acc, el) => {
+      if (el.price && el.quantity) {
+        acc += el.price * el.quantity;
+      }
+      return acc;
+    }, 0);
+  };
+
   return (
-    <CartContext.Provider value={{ cartContents, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{
+        cartContents,
+        addToCart,
+        removeFromCart,
+        isCartShowing,
+        toggleIsCartShowing,
+        calculateTotal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

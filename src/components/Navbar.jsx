@@ -1,10 +1,24 @@
-import React, { useContext } from "react";
+import React, { act, useContext } from "react";
 import { CartContext } from "./CartProvider";
 import Logo from "../assets/TysGinsengLogo.png";
 import "../css/Navbar.css";
 
 const NavBar = () => {
-  const { cartContents } = useContext(CartContext);
+  const { cartContents, isCartShowing, toggleIsCartShowing } =
+    useContext(CartContext);
+
+  const handleClickCartBtn = (e) => {
+    toggleIsCartShowing();
+  };
+
+  const calculateTotal = (cartContents) => {
+    return Object.values(cartContents).reduce((acc, el) => {
+      if (el.price && el.quantity) {
+        acc += el.price * el.quantity;
+      }
+      return acc;
+    }, 0);
+  };
 
   return (
     <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light bg-light fixed-top">
@@ -72,9 +86,40 @@ const NavBar = () => {
           </ul>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Cart ({cartContents.contents})
-              </a>
+              <button
+                className="btn btn-link nav-link"
+                onClick={handleClickCartBtn}
+              >
+                <i className="fa-solid fa-cart-shopping"></i> (
+                {cartContents.contents})
+              </button>
+              {isCartShowing && (
+                <ul className="dropdown-menu show custom-dropdown">
+                  {cartContents.contents === 0 ? (
+                    <li className="dropdown">Cart is empty</li>
+                  ) : (
+                    Object.entries(cartContents)
+                      .filter(([key]) => key !== "contents")
+                      .map(([productId, product]) => (
+                        <li key={productId} className="dropdown-item pt-2 pb-2">
+                          <p className="m-0 fw-bold">{product.name}</p>
+                          <p className="m-0">QTY: {product.quantity}</p>
+                          <p className="m-0">
+                            Price ${product.price * product.quantity}
+                          </p>
+                        </li>
+                      ))
+                  )}
+                  <li className="cart-total border p-2 fw-bold d-flex justify-content-center">
+                    Order Subtotal: ${calculateTotal(cartContents)}
+                  </li>
+                  <li className="d-flex justify-content-center">
+                    <a className="btn checkout-button m-2" href="/checkout">
+                      View Cart
+                    </a>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
         </div>

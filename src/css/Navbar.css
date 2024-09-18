@@ -1,3 +1,30 @@
 .navbar-logo {
   height: 35px;
 }
+
+.custom-dropdown {
+  right: 5px;
+  width: 275px;
+  display: none;
+}
+
+.custom-dropdown.show {
+  display: block;
+}
+
+.custom-dropdown .dropdown-item:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+.custom-dropdown .dropdown-item:nth-child(even) {
+  background-color: #e9ecef;
+}
+
+.checkout-button {
+  background-color: #78be21 !important;
+  color: white !important;
+}
+
+.checkout-button:hover {
+  background-color: #5a9c1e !important;
+}
