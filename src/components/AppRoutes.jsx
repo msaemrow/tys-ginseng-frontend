@@ -4,6 +4,9 @@ import Homepage from "./Homepage";
 import ProductList from "./ProductList";
 import BulkProductList from "./BulkProductList";
 import PictureList from "./PictureList";
+import HowToUse from "./HowToUse";
+import Testimonials from "./Testimonials";
+import OurProcess from "./OurProcess";
 import CheckoutPage from "./CheckoutPage";
 import OrderConfirmation from "./OrderConfirmation";
 import "../css/AppRoutes.css";
@@ -16,6 +19,9 @@ const AppRoutes = () => {
         <Route path="/products" element={<ProductList />} />
         <Route path="/products-bulk" element={<BulkProductList />} />
         <Route path="/pictures" element={<PictureList />} />
+        <Route path="/recipes" element={<HowToUse />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/our-process" element={<OurProcess />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
         {/* catch all route */}

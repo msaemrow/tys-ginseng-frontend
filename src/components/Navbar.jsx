@@ -70,11 +70,6 @@ const NavBar = () => {
                 Bulk Products
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/pictures">
-                Pictures
-              </a>
-            </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -83,32 +78,37 @@ const NavBar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Resources
+                About Us
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/our-process">
                     Our Process
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/pictures">
+                    Our Ginseng
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/recipes">
                     How to use Ginseng
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/testimonials">
                     Testimonials
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
                     Something else here
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
           </ul>
