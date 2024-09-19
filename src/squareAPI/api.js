@@ -8,7 +8,8 @@ class GinsengApi {
       let res = await axios.post(`${BASE_URL}/payment/create`, {
         products: shoppingCart,
       });
-      return res.data.paymentLink;
+      console.log(res.data);
+      return res.data;
     } catch (err) {
       console.error("ERROR. ", err);
     }

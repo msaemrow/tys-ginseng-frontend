@@ -6,6 +6,7 @@ export const CartProvider = ({ children }) => {
   const emptyCart = { contents: 0 };
 
   const [isCartShowing, setIsCartShowing] = useState(false);
+  const [orderId, setOrderId] = useState(null);
   const [cartContents, setCartContents] = useState(() => {
     const storedCart = localStorage.getItem("cartContents");
     try {
@@ -21,6 +22,13 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cartContents", JSON.stringify(cartContents));
   }, [cartContents]);
 
+  const updateOrderId = (id) => {
+    setOrderId(id);
+  };
+
+  const clearOrderId = () => {
+    setOrderId(null);
+  };
   const addToCart = (productId, product) => {
     setCartContents((prevCart) => {
       const newCart = { ...prevCart };
@@ -94,6 +102,9 @@ export const CartProvider = ({ children }) => {
         toggleIsCartShowing,
         calculateTotal,
         clearCart,
+        orderId,
+        updateOrderId,
+        clearOrderId,
       }}
     >
       {children}

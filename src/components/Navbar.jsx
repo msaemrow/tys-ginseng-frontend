@@ -66,6 +66,11 @@ const NavBar = () => {
               </a>
             </li>
             <li className="nav-item">
+              <a className="nav-link" aria-current="page" href="/products-bulk">
+                Bulk Products
+              </a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="/pictures">
                 Pictures
               </a>
@@ -83,12 +88,17 @@ const NavBar = () => {
               <ul className="dropdown-menu">
                 <li>
                   <a className="dropdown-item" href="#">
-                    Action
+                    Our Process
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
-                    Another action
+                    How to use Ginseng
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Testimonials
                   </a>
                 </li>
                 <li>

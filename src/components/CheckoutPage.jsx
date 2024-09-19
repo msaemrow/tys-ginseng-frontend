@@ -6,7 +6,8 @@ import GinsengApi from "../squareAPI/api";
 import "../css/CheckoutPage.css";
 
 const CheckoutPage = () => {
-  const { cartContents, calculateTotal, clearCart } = useContext(CartContext);
+  const { cartContents, calculateTotal, clearCart, updateOrderId } =
+    useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
 
   const createLink = async () => {
@@ -41,8 +42,12 @@ const CheckoutPage = () => {
       const checkoutUrl = await GinsengApi.generateCheckoutUrl(
         squareCheckoutItems
       );
-      if (checkoutUrl) {
-        window.location.href = checkoutUrl; // Redirect to the payment link
+      if (checkoutUrl.url) {
+        console.log("LINK", checkoutUrl.url);
+        console.log("CHECKOUT URL OBJ", checkoutUrl);
+        console.log("ORDER ID", checkoutUrl.orderId);
+        updateOrderId(checkoutUrl.orderId);
+        window.location.href = checkoutUrl.url; // Redirect to the payment link
       } else {
         console.error("Invalid response format", checkoutUrl);
       }

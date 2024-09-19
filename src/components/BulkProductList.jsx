@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
 import { CartContext } from "./CartProvider";
 
-const ProductList = () => {
+const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
 
   const viewCart = () => {
@@ -16,7 +16,7 @@ const ProductList = () => {
   return (
     <div className="pt-5">
       <Helmet>
-        <title>Ty's Ginseng | Products</title>
+        <title>Ty's Ginseng | Bulk Products</title>
         <meta
           name="description"
           content="Premium Wild Simulated Ginseng Roots, Ginseng Powder and Ginseng Products."
@@ -32,7 +32,7 @@ const ProductList = () => {
         />
       </Helmet>
       <h2 className="Products-title">
-        Ginseng Products{" "}
+        Bulk Ginseng Products{" "}
         {/* button to view cart contents-- for testing purposes only */}
         {/* <button className="btn view-cart-btn m-2" onClick={viewCart}>
           View cart
@@ -40,7 +40,7 @@ const ProductList = () => {
       </h2>
       <div className="d-flex flex-wrap justify-content-center">
         {products
-          .filter((product) => product.type === "SINGLE")
+          .filter((product) => product.type === "BULK")
           .map((product) => (
             <Product
               key={product.id}
@@ -58,4 +58,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default BulkProductList;

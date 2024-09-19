@@ -1,17 +1,8 @@
 const products = [
   {
     id: 1001,
-    name: "1oz Ginseng Powder",
-    price: 70.0,
-    description:
-      "1oz jar of 100% Minnesota forest grown ginseng. No additives. ",
-    servings: "Approximately 30 days at 1/2 tsp daily.",
-    image_url:
-      "https://141902758.cdn6.editmysite.com/uploads/1/4/1/9/141902758/s851771103589971216_p1_i3_w4032.jpeg?width=2560&dpr=1.5",
-  },
-  {
-    id: 1002,
-    name: "0.25oz Ginseng Powder",
+    type: "SINGLE",
+    name: "Ginseng Powder 0.25oz",
     price: 20.0,
     description:
       "0.25 jar of 100% Minnesota forest grown ginseng. No additives.",
@@ -20,8 +11,20 @@ const products = [
       "https://141902758.cdn6.editmysite.com/uploads/1/4/1/9/141902758/s851771103589971216_p1_i3_w4032.jpeg?width=2560&dpr=1.5",
   },
   {
+    id: 1002,
+    type: "SINGLE",
+    name: "Ginseng Powder 1oz ",
+    price: 0,
+    description:
+      "1oz jar of 100% Minnesota forest grown ginseng. No additives. ",
+    servings: "Approximately 30 days at 1/2 tsp daily.",
+    image_url:
+      "https://141902758.cdn6.editmysite.com/uploads/1/4/1/9/141902758/s851771103589971216_p1_i3_w4032.jpeg?width=2560&dpr=1.5",
+  },
+  {
     id: 1003,
-    name: "6oz Ginseng Powder",
+    type: "SINGLE",
+    name: "Ginseng Powder 6oz",
     price: 75.0,
     description:
       "6oz jar of 100% Minnesota forest grown ginseng. No additives.",
@@ -32,6 +35,7 @@ const products = [
   {
     id: 1004,
     name: "Ginseng Tea",
+    type: "SINGLE",
     price: 25.0,
     description: "Fresh ginseng leaves",
     servings: "10 tea bags",
@@ -40,6 +44,7 @@ const products = [
   },
   {
     id: 1005,
+    type: "BULK",
     name: "Bulk Dried Ginseng Roots",
     price: 250,
     description:
@@ -50,6 +55,7 @@ const products = [
   },
   {
     id: 1006,
+    type: "BULK",
     name: "Bulk Wet Ginseng Roots",
     price: 150,
     description:
@@ -60,6 +66,7 @@ const products = [
   },
   {
     id: 1007,
+    type: "BULK",
     name: "1lb seeds",
     price: 100,
     description:

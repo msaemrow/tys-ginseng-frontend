@@ -17,13 +17,13 @@ const CartItem = ({ id, name, price, quantity }) => {
       <td>{name}</td>
       <td>${price}</td>
       <td>
-        x{quantity}{" "}
         <button
           className="btn pt-0 pb-0 ps-2 pe-2 ms-1"
           onClick={() => handleRemoveFromCart(id)}
         >
           <i className="fa-solid fa-minus"></i>
         </button>
+        {quantity}{" "}
         <button
           className="btn pt-0 pb-0 ps-2 pe-2"
           onClick={() => handleIncrementCartItem(id)}
