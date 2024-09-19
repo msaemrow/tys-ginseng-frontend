@@ -63,6 +63,10 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  const clearCart = () => {
+    setCartContents(emptyCart);
+  };
+
   const toggleIsCartShowing = () => {
     if (isCartShowing) {
       setIsCartShowing(false);
@@ -89,6 +93,7 @@ export const CartProvider = ({ children }) => {
         isCartShowing,
         toggleIsCartShowing,
         calculateTotal,
+        clearCart,
       }}
     >
       {children}

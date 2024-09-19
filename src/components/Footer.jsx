@@ -13,12 +13,26 @@ const Footer = () => {
       <h6>Follow Us</h6>
       <div>
         <span>
-          <i className="fa-brands fa-instagram"></i> Instgram: tysginseng
+          <a
+            href="https://www.instagram.com/tysginseng/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-links"
+          >
+            <i className="fa-brands fa-instagram"></i> Instgram: tysginseng
+          </a>
         </span>
       </div>
       <div>
         <span>
-          <i className="fa-brands fa-facebook"></i> Facebook: Ty's Ginseng
+          <a
+            href="https://www.facebook.com/TysGinseng/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-links"
+          >
+            <i className="fa-brands fa-facebook"></i> Facebook: Ty's Ginseng
+          </a>
         </span>
       </div>
     </div>

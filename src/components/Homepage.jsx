@@ -30,7 +30,7 @@ const Homepage = () => {
         <meta property="og:image" content={ginsengPlant} />
       </Helmet>
       <main className="mt-4">
-        <h1 className="text-center">Ty's Ginseng</h1>
+        {/* <h1 className="text-center">Ty's Ginseng</h1> */}
         <div id="top-row" className="d-flex justify-content-evenly  mt-4 mb-5">
           <div className="bg-light d-flex flex-column justify-content-center rounded p-3 w-50">
             <h2 className="text-left">About Us</h2>
@@ -84,7 +84,7 @@ const Homepage = () => {
               from May - October. Check our social media for the days we will be
               at the market.
             </p>
-            <p className="text-start mb-0">Market Address:</p>
+            <p className="text-start mt-3 mb-0 fw-bold">Market Address:</p>
             <p className="text-start m-0">312 East Lyndale Ave N</p>
             <p className="text-start m-0">Minneapolis, MN 55405</p>
           </div>

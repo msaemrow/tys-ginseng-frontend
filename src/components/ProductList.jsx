@@ -23,7 +23,7 @@ const ProductList = () => {
         />
         <meta
           name="keywords"
-          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Powder, Premium Ginseng, Bulk Ginseng, Ginseng Roots"
+          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Powder, Premium Ginseng, Bulk Ginseng, Ginseng Roots, inflammation, energy, immune system, immunity, cold remedy, brain function, reduce inflammation, boost immunity"
         />
         <meta property="og:title" content="Ty's Ginseng - Products" />
         <meta
@@ -33,9 +33,10 @@ const ProductList = () => {
       </Helmet>
       <h1 className="Products-title">
         Products{" "}
-        <button className="btn view-cart-btn m-2" onClick={viewCart}>
+        {/* button to view cart contents-- for testing purposes only */}
+        {/* <button className="btn view-cart-btn m-2" onClick={viewCart}>
           View cart
-        </button>
+        </button> */}
       </h1>
       <div className="d-flex flex-wrap justify-content-center">
         {products.map((product) => (

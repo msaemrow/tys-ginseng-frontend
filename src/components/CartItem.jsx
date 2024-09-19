@@ -19,16 +19,16 @@ const CartItem = ({ id, name, price, quantity }) => {
       <td>
         x{quantity}{" "}
         <button
-          className="btn btn-secondary pt-0 pb-0 ps-2 pe-2 m-1 border rounded-5"
+          className="btn pt-0 pb-0 ps-2 pe-2 ms-1"
           onClick={() => handleRemoveFromCart(id)}
         >
-          -
+          <i className="fa-solid fa-minus"></i>
         </button>
         <button
-          className="btn btn-secondary pt-0 pb-0 ps-2 pe-2 m-0 border rounded-5"
+          className="btn pt-0 pb-0 ps-2 pe-2"
           onClick={() => handleIncrementCartItem(id)}
         >
-          +
+          <i className="fa-solid fa-plus"></i>
         </button>
       </td>
       <td className="text-center">${price * quantity}</td>

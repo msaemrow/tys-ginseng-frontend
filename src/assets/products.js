@@ -38,6 +38,36 @@ const products = [
     image_url:
       "https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737",
   },
+  {
+    id: 1005,
+    name: "Bulk Dried Ginseng Roots",
+    price: 250,
+    description:
+      "Bulk dried ginseng roots. $250 / lb. Quantities available based on seasonal availability. Contact for availability. ",
+    servings: "NA",
+    image_url:
+      "https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737",
+  },
+  {
+    id: 1006,
+    name: "Bulk Wet Ginseng Roots",
+    price: 150,
+    description:
+      "Bulk wet ginseng roots. $150 / lb. Quantities available based on seasonal availability. Contact for availability. ",
+    servings: "NA",
+    image_url:
+      "https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737",
+  },
+  {
+    id: 1007,
+    name: "1lb seeds",
+    price: 100,
+    description:
+      "Want to grow your own ginseng? We have seeds based on seasonal availability. Typically available in the fall. $100 for 1lb of seeds",
+    servings: "",
+    image_url:
+      "https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737",
+  },
 ];
 
 export default products;

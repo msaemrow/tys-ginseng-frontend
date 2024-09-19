@@ -6,7 +6,7 @@ import GinsengApi from "../squareAPI/api";
 import "../css/CheckoutPage.css";
 
 const CheckoutPage = () => {
-  const { cartContents, calculateTotal } = useContext(CartContext);
+  const { cartContents, calculateTotal, clearCart } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
 
   const createLink = async () => {
@@ -21,6 +21,10 @@ const CheckoutPage = () => {
     const checkoutUrl = await GinsengApi.generateCheckoutUrl(
       squareCheckoutItems
     );
+  };
+
+  const clearCartAfterCheckout = () => {
+    clearCart();
   };
 
   const handleCheckout = async () => {
@@ -45,6 +49,7 @@ const CheckoutPage = () => {
     } catch (error) {
       console.error("Error generating checkout URL", error);
     } finally {
+      clearCartAfterCheckout();
       setIsLoading(false); // Stop loading state
     }
   };

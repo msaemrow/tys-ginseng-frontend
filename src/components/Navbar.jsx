@@ -10,10 +10,15 @@ const NavBar = () => {
     toggleIsCartShowing,
     removeFromCart,
     addToCart,
+    clearCart,
   } = useContext(CartContext);
 
-  const handleClickCartBtn = (e) => {
+  const handleClickCartBtn = () => {
     toggleIsCartShowing();
+  };
+
+  const handleClearCart = () => {
+    clearCart();
   };
 
   const handleRemoveFromCart = (productId) => {
@@ -38,6 +43,7 @@ const NavBar = () => {
         {/* Brand name or logo */}
         <a className="navbar-brand" href="/">
           <img className="navbar-logo" src={Logo} />
+          <span className="ms-2">Ty's Ginseng</span>
         </a>
         {/* Toggle button for mobile view */}
         <button
@@ -117,16 +123,16 @@ const NavBar = () => {
                           <p className="m-0 fw-bold">
                             {product.name}
                             <button
-                              className="btn btn-secondary pt-0 pb-0 ps-2 pe-2 m-1 border rounded-5"
+                              className="btn pt-0 pb-0 ps-2 pe-2 ms-1"
                               onClick={() => handleRemoveFromCart(productId)}
                             >
-                              -
+                              <i className="fa-solid fa-minus"></i>
                             </button>
                             <button
-                              className="btn btn-secondary pt-0 pb-0 ps-2 pe-2 m-1 border rounded-5"
+                              className="btn pt-0 pb-0 ps-2 pe-2"
                               onClick={() => handleIncrementCartItem(productId)}
                             >
-                              +
+                              <i className="fa-solid fa-plus"></i>
                             </button>
                           </p>
                           <p className="m-0">QTY: {product.quantity}</p>
@@ -141,7 +147,7 @@ const NavBar = () => {
                   </li>
                   <li className="d-flex justify-content-center">
                     <a className="btn checkout-button m-2" href="/checkout">
-                      View Cart
+                      Go to cart
                     </a>
                   </li>
                 </ul>

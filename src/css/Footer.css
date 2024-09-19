@@ -7,3 +7,11 @@
   margin-bottom: 10px;
   height: 100px;
 }
+
+.social-links {
+  color: green;
+}
+
+.social-links:hover {
+  color: #78be21;
+}
