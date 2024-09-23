@@ -33,7 +33,7 @@ const ProductList = () => {
           content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
       </Helmet>
-      <ToastContainer position="top-center" autoClose={2000} />
+      <ToastContainer position="top-right" autoClose={2000} />
       <h2 className="Products-title">
         Ginseng Products{" "}
         {/* button to view cart contents-- for testing purposes only */}
