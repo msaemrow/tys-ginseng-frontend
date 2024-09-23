@@ -11,7 +11,7 @@ const Homepage = () => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid px-5">
       <Helmet>
         <title>Ty's Ginseng | Homepage</title>
         <meta
@@ -31,8 +31,11 @@ const Homepage = () => {
       </Helmet>
       <main className="mt-4">
         {/* <h1 className="text-center">Ty's Ginseng</h1> */}
-        <div id="top-row" className="d-flex justify-content-evenly  mt-4 mb-5">
-          <div className="bg-light d-flex flex-column justify-content-center rounded p-3 w-50">
+        <div
+          id="top-row"
+          className="d-flex justify-content-center align-items-center mt-4 mb-5"
+        >
+          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
             <h2 className="text-left">About Us</h2>
             <p>
               We grow Wild Simulated Ginseng in Southern MN. We take great pride
@@ -43,6 +46,12 @@ const Homepage = () => {
               roots will be available in the fall. If you have an interest in
               growing your own ginseng, contact us for pricing
             </p>
+            <a
+              className="Homepage-our-process-btn btn mt-4"
+              href="/our-process"
+            >
+              See our process
+            </a>
           </div>
           <img
             src={ginsengPlant}
@@ -52,16 +61,16 @@ const Homepage = () => {
         </div>
         <div
           id="middle-row"
-          className="d-flex justify-content-evenly mb-5 mt-4"
+          className="d-flex justify-content-center mb-5 mt-4"
         >
           <img
             src={ginsengPlant}
             alt="Ginseng Plant"
             className="img-fluid img-custom rounded"
           />
-          <div className="bg-light d-flex flex-column justify-content-center rounded p-3 w-50">
-            <h2 className="text-left">Benefits of Ginseng</h2>
-            <ul className="list-group bg-light">
+          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
+            <h2 className="text-left">Why Choose Ty's Ginseng</h2>
+            <ul className="list-group">
               <li className="list-group-item">Increase Energy</li>
               <li className="list-group-item">Reduce Inflammation</li>
               <li className="list-group-item">Improve Brain Function</li>
@@ -71,13 +80,48 @@ const Homepage = () => {
                 Potential benefits against cancer
               </li>
             </ul>
+            <a className="Homepage-our-process-btn btn mt-4" href="/products">
+              Buy Online Now
+            </a>
           </div>
         </div>
         <div
           id="bottom-row"
           className="d-flex justify-content-evenly  mt-4 mb-5"
         >
-          <div className="bg-light d-flex flex-column justify-content-center rounded p-3 w-50">
+          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
+            <h2 className="text-left">Benefits of Ginseng</h2>
+            <ul className="list-group">
+              <li className="list-group-item">Increase Energy</li>
+              <li className="list-group-item">Reduce Inflammation</li>
+              <li className="list-group-item">Improve Brain Function</li>
+              <li className="list-group-item">Boost Immune System</li>
+              <li className="list-group-item">Lower Blood Sugar</li>
+              <li className="list-group-item">
+                Potential benefits against cancer
+              </li>
+            </ul>
+            <a className="Homepage-our-process-btn btn mt-4" href="/products">
+              Buy Online Now
+            </a>
+          </div>
+          <img
+            src={ginsengPlant}
+            alt="Ginseng Plant"
+            className="img-fluid img-custom rounded"
+          />
+        </div>
+        .
+        <div
+          id="middle-row"
+          className="d-flex justify-content-evenly mb-5 mt-4"
+        >
+          <img
+            src={ginsengPlant}
+            alt="Ginseng Plant"
+            className="img-fluid img-custom rounded"
+          />
+          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
             <h2 className="text-left">Minneapolis Farmers Market</h2>
             <p>
               We are at the Minneapolis farmers market on Saturdays or Sundays
@@ -87,12 +131,10 @@ const Homepage = () => {
             <p className="text-start mt-3 mb-0 fw-bold">Market Address:</p>
             <p className="text-start m-0">312 East Lyndale Ave N</p>
             <p className="text-start m-0">Minneapolis, MN 55405</p>
+            <a className="Homepage-our-process-btn btn mt-4" href="/products">
+              Buy Online Now
+            </a>
           </div>
-          <img
-            src={ginsengPlant}
-            alt="Ginseng Plant"
-            className="img-fluid img-custom rounded"
-          />
         </div>
       </main>
     </div>

@@ -1,26 +1,3 @@
-/* Homepage.css */
-
-.tooltip {
-  background-color: black;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s, transform 0.3s;
-  position: absolute;
-  z-index: 1000;
-  display: none; /* Initially hidden */
-}
-
-.tooltip.show {
-  opacity: 1;
-  transform: translateY(0);
-  display: block; /* Show when popper is active */
-}
-
-/* src/css/Homepage.css */
-
 html,
 body {
   height: 100%;
@@ -36,6 +13,8 @@ body {
 main {
   flex: 1 0 auto; /* Main content should expand to fill the remaining space */
   padding-top: 20px; /* Adjust padding-top to match the height of the fixed header */
+  padding-left: 10%;
+  padding-right: 10%;
   margin: 0; /* Ensure there is no margin causing extra space */
 }
 
@@ -48,4 +27,9 @@ main {
 .list-group-item {
   background-color: transparent !important; /* Removes the background color */
   border: none !important; /* Optional: Removes the border */
+}
+
+.Homepage-our-process-btn {
+  background-color: #fdb913 !important;
+  width: 50%;
 }

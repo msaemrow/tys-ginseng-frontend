@@ -54,7 +54,7 @@ const NavBar = () => {
   }, [isCartShowing, toggleIsCartShowing]);
 
   return (
-    <nav className="navbar pb-0 pt-1 navbar-expand-sm navbar-light fixed-top">
+    <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light fixed-top">
       <div className="container">
         {/* Brand name or logo */}
         <a className="navbar-brand" href="/">
@@ -129,6 +129,9 @@ const NavBar = () => {
             </li>
           </ul>
           <ul className="navbar-nav ms-auto">
+            <a className="btn navbar-buy-now-btn" href="/products">
+              Buy Online Now
+            </a>
             <li className="nav-item">
               <button
                 className="btn btn-link nav-link"

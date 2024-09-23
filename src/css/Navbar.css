@@ -18,6 +18,11 @@ nav {
   height: 35px;
 }
 
+.navbar-buy-now-btn {
+  background-color: #78be21 !important;
+  color: white;
+}
+
 .custom-dropdown {
   right: 5px;
   width: 275px;
