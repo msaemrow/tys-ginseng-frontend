@@ -70,7 +70,7 @@ const products = [
     name: "1lb seeds",
     price: 100,
     description:
-      "Want to grow your own ginseng? We have seeds based on seasonal availability. Typically available in the fall. $100 for 1lb of seeds",
+      "Want to grow your own ginseng? We have stratified seeds based on seasonal availability. Typically available in the fall. $100 for 1lb of seeds",
     servings: "",
     image_url:
       "https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737https://www.popus.com/cdn/shop/products/A-61012InstantWildAmericanGinsengTeaOuterBox80ct_2022_HD-min_600x.jpg?v=1671582737",

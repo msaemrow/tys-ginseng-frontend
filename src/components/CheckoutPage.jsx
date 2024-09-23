@@ -6,8 +6,7 @@ import GinsengApi from "../squareAPI/api";
 import "../css/CheckoutPage.css";
 
 const CheckoutPage = () => {
-  const { cartContents, calculateTotal, clearCart, updateOrderId } =
-    useContext(CartContext);
+  const { cartContents, calculateTotal, clearCart } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
 
   const createLink = async () => {
@@ -43,10 +42,6 @@ const CheckoutPage = () => {
         squareCheckoutItems
       );
       if (checkoutUrl.url) {
-        console.log("LINK", checkoutUrl.url);
-        console.log("CHECKOUT URL OBJ", checkoutUrl);
-        console.log("ORDER ID", checkoutUrl.orderId);
-        updateOrderId(checkoutUrl.orderId);
         window.location.href = checkoutUrl.url; // Redirect to the payment link
       } else {
         console.error("Invalid response format", checkoutUrl);
@@ -84,35 +79,51 @@ const CheckoutPage = () => {
         </div>
       ) : (
         <div>
-          <table className="cart-summary table mb-1 border">
-            <thead>
-              <tr>
-                <th>Item Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Item Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(cartContents)
-                .filter(([key]) => key !== "contents")
-                .map(([productId, product]) => (
-                  <CartItem
-                    key={productId}
-                    id={productId}
-                    name={product.name}
-                    price={product.price}
-                    quantity={product.quantity}
-                  />
-                ))}
-              <tr>
-                <td colSpan="3" className="text-end">
-                  Cart Total:
-                </td>
-                <td>${calculateTotal(cartContents)}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="p-2 border rounded bg-warning">
+            <table className="cart-summary table mb-1 border rounded">
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Item Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(cartContents)
+                  .filter(([key]) => key !== "contents")
+                  .map(([productId, product]) => (
+                    <CartItem
+                      key={productId}
+                      id={productId}
+                      name={product.name}
+                      price={product.price}
+                      quantity={product.quantity}
+                    />
+                  ))}
+                <tr>
+                  <td colSpan="3" className="text-end">
+                    Shipping:
+                  </td>
+                  <td>$8</td>
+                </tr>
+                <tr>
+                  <td colSpan="3" className="text-end">
+                    Cart Total:
+                  </td>
+                  <td>${calculateTotal(cartContents) + 8}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            *All orders are shipped via USPS and have an estimated 3-5 day ship
+            time.
+          </p>
+          <p>
+            If you need special arrangements, please email or call the number at
+            the bottom of the page and we can discuss your options.
+          </p>
           <button
             className="btn checkout-button mt-2 mb-2 fs-5"
             onClick={handleCheckout}

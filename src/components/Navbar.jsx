@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { CartContext } from "./CartProvider";
 import Logo from "../assets/TysGinsengLogo.png";
 import "../css/Navbar.css";
@@ -12,6 +12,8 @@ const NavBar = () => {
     addToCart,
     clearCart,
   } = useContext(CartContext);
+
+  const cartRef = useRef(null);
 
   const handleClickCartBtn = () => {
     toggleIsCartShowing();
@@ -36,6 +38,20 @@ const NavBar = () => {
       return acc;
     }, 0);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (cartRef.current && !cartRef.current.contains(e.target)) {
+        if (isCartShowing) {
+          toggleIsCartShowing();
+        }
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isCartShowing, toggleIsCartShowing]);
 
   return (
     <nav className="navbar pb-0 pt-1 navbar-expand-sm navbar-light fixed-top">
@@ -122,7 +138,10 @@ const NavBar = () => {
                 {cartContents.contents})
               </button>
               {isCartShowing && (
-                <ul className="dropdown-menu show custom-dropdown">
+                <ul
+                  className="dropdown-menu show custom-dropdown"
+                  ref={cartRef}
+                >
                   {cartContents.contents === 0 ? (
                     <li className="dropdown">Cart is empty</li>
                   ) : (

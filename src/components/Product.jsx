@@ -26,7 +26,11 @@ const Product = ({ id, name, price, description, servings, url, type }) => {
           src={url}
           alt={`picture of ${name}`}
         />
-        <h3 className="mt-2 mb-0">${price}</h3>
+        {type === "BULK" ? (
+          <h3 className="mt-2 mb-0">${price} / lb</h3>
+        ) : (
+          <h3 className="mt-2 mb-0">${price}</h3>
+        )}
         {type === "SINGLE" ? (
           <button className="btn add-to-cart-btn m-2" onClick={handleAddToCart}>
             Add to cart
@@ -36,7 +40,9 @@ const Product = ({ id, name, price, description, servings, url, type }) => {
             <p className="contact-pricing mt-2">
               Contact for availability and shipping
             </p>
-            <p> ###-###-####</p>
+            <p className="m-0"> ###-###-####</p>
+            <p className="m-0">or</p>
+            <p className="m-0">tysginseng@gmail.com</p>
           </>
         ) : null}
       </div>
