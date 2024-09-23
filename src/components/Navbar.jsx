@@ -16,6 +16,7 @@ const NavBar = () => {
   const cartRef = useRef(null);
 
   const handleClickCartBtn = () => {
+    console.log(cartContents);
     toggleIsCartShowing();
   };
 

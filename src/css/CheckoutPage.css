@@ -1,3 +1,14 @@
+.checkout-page {
+  height: 75vh;
+}
 .cart-summary {
   width: 75%;
+}
+
+.checkout-page-empty {
+  padding-top: 200px;
+}
+
+.checkout-page-contains-items {
+  padding-top: 75px;
 }

@@ -4,6 +4,8 @@ import Product from "./Product";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
 import { CartContext } from "./CartProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
@@ -31,6 +33,7 @@ const ProductList = () => {
           content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
       </Helmet>
+      <ToastContainer position="top-center" autoClose={2000} />
       <h2 className="Products-title">
         Ginseng Products{" "}
         {/* button to view cart contents-- for testing purposes only */}
@@ -51,6 +54,7 @@ const ProductList = () => {
               servings={product.servings}
               url={product.image_url}
               type={product.type}
+              weight={product.weight}
             />
           ))}
       </div>

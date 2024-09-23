@@ -2,12 +2,21 @@ import React, { useContext } from "react";
 import { CartContext } from "./CartProvider";
 import "../css/Product.css";
 
-const Product = ({ id, name, price, description, servings, url, type }) => {
+const Product = ({
+  id,
+  name,
+  price,
+  description,
+  servings,
+  url,
+  type,
+  weight,
+}) => {
   const { addToCart, cartContents, isCartShowing } = useContext(CartContext);
 
   const handleAddToCart = () => {
     console.log("Adding to cart", id);
-    const product = { id, name, price, url };
+    const product = { id, name, price, url, weight };
     addToCart(id, product);
   };
 

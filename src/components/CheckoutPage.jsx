@@ -9,18 +9,19 @@ const CheckoutPage = () => {
   const { cartContents, calculateTotal, clearCart } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
 
-  const createLink = async () => {
-    const squareCheckoutItems = Object.entries(cartContents)
+  const calculateShippingCost = () => {
+    const totalOrderWeight = Object.entries(cartContents)
       .filter(([key]) => key !== "contents")
-      .map(([productId, product]) => ({
-        name: product.name,
-        price: product.price * 100,
-        quantity: product.quantity,
-      }));
+      .map(([productID, product]) => product.quantity * product.weight)
+      .reduce((total, weight) => total + weight, 0);
 
-    const checkoutUrl = await GinsengApi.generateCheckoutUrl(
-      squareCheckoutItems
-    );
+    if (totalOrderWeight <= 4.0) {
+      return 400;
+    } else if (totalOrderWeight > 4 && totalOrderWeight < 8) {
+      return 800;
+    } else {
+      return 1200;
+    }
   };
 
   const clearCartAfterCheckout = () => {
@@ -28,8 +29,9 @@ const CheckoutPage = () => {
   };
 
   const handleCheckout = async () => {
-    setIsLoading(true); // Show loading state during API call
+    setIsLoading(true);
     try {
+      const shippingCost = calculateShippingCost(cartContents);
       const squareCheckoutItems = Object.entries(cartContents)
         .filter(([key]) => key !== "contents")
         .map(([productId, product]) => ({
@@ -38,11 +40,16 @@ const CheckoutPage = () => {
           quantity: product.quantity,
         }));
 
+      squareCheckoutItems.push({
+        name: "Shipping",
+        price: shippingCost,
+        quantity: 1,
+      });
       const checkoutUrl = await GinsengApi.generateCheckoutUrl(
         squareCheckoutItems
       );
       if (checkoutUrl.url) {
-        window.location.href = checkoutUrl.url; // Redirect to the payment link
+        window.location.href = checkoutUrl.url;
       } else {
         console.error("Invalid response format", checkoutUrl);
       }
@@ -50,12 +57,12 @@ const CheckoutPage = () => {
       console.error("Error generating checkout URL", error);
     } finally {
       clearCartAfterCheckout();
-      setIsLoading(false); // Stop loading state
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="pt-5 d-flex flex-column align-items-center">
+    <div className="checkout-page pt-5 d-flex flex-column align-items-center">
       <Helmet>
         <title>Ty's Ginseng | Checkout</title>
         <meta name="description" content="Checkout page" />
@@ -69,17 +76,19 @@ const CheckoutPage = () => {
           content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
       </Helmet>
-      <h2>Cart Summary</h2>
+
       {cartContents.contents === 0 ? (
-        <div>
+        <div className="checkout-page-empty">
+          <h2>Cart Summary</h2>
           <h4>Your cart is empty</h4>
           <a className="btn checkout-button mt-2 mb-2 fs-5" href="/products">
             Go to products
           </a>
         </div>
       ) : (
-        <div>
-          <div className="p-2 border rounded bg-warning">
+        <div className="checkout-page-contains-items">
+          <h2>Cart Summary</h2>
+          <div className="p-2">
             <table className="cart-summary table mb-1 border rounded">
               <thead>
                 <tr>
@@ -105,13 +114,17 @@ const CheckoutPage = () => {
                   <td colSpan="3" className="text-end">
                     Shipping:
                   </td>
-                  <td>$8</td>
+                  <td>${calculateShippingCost() / 100}</td>
                 </tr>
                 <tr>
                   <td colSpan="3" className="text-end">
                     Cart Total:
                   </td>
-                  <td>${calculateTotal(cartContents) + 8}</td>
+                  <td>
+                    $
+                    {calculateTotal(cartContents) +
+                      calculateShippingCost() / 100}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -119,6 +132,10 @@ const CheckoutPage = () => {
           <p>
             *All orders are shipped via USPS and have an estimated 3-5 day ship
             time.
+          </p>
+          <p>
+            **Due to this being a consumable product, all sales are final and
+            returns will not be issued.
           </p>
           <p>
             If you need special arrangements, please email or call the number at

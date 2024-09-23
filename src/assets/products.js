@@ -9,19 +9,19 @@ const products = [
     servings: "Approximately 7 days at 1/2 tsp daily",
     image_url:
       "https://141902758.cdn6.editmysite.com/uploads/1/4/1/9/141902758/s851771103589971216_p1_i3_w4032.jpeg?width=2560&dpr=1.5",
-    weigth: 0.4,
+    weight: 0.4,
   },
   {
     id: 1002,
     type: "SINGLE",
     name: "Ginseng Powder 1oz ",
-    price: 0,
+    price: 70,
     description:
       "1oz jar of 100% Minnesota forest grown ginseng. No additives. ",
     servings: "Approximately 30 days at 1/2 tsp daily.",
     image_url:
       "https://141902758.cdn6.editmysite.com/uploads/1/4/1/9/141902758/s851771103589971216_p1_i3_w4032.jpeg?width=2560&dpr=1.5",
-    weigth: 1.8,
+    weight: 1.8,
   },
   {
     id: 1003,
@@ -33,7 +33,7 @@ const products = [
     servings: "Approximately 6 month supply if used daily at 1/4-1/2 tsp.",
     image_url:
       "https://141902758.cdn6.editmysite.com/uploads/1/4/1/9/141902758/s851771103589971216_p1_i3_w4032.jpeg?width=2560&dpr=1.5",
-    weigth: 7.5,
+    weight: 7.5,
   },
   {
     id: 1004,
