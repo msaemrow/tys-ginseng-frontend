@@ -32,7 +32,7 @@ const BulkProductList = () => {
         />
       </Helmet>
       <h2 className="Products-title">
-        Bulk Ginseng Products{" "}
+        Products by the pound{" "}
         {/* button to view cart contents-- for testing purposes only */}
         {/* <button className="btn view-cart-btn m-2" onClick={viewCart}>
           View cart

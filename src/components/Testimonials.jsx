@@ -4,6 +4,9 @@ const Testimonials = () => {
   return (
     <div className="pt-5">
       <h2>Customer Testimonials</h2>
+      <a href="https://www.facebook.com/TysGinseng/reviews">
+        Leave us review on Facebook
+      </a>
       <p>These are testimonials from real customers</p>
       <div className="py-3">
         <h4 className="testimonial-title">

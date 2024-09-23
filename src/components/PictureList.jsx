@@ -5,9 +5,9 @@ import "../css/PictureList.css";
 
 const PictureList = () => {
   return (
-    <div className="pt-5">
+    <div className="pt-5 picture-list">
       <Helmet>
-        <title>Ty's Ginseng | Pictures</title>
+        <title>Ty's Ginseng | Our Ginseng</title>
         <meta
           name="description"
           content="Images of premium wild simulated Ginseng Roots, Ginseng Roots, and Ginseng Plants."
@@ -22,7 +22,7 @@ const PictureList = () => {
           content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
       </Helmet>
-      <h1 className="Products-title">Pictures</h1>
+      <h1 className="pictures-title">Our Ginseng</h1>
       <div className="d-flex flex-wrap justify-content-center">
         <img
           src={ginsengPlant}

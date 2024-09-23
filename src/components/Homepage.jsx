@@ -47,7 +47,7 @@ const Homepage = () => {
               growing your own ginseng, contact us for pricing
             </p>
             <a
-              className="Homepage-our-process-btn btn mt-4"
+              className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
               href="/our-process"
             >
               See our process
@@ -71,18 +71,27 @@ const Homepage = () => {
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
             <h2 className="text-left">Why Choose Ty's Ginseng</h2>
             <ul className="list-group">
-              <li className="list-group-item">Increase Energy</li>
-              <li className="list-group-item">Reduce Inflammation</li>
-              <li className="list-group-item">Improve Brain Function</li>
-              <li className="list-group-item">Boost Immune System</li>
-              <li className="list-group-item">Lower Blood Sugar</li>
-              <li className="list-group-item">
-                Potential benefits against cancer
-              </li>
+              <li className="list-group-item">No additives</li>
+              <li className="list-group-item">Wild simulated</li>
+              <li className="list-group-item">Older than cultivated</li>
+              <li className="list-group-item">Bigger roots</li>
+              <li className="list-group-item">Higher Quality</li>
+              <li className="list-group-item">Longer necks</li>
             </ul>
-            <a className="Homepage-our-process-btn btn mt-4" href="/products">
-              Buy Online Now
-            </a>
+            <div className="d-flex justify-content-center w-100 px-5">
+              <a
+                className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
+                href="/products"
+              >
+                Buy Online Now
+              </a>
+              <a
+                className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
+                href="/pictures"
+              >
+                See our Ginseng
+              </a>
+            </div>
           </div>
         </div>
         <div
@@ -101,9 +110,20 @@ const Homepage = () => {
                 Potential benefits against cancer
               </li>
             </ul>
-            <a className="Homepage-our-process-btn btn mt-4" href="/products">
-              Buy Online Now
-            </a>
+            <div className="d-flex justify-content-center w-100 px-5">
+              <a
+                className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
+                href="/products"
+              >
+                Buy Online Now
+              </a>
+              <a
+                className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
+                href="/testimonials"
+              >
+                Read Testimonials
+              </a>
+            </div>
           </div>
           <img
             src={ginsengPlant}
