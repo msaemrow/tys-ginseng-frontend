@@ -1,11 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import { CartContext } from "./CartProvider";
 import GinsengApi from "../squareAPI/api";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../css/CheckoutPage.css";
 
 const CheckoutPage = () => {
+  const navigate = useNavigate();
   const { cartContents, calculateTotal, clearCart } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,6 +32,10 @@ const CheckoutPage = () => {
 
   const clearCartAfterCheckout = () => {
     clearCart();
+  };
+
+  const returnToProducts = () => {
+    navigate("/products");
   };
 
   const handleCheckout = async () => {
@@ -50,13 +60,20 @@ const CheckoutPage = () => {
       );
       if (checkoutUrl.url) {
         window.location.href = checkoutUrl.url;
+        clearCartAfterCheckout();
       } else {
+        toast.error(
+          "There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know."
+        );
         console.error("Invalid response format", checkoutUrl);
       }
     } catch (error) {
+      toast.error(
+        "There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know."
+      );
+      console.log("THERE WAS AN ERROR");
       console.error("Error generating checkout URL", error);
     } finally {
-      clearCartAfterCheckout();
       setIsLoading(false);
     }
   };
@@ -76,14 +93,14 @@ const CheckoutPage = () => {
           content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
       </Helmet>
-
+      <ToastContainer position="top-center" autoClose={10000} />
       {cartContents.contents === 0 ? (
         <div className="checkout-page-empty">
           <h2>Cart Summary</h2>
           <h4>Your cart is empty</h4>
-          <a className="btn checkout-button mt-2 mb-2 fs-5" href="/products">
+          <Link className="btn checkout-button mt-2 mb-2 fs-5" to="/products">
             Go to products
-          </a>
+          </Link>
         </div>
       ) : (
         <div className="checkout-page-contains-items">
@@ -146,8 +163,26 @@ const CheckoutPage = () => {
             onClick={handleCheckout}
             disabled={isLoading}
           >
-            {isLoading ? "Generating Link..." : "Checkout"}
+            {isLoading ? "Processing cart items..." : "Checkout"}
           </button>
+          {isLoading === false ? (
+            <button
+              className="btn checkout-button ms-4 mt-2 mb-2 fs-5"
+              onClick={returnToProducts}
+              disabled={isLoading}
+            >
+              {isLoading ? "Processing cart items..." : "Back to products"}
+            </button>
+          ) : (
+            ""
+          )}
+
+          {/* <Link
+            className="btn checkout-button ms-4 mt-2 mb-2 fs-5"
+            to="/products"
+          >
+            Back to products
+          </Link> */}
         </div>
       )}
     </div>

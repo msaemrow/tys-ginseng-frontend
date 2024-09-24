@@ -1,7 +1,7 @@
 // src/components/Homepage.jsx
 import React, { useRef, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { createPopper } from "@popperjs/core";
+import { Link } from "react-router-dom";
 import "../css/Homepage.css";
 import ginsengPlant from "../assets/ginseng_plant.webp";
 
@@ -46,12 +46,12 @@ const Homepage = () => {
               roots will be available in the fall. If you have an interest in
               growing your own ginseng, contact us for pricing
             </p>
-            <a
+            <Link
               className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
-              href="/our-process"
+              to="/our-process"
             >
               See our process
-            </a>
+            </Link>
           </div>
           <img
             src={ginsengPlant}
@@ -79,18 +79,18 @@ const Homepage = () => {
               <li className="list-group-item">Longer necks</li>
             </ul>
             <div className="d-flex justify-content-center w-100 px-5">
-              <a
+              <Link
                 className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
-                href="/products"
+                to="/products"
               >
                 Buy Online Now
-              </a>
-              <a
+              </Link>
+              <Link
                 className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
-                href="/pictures"
+                to="/pictures"
               >
                 See our Ginseng
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -111,18 +111,18 @@ const Homepage = () => {
               </li>
             </ul>
             <div className="d-flex justify-content-center w-100 px-5">
-              <a
+              <Link
                 className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
-                href="/products"
+                to="/products"
               >
                 Buy Online Now
-              </a>
-              <a
+              </Link>
+              <Link
                 className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
-                href="/testimonials"
+                to="/testimonials"
               >
                 Read Testimonials
-              </a>
+              </Link>
             </div>
           </div>
           <img
@@ -151,9 +151,9 @@ const Homepage = () => {
             <p className="text-start mt-3 mb-0 fw-bold">Market Address:</p>
             <p className="text-start m-0">312 East Lyndale Ave N</p>
             <p className="text-start m-0">Minneapolis, MN 55405</p>
-            <a className="Homepage-our-process-btn btn mt-4" href="/products">
+            <Link className="Homepage-our-process-btn btn mt-4" to="/products">
               Buy Online Now
-            </a>
+            </Link>
           </div>
         </div>
       </main>

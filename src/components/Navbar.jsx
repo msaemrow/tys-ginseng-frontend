@@ -1,9 +1,12 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { CartContext } from "./CartProvider";
+import { useNavigate } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../assets/TysGinsengLogo.png";
 import "../css/Navbar.css";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   const {
     cartContents,
     isCartShowing,
@@ -14,10 +17,15 @@ const NavBar = () => {
   } = useContext(CartContext);
 
   const cartRef = useRef(null);
+  const cartIconRef = useRef(null);
 
   const handleClickCartBtn = () => {
-    console.log(cartContents);
     toggleIsCartShowing();
+  };
+
+  const navigateToCheckout = () => {
+    toggleIsCartShowing();
+    navigate("/checkout");
   };
 
   const handleClearCart = () => {
@@ -42,7 +50,12 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (cartRef.current && !cartRef.current.contains(e.target)) {
+      if (
+        cartIconRef.current &&
+        !cartIconRef.current.contains(e.target) &&
+        cartRef.current &&
+        !cartRef.current.contains(e.target)
+      ) {
         if (isCartShowing) {
           toggleIsCartShowing();
         }
@@ -58,10 +71,10 @@ const NavBar = () => {
     <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light fixed-top">
       <div className="container">
         {/* Brand name or logo */}
-        <a className="navbar-brand" href="/">
+        <NavLink className="navbar-brand" to="/">
           <img className="navbar-logo" src={Logo} />
           <span className="ms-2">Ty's Ginseng</span>
-        </a>
+        </NavLink>
         {/* Toggle button for mobile view */}
         <button
           className="navbar-toggler"
@@ -78,63 +91,64 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/products">
+              <NavLink className="nav-link" aria-current="page" to="/products">
                 Products
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/products-bulk">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/products-bulk"
+              >
                 Bulk Products
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
+              <NavLink
+                className="nav-link dropdown-toggle about-us-dropdown"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 About Us
-              </a>
+              </NavLink>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="/our-process">
+                  <NavLink className="dropdown-item" to="/our-process">
                     Our Process
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/pictures">
+                  <NavLink className="dropdown-item" to="/pictures">
                     Our Ginseng
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/recipes">
+                  <NavLink className="dropdown-item" to="/recipes">
                     How to use Ginseng
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/testimonials">
+                  <Link className="dropdown-item" to="/testimonials">
                     Testimonials
-                  </a>
+                  </Link>
                 </li>
-                {/* <li>
+
+                {/* Example of a dropdown divider <li>
                   <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
                 </li> */}
               </ul>
             </li>
           </ul>
           <ul className="navbar-nav ms-auto">
-            <a className="btn navbar-buy-now-btn" href="/products">
+            <Link className="btn navbar-buy-now-btn" to="/products">
               Buy Online Now
-            </a>
+            </Link>
             <li className="nav-item">
               <button
+                ref={cartIconRef}
                 className="btn btn-link nav-link"
                 onClick={handleClickCartBtn}
               >
@@ -179,9 +193,15 @@ const NavBar = () => {
                     Order Subtotal: ${calculateTotal(cartContents)}
                   </li>
                   <li className="d-flex justify-content-center">
-                    <a className="btn checkout-button m-2" href="/checkout">
+                    <button
+                      onClick={navigateToCheckout}
+                      className="btn checkout-button m-2"
+                    >
+                      Go to checkout
+                    </button>
+                    {/* <Link className="btn checkout-button m-2" to="/checkout">
                       Go to cart
-                    </a>
+                    </Link> */}
                   </li>
                 </ul>
               )}

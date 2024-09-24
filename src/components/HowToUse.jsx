@@ -29,6 +29,48 @@ const HowToUse = () => {
           Mix 1sp of ginseng powder with 16oz of lemonade
         </p>
       </div>
+      <div className="How-to-use-recipe pb-4">
+        <h4 className="How-to-use-title">Ginseng Lemonade</h4>
+        <p className="How-to-use-instructions mb-0">
+          Mix 1sp of ginseng powder with 16oz of lemonade
+        </p>
+      </div>
+      <div className="How-to-use-recipe pb-4">
+        <h4 className="How-to-use-title">Ginseng Lemonade</h4>
+        <p className="How-to-use-instructions mb-0">
+          Mix 1sp of ginseng powder with 16oz of lemonade
+        </p>
+      </div>
+      <div className="How-to-use-recipe pb-4">
+        <h4 className="How-to-use-title">Ginseng Lemonade</h4>
+        <p className="How-to-use-instructions mb-0">
+          Mix 1sp of ginseng powder with 16oz of lemonade
+        </p>
+      </div>
+      <div className="How-to-use-recipe pb-4">
+        <h4 className="How-to-use-title">Ginseng Lemonade</h4>
+        <p className="How-to-use-instructions mb-0">
+          Mix 1sp of ginseng powder with 16oz of lemonade
+        </p>
+      </div>
+      <div className="How-to-use-recipe pb-4">
+        <h4 className="How-to-use-title">Ginseng Lemonade</h4>
+        <p className="How-to-use-instructions mb-0">
+          Mix 1sp of ginseng powder with 16oz of lemonade
+        </p>
+      </div>
+      <div className="How-to-use-recipe pb-4">
+        <h4 className="How-to-use-title">Ginseng Lemonade</h4>
+        <p className="How-to-use-instructions mb-0">
+          Mix 1sp of ginseng powder with 16oz of lemonade
+        </p>
+      </div>
+      <div className="How-to-use-recipe pb-4">
+        <h4 className="How-to-use-title">Ginseng Lemonade</h4>
+        <p className="How-to-use-instructions mb-0">
+          Mix 1sp of ginseng powder with 16oz of lemonade
+        </p>
+      </div>
     </div>
   );
 };

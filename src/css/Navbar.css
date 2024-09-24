@@ -7,7 +7,7 @@ nav {
 }
 
 .navbar-nav .nav-link {
-  color: white; /* Custom link color */
+  color: white !important; /* Custom link color */
 }
 
 .navbar-brand {
@@ -27,6 +27,10 @@ nav {
   right: 5px;
   width: 275px;
   display: none;
+}
+
+.about-us-dropdown {
+  color: white !important;
 }
 
 .custom-dropdown.show {
