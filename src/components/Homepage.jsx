@@ -113,9 +113,9 @@ const Homepage = () => {
             <div className="d-flex justify-content-center w-100 px-5">
               <Link
                 className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
-                to="/products"
+                to="/recipes"
               >
-                Buy Online Now
+                How to use Ginseng
               </Link>
               <Link
                 className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
@@ -142,16 +142,38 @@ const Homepage = () => {
             className="img-fluid img-custom rounded"
           />
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
-            <h2 className="text-left">Minneapolis Farmers Market</h2>
-            <p>
+            <h2 className="text-left">Where to Find Us</h2>
+            <h4>Minneapolis Farmers Market</h4>
+            <p className="mb-0">
               We are at the Minneapolis farmers market on Saturdays or Sundays
               from May - October. Check our social media for the days we will be
               at the market.
             </p>
-            <p className="text-start mt-3 mb-0 fw-bold">Market Address:</p>
-            <p className="text-start m-0">312 East Lyndale Ave N</p>
-            <p className="text-start m-0">Minneapolis, MN 55405</p>
-            <Link className="Homepage-our-process-btn btn mt-4" to="/products">
+            <div className="mt-0 d-flex flex-column align-items-center justify-content-start">
+              <p className="text-start mt-0 mb-0 fw-bold">Market Address:</p>
+              <p className="text-start m-0">312 East Lyndale Ave N</p>
+              <p className="text-start m-0">Minneapolis, MN 55405</p>
+            </div>
+            <h4 className="mt-3 mb-0">Follow Us</h4>
+            <div className="mt-1 mb-0">
+              <a
+                href="https://www.facebook.com/TysGinseng/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="follow-us"
+              >
+                <i className="fa-brands fa-facebook"></i> Facebook
+              </a>
+              <a
+                href="https://www.instagram.com/tysginseng/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="follow-us ms-4"
+              >
+                <i className="fa-brands fa-instagram"></i> Instgram
+              </a>
+            </div>
+            <Link className="Homepage-our-process-btn btn mt-1" to="/products">
               Buy Online Now
             </Link>
           </div>

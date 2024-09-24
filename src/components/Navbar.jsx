@@ -143,7 +143,10 @@ const NavBar = () => {
             </li>
           </ul>
           <ul className="navbar-nav ms-auto">
-            <Link className="btn navbar-buy-now-btn" to="/products">
+            <Link
+              className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
+              to="/products"
+            >
               Buy Online Now
             </Link>
             <li className="nav-item">
@@ -161,7 +164,7 @@ const NavBar = () => {
                   ref={cartRef}
                 >
                   {cartContents.contents === 0 ? (
-                    <li className="dropdown">Cart is empty</li>
+                    <li className="dropdown text-center">Cart is empty</li>
                   ) : (
                     Object.entries(cartContents)
                       .filter(([key]) => key !== "contents")
@@ -192,16 +195,21 @@ const NavBar = () => {
                   <li className="cart-total border p-2 fw-bold d-flex justify-content-center">
                     Order Subtotal: ${calculateTotal(cartContents)}
                   </li>
-                  <li className="d-flex justify-content-center">
+
+                  <li className="d-flex justify-content-center mb-0">
                     <button
                       onClick={navigateToCheckout}
                       className="btn checkout-button m-2"
                     >
                       Go to checkout
                     </button>
+
                     {/* <Link className="btn checkout-button m-2" to="/checkout">
                       Go to cart
                     </Link> */}
+                  </li>
+                  <li className="cart-shipping-msg mt-0">
+                    (Shipping calculated at checkout page)
                   </li>
                 </ul>
               )}

@@ -27,14 +27,15 @@ const Product = ({
   return (
     <div className="Product d-flex flex-wrap flex-column border border-dark rounded m-3 p-2 w-25 justify-content-start align-items-center">
       <h3>{name}</h3>
+      <img
+        className="Product-image rounded"
+        src={url}
+        alt={`picture of ${name}`}
+      />
       <div className="Product-footer mt-auto text-center">
         {type === "SINGLE" ? <p>Servings: {servings}</p> : null}
         <p>{description}</p>
-        <img
-          className="Product-image rounded"
-          src={url}
-          alt={`picture of ${name}`}
-        />
+
         {type === "BULK" ? (
           <h3 className="mt-2 mb-0">${price} / lb</h3>
         ) : (

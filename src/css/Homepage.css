@@ -33,3 +33,11 @@ main {
   background-color: #fdb913 !important;
   width: 50%;
 }
+
+.follow-us {
+  color: green;
+}
+
+.follow-us:hover {
+  color: #78be21;
+}

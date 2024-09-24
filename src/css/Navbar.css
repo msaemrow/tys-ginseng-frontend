@@ -53,3 +53,8 @@ nav {
 .checkout-button:hover {
   background-color: #5a9c1e !important;
 }
+
+.cart-shipping-msg {
+  font-size: 12px;
+  text-align: center;
+}
