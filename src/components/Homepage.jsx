@@ -2,14 +2,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import images from "../assets/images";
 import "../css/Homepage.css";
 import ginsengPlant from "../assets/ginseng_plant.webp";
 
 const Homepage = () => {
-  const buttonRef = useRef(null);
-  const tooltipRef = useRef(null);
-  const [tooltipVisible, setTooltipVisible] = useState(false);
-
   return (
     <div className="container-fluid px-5">
       <Helmet>
@@ -32,7 +29,7 @@ const Homepage = () => {
       <main className="mt-4">
         {/* <h1 className="text-center">Ty's Ginseng</h1> */}
         <div
-          id="top-row"
+          id="about-us-div"
           className="d-flex justify-content-center align-items-center mt-4 mb-5"
         >
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
@@ -41,10 +38,14 @@ const Homepage = () => {
               We grow Wild Simulated Ginseng in Southern MN. We take great pride
               in our Ginseng and make sure that you get nothing but the best.
               Our Minnesota weather creates the perfect conditions for Ginseng
-              to grow. We offer a variety of ginseng products such as Ginseng
-              powder, dried roots and fresh roots. The dried roots and fresh
-              roots will be available in the fall. If you have an interest in
-              growing your own ginseng, contact us for pricing
+              to grow.
+            </p>
+            <p>
+              Ty founded this business in 2015, building on the knowledge and
+              skills he acquired from his grandfather, who has over 50 years of
+              expertise in Ginseng cultivation. With a strong emphasis on
+              producing high-quality roots, Ty is dedicated to upholding his
+              grandfather's legacy of excellence in Ginseng farming.
             </p>
             <Link
               className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
@@ -54,24 +55,24 @@ const Homepage = () => {
             </Link>
           </div>
           <img
-            src={ginsengPlant}
-            alt="Ginseng Plant"
+            src={images[0].url}
+            alt={images[0].description}
             className="img-fluid img-custom rounded"
           />
         </div>
         <div
-          id="middle-row"
+          id="why-choose-us-div"
           className="d-flex justify-content-center mb-5 mt-4"
         >
           <img
-            src={ginsengPlant}
-            alt="Ginseng Plant"
+            src={images[2].url}
+            alt={images[2].description}
             className="img-fluid img-custom rounded"
           />
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
             <h2 className="text-left">Why Choose Ty's Ginseng</h2>
             <ul className="list-group">
-              <li className="list-group-item">No additives</li>
+              <li className="list-group-item">No additives to our products</li>
               <li className="list-group-item">Wild simulated</li>
               <li className="list-group-item">Older than cultivated</li>
               <li className="list-group-item">Bigger roots</li>
@@ -137,8 +138,8 @@ const Homepage = () => {
           className="d-flex justify-content-evenly mb-5 mt-4"
         >
           <img
-            src={ginsengPlant}
-            alt="Ginseng Plant"
+            src={images[1].url}
+            alt={images[1].description}
             className="img-fluid img-custom rounded"
           />
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">

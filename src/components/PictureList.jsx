@@ -1,4 +1,5 @@
 import React from "react";
+import images from "../assets/images";
 import { Helmet } from "react-helmet-async";
 import ginsengPlant from "../assets/ginseng_plant.webp";
 import "../css/PictureList.css";
@@ -24,21 +25,13 @@ const PictureList = () => {
       </Helmet>
       <h1 className="pictures-title">Our Ginseng</h1>
       <div className="d-flex flex-wrap justify-content-center">
-        <img
-          src={ginsengPlant}
-          alt="Ginseng Plant"
-          className="img-fluid img-custom rounded m-4"
-        />
-        <img
-          src={ginsengPlant}
-          alt="Ginseng Plant"
-          className="img-fluid img-custom rounded m-4"
-        />
-        <img
-          src={ginsengPlant}
-          alt="Ginseng Plant"
-          className="img-fluid img-custom rounded m-4"
-        />
+        {images.map((image) => (
+          <img
+            src={image.url}
+            alt={image.description}
+            className="img-fluid img-custom rounded m-4"
+          />
+        ))}
         <img
           src={ginsengPlant}
           alt="Ginseng Plant"
