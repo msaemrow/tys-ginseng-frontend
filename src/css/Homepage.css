@@ -13,14 +13,21 @@ body {
 main {
   flex: 1 0 auto; /* Main content should expand to fill the remaining space */
   padding-top: 20px; /* Adjust padding-top to match the height of the fixed header */
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 2%;
+  padding-right: 2%;
   margin: 0; /* Ensure there is no margin causing extra space */
 }
 
+main p {
+  font-size: 1.5vw;
+}
+
+main a {
+  font-size: 1.5vw !important;
+}
 .img-custom {
   max-height: 400px; /* Set the maximum height you want */
-  object-fit: cover; /* Ensures the image covers the element, maintaining aspect ratio */
+  object-fit: fill; /* Ensures the image covers the element, maintaining aspect ratio */
   width: auto; /* Optional: allows the image to scale proportionally */
 }
 

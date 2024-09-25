@@ -29,6 +29,17 @@ nav {
   display: none;
 }
 
+.dropdown-menu a.active {
+  background-color: white !important;
+  color: black !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:active {
+  background-color: transparent !important; /* Prevents the blue background */
+  color: black !important;
+}
+
 .about-us-dropdown {
   color: white !important;
 }

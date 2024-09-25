@@ -32,7 +32,10 @@ const Homepage = () => {
           id="about-us-div"
           className="d-flex justify-content-center align-items-center mt-4 mb-5"
         >
-          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
+          <div
+            className="d-flex flex-column justify-content-center align-items-center rounded p-3"
+            style={{ flex: "0 0 60%" }}
+          >
             <h2 className="text-left">About Us</h2>
             <p>
               We grow Wild Simulated Ginseng in Southern MN. We take great pride
@@ -54,11 +57,14 @@ const Homepage = () => {
               See our process
             </Link>
           </div>
-          <img
-            src={images[0].url}
-            alt={images[0].description}
-            className="img-fluid img-custom rounded"
-          />
+          <div style={{ flex: "0 0 40%" }}>
+            <img
+              src={images[0].url}
+              alt={images[0].description}
+              className="img-fluid img-custom rounded"
+              style={{ width: "auto", height: "100%" }}
+            />
+          </div>
         </div>
         <div
           id="why-choose-us-div"

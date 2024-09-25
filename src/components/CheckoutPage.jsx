@@ -51,7 +51,7 @@ const CheckoutPage = () => {
         }));
 
       squareCheckoutItems.push({
-        name: "Shipping",
+        name: "Shipping (USPS)",
         price: shippingCost,
         quantity: 1,
       });
@@ -60,7 +60,7 @@ const CheckoutPage = () => {
       );
       if (checkoutUrl.url) {
         window.location.href = checkoutUrl.url;
-        clearCartAfterCheckout();
+        setTimeout(clearCartAfterCheckout, 3000);
       } else {
         toast.error(
           "There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know."

@@ -8,9 +8,9 @@ const OrderConfirmation = () => {
     <div className="p-5 mt-5">
       <h3>Thank you for you order.</h3>
       <h3>Your order was successful.</h3>
-      <h4>Your order number is: #{orderId}</h4>
+
       <h5>You will receive an email receipt shortly.</h5>
-      <h5>We will work to ship your order soon!</h5>
+      <h5>You will receive an email notification when your order ships!</h5>
     </div>
   );
 };
