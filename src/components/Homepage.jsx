@@ -61,22 +61,30 @@ const Homepage = () => {
             </Link>
           </div>
           <div style={{ flex: "0 0 40%" }}>
-            <img
-              src={ginsengPlant}
-              alt="Ginseng Plant"
-              className="img-fluid img-custom rounded"
-            />
+            {images
+              .filter((image) => image.location === "about")
+              .map((image) => (
+                <img
+                  src={image.url}
+                  alt={image.description}
+                  className="img-fluid img-custom rounded"
+                />
+              ))}
           </div>
         </div>
         <div
           id="why-choose-us-div"
           className="d-flex justify-content-center mb-5 mt-4"
         >
-          <img
-            src={ginsengPlant}
-            alt="Ginseng Plant"
-            className="img-fluid img-custom rounded"
-          />
+          {images
+            .filter((image) => image.location === "why")
+            .map((image) => (
+              <img
+                src={image.url}
+                alt={image.description}
+                className="img-fluid img-custom rounded"
+              />
+            ))}
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
             <h2 className="text-left">Why Choose Ty's Ginseng</h2>
             <ul className="list-group">
@@ -138,22 +146,30 @@ const Homepage = () => {
               </Link>
             </div>
           </div>
-          <img
-            src={ginsengPlant}
-            alt="Ginseng Plant"
-            className="img-fluid img-custom rounded"
-          />
+          {images
+            .filter((image) => image.location === "benefits")
+            .map((image) => (
+              <img
+                src={image.url}
+                alt={image.description}
+                className="img-fluid img-custom rounded"
+              />
+            ))}
         </div>
         .
         <div
           id="middle-row"
           className="d-flex justify-content-evenly mb-5 mt-4"
         >
-          <img
-            src={ginsengPlant}
-            alt="Ginseng Plant"
-            className="img-fluid img-custom rounded"
-          />
+          {images
+            .filter((image) => image.location === "market")
+            .map((image) => (
+              <img
+                src={image.url}
+                alt={image.description}
+                className="img-fluid img-custom rounded"
+              />
+            ))}
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
             <h2 className="text-left">Where to Find Us</h2>
             <h4>Minneapolis Farmers Market</h4>
