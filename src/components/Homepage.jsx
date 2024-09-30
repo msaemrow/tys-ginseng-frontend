@@ -59,10 +59,9 @@ const Homepage = () => {
           </div>
           <div style={{ flex: "0 0 40%" }}>
             <img
-              src={images[0].url}
-              alt={images[0].description}
+              src={ginsengPlant}
+              alt="Ginseng Plant"
               className="img-fluid img-custom rounded"
-              style={{ width: "auto", height: "100%" }}
             />
           </div>
         </div>
@@ -71,8 +70,8 @@ const Homepage = () => {
           className="d-flex justify-content-center mb-5 mt-4"
         >
           <img
-            src={images[2].url}
-            alt={images[2].description}
+            src={ginsengPlant}
+            alt="Ginseng Plant"
             className="img-fluid img-custom rounded"
           />
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
@@ -144,8 +143,8 @@ const Homepage = () => {
           className="d-flex justify-content-evenly mb-5 mt-4"
         >
           <img
-            src={images[1].url}
-            alt={images[1].description}
+            src={ginsengPlant}
+            alt="Ginseng Plant"
             className="img-fluid img-custom rounded"
           />
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">

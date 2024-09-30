@@ -69,6 +69,15 @@ const PictureList = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+      {/* <div class="picture-list">
+        {images.map((image) => (
+          <img
+            src={image.url}
+            alt={image.description}
+            className="img-fluid img-custom rounded m-4"
+          />
+        ))}
+      </div> */}
     </div>
   );
 };
