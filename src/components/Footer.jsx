@@ -8,8 +8,8 @@ const Footer = () => {
       <h2>Ty's Ginseng</h2>
       <img className="Footer-logo" src={Logo} />
       <h5>Contact Us</h5>
-      <h6>Phone: ###-###-####</h6>
-      <h6>Email: tysginseng@gmail.com</h6>
+      <h6>Phone: 507-384-2390</h6>
+      <h6>Email: tylersaemrow@gmail.com</h6>
       <h6>Follow Us</h6>
       <div>
         <span>

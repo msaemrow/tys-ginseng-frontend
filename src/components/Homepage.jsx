@@ -38,17 +38,20 @@ const Homepage = () => {
           >
             <h2 className="text-left">About Us</h2>
             <p>
-              We grow Wild Simulated Ginseng in Southern MN. We take great pride
-              in our Ginseng and make sure that you get nothing but the best.
-              Our Minnesota weather creates the perfect conditions for Ginseng
-              to grow.
+              Our Minnesota weather creates the perfect condition for ginseng to
+              grow in our woods. My family and I grow woods grown ginseng in
+              southern Minnesota and take great pride in our roots to make sure
+              that you get only the best quality ginseng.
             </p>
             <p>
-              Ty founded this business in 2015, building on the knowledge and
-              skills he acquired from his grandfather, who has over 50 years of
-              expertise in Ginseng cultivation. With a strong emphasis on
-              producing high-quality roots, Ty is dedicated to upholding his
-              grandfather's legacy of excellence in Ginseng farming.
+              At the age of 10, I started to help my grandpa in his ginseng
+              patch. Who knew that 8 years later, I would be starting my own
+              ginseng business taking it to a new level. I founded my ginseng
+              business in 2012, building on the knowledge and skills I acquired
+              from my grandpa, who has over 50 years of expertise in growing
+              woods grown ginseng. With a strong emphasis on producing
+              high-quality roots, I am dedicated to upholding my grandfather's
+              legacy of excellence in ginseng farming.
             </p>
             <Link
               className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
@@ -77,12 +80,16 @@ const Homepage = () => {
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
             <h2 className="text-left">Why Choose Ty's Ginseng</h2>
             <ul className="list-group">
-              <li className="list-group-item">No additives to our products</li>
-              <li className="list-group-item">Wild simulated</li>
-              <li className="list-group-item">Older than cultivated</li>
-              <li className="list-group-item">Bigger roots</li>
-              <li className="list-group-item">Higher Quality</li>
-              <li className="list-group-item">Longer necks</li>
+              <li className="list-group-item">
+                100% pure ginseng in every jar
+              </li>
+              <li className="list-group-item">Woods grown</li>
+              <li className="list-group-item">6+ year old roots</li>
+              <li className="list-group-item">Premium quality</li>
+              <li className="list-group-item">Family owned</li>
+              <li className="list-group-item">
+                Combined 70 years of experience of growing ginseng
+              </li>
             </ul>
             <div className="d-flex justify-content-center w-100 px-5">
               <Link
@@ -107,11 +114,11 @@ const Homepage = () => {
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
             <h2 className="text-left">Benefits of Ginseng</h2>
             <ul className="list-group">
-              <li className="list-group-item">Increase Energy</li>
-              <li className="list-group-item">Reduce Inflammation</li>
-              <li className="list-group-item">Improve Brain Function</li>
-              <li className="list-group-item">Boost Immune System</li>
-              <li className="list-group-item">Lower Blood Sugar</li>
+              <li className="list-group-item">Increases Energy</li>
+              <li className="list-group-item">Reduces Inflammation</li>
+              <li className="list-group-item">Improves Brain Function</li>
+              <li className="list-group-item">Boosts Immune System</li>
+              <li className="list-group-item">Lowers Blood Sugar</li>
               <li className="list-group-item">
                 Potential benefits against cancer
               </li>
@@ -151,9 +158,9 @@ const Homepage = () => {
             <h2 className="text-left">Where to Find Us</h2>
             <h4>Minneapolis Farmers Market</h4>
             <p className="mb-0">
-              We are at the Minneapolis farmers market on Saturdays or Sundays
-              from May - October. Check our social media for the days we will be
-              at the market.
+              We are at the Minneapolis Farmers Market 6am-1pm on Saturdays and
+              Sundays from June - September. Check our Instagram and Facebook
+              for the days we will be at the market.
             </p>
             <div className="mt-0 d-flex flex-column align-items-center justify-content-start">
               <p className="text-start mt-0 mb-0 fw-bold">Market Address:</p>
