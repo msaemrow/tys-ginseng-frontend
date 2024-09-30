@@ -6,7 +6,7 @@ import "../css/PictureList.css";
 
 const PictureList = () => {
   return (
-    <div className="pt-5 picture-list">
+    <div className="picture-list">
       <Helmet>
         <title>Ty's Ginseng | Our Ginseng</title>
         <meta
@@ -23,20 +23,51 @@ const PictureList = () => {
           content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
       </Helmet>
-      <h1 className="pictures-title">Our Ginseng</h1>
-      <div className="d-flex flex-wrap justify-content-center">
-        {images.map((image) => (
-          <img
-            src={image.url}
-            alt={image.description}
-            className="img-fluid img-custom rounded m-4"
-          />
-        ))}
-        <img
-          src={ginsengPlant}
-          alt="Ginseng Plant"
-          className="img-fluid img-custom rounded m-4"
-        />
+      <h1 className="pictures-title mb-0">Our Ginseng</h1>
+      <div
+        id="carouselExample"
+        className="carousel slide mt-0"
+        data-bs-theme="dark"
+        data-bs-ride="carousel"
+        data-bs-interval="3000"
+        data-bs-pause="false"
+        style={{ width: "75%", margin: "0 auto" }}
+      >
+        <div class="carousel-inner">
+          {images.map((image, index) => (
+            <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
+              <img
+                src={image.url}
+                alt={image.description}
+                className="h-100 img-fluid img-custom rounded m-4"
+              />
+            </div>
+          ))}
+        </div>
+        <button
+          className="carousel-control-prev carousel-arrow"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon carousel-arrow"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
   );

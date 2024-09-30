@@ -1,3 +1,7 @@
 .picture-list {
-  padding: 10%;
+  padding: 40px;
+}
+
+.carousel-arrow {
+  color: black !important;
 }
