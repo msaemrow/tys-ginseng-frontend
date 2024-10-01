@@ -30,6 +30,7 @@ const NavBar = () => {
 
   const navigateToCheckout = () => {
     toggleIsCartShowing();
+    handleMobileNavLinkClick();
     navigate("/checkout");
   };
 
@@ -179,7 +180,7 @@ const NavBar = () => {
               </ul>
             </li>
           </ul>
-          <ul className="navbar-nav ms-auto d-flex flex-direction-column align-items-center">
+          <ul className="navbar-nav ms-auto d-flex flex-direction-column align-items-center pb-3">
             <Link
               className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
               to="/products"

@@ -146,18 +146,6 @@ const CheckoutPage = () => {
               </tbody>
             </table>
           </div>
-          <p>
-            *All orders are shipped via USPS and have an estimated 3-5 day ship
-            time.
-          </p>
-          <p>
-            **Due to this being a consumable product, all sales are final and
-            returns will not be issued.
-          </p>
-          <p>
-            If you need special arrangements, please email or call the number at
-            the bottom of the page and we can discuss your options.
-          </p>
           <button
             className="btn checkout-button mt-2 mb-2 fs-5"
             onClick={handleCheckout}
@@ -176,6 +164,18 @@ const CheckoutPage = () => {
           ) : (
             ""
           )}
+          <p>
+            *All orders are shipped via USPS and have an estimated 3-5 day ship
+            time.
+          </p>
+          <p>
+            **Due to this being a consumable product, all sales are final and
+            returns will not be issued.
+          </p>
+          <p>
+            If you need special arrangements, please email or call the number at
+            the bottom of the page and we can discuss your options.
+          </p>
 
           {/* <Link
             className="btn checkout-button ms-4 mt-2 mb-2 fs-5"
