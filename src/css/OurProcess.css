@@ -1,3 +1,9 @@
 .our-process-page {
   padding: 5px 150px;
 }
+
+.our-process-image {
+  height: aut0;
+  width: 70%;
+  border-radius: 25px;
+}

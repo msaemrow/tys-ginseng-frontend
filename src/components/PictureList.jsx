@@ -11,21 +11,21 @@ const PictureList = () => {
         <title>Ty's Ginseng | Our Ginseng</title>
         <meta
           name="description"
-          content="Images of premium wild simulated Ginseng Roots, Ginseng Roots, and Ginseng Plants."
+          content="Images of premium woods grown Ginseng Roots, Ginseng Roots, and Ginseng Plants."
         />
         <meta
           name="keywords"
-          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Plant, Ginseng Bed, Ginseng, Premium Ginseng, Bulk Ginseng, Ginseng Roots"
+          content="Ginseng, Woods Grown Ginseng, Ginseng Products, Ginseng Plant, Ginseng Bed, Ginseng, Premium Ginseng, Bulk Ginseng, Ginseng Roots"
         />
-        <meta property="og:title" content="Ty's Ginseng - Pictures" />
+        <meta property="og:title" content="Ty's Ginseng - Our Ginseng" />
         <meta
           property="og:description"
-          content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
+          content="Discover premium woods grown Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
       </Helmet>
       <h1 className="pictures-title mb-0">Our Ginseng</h1>
       <div
-        id="carouselExample"
+        id="our-ginseng-carousel"
         className="carousel slide mt-0"
         data-bs-theme="dark"
         data-bs-ride="carousel"
@@ -59,7 +59,7 @@ const PictureList = () => {
         <button
           className="carousel-control-next"
           type="button"
-          data-bs-target="#carouselExample"
+          data-bs-target="our-ginseng-carousel"
           data-bs-slide="next"
         >
           <span
@@ -69,7 +69,7 @@ const PictureList = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      {/* <div class="picture-list">
+      <div class="picture-list">
         {images.map((image) => (
           <img
             src={image.url}
@@ -77,7 +77,7 @@ const PictureList = () => {
             className="img-fluid img-custom rounded m-4"
           />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };
