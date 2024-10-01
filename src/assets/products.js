@@ -83,7 +83,7 @@ const products = [
     weight: 0,
   },
   {
-    id: 1007,
+    id: 1008,
     type: "BULK",
     name: "Rootlets by the pound",
     price: 100,

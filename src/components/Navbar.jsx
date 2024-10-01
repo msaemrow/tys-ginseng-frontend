@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { CartContext } from "./CartProvider";
 import { useNavigate } from "react-router-dom";
 import { NavLink, Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import Logo from "../assets/TysGinsengLogo.png";
 import "../css/Navbar.css";
 
 const NavBar = () => {
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const navigate = useNavigate();
   const {
     cartContents,
@@ -18,6 +19,10 @@ const NavBar = () => {
 
   const cartRef = useRef(null);
   const cartIconRef = useRef(null);
+
+  const handleMobileNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+
+  const handleMobileNavLinkClick = () => setIsNavCollapsed(true);
 
   const handleClickCartBtn = () => {
     toggleIsCartShowing();
@@ -71,7 +76,11 @@ const NavBar = () => {
     <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light fixed-top">
       <div className="container">
         {/* Brand name or logo */}
-        <NavLink className="navbar-brand" to="/">
+        <NavLink
+          className="navbar-brand"
+          to="/"
+          onClick={handleMobileNavLinkClick}
+        >
           <img className="navbar-logo" src={Logo} />
           <span className="ms-2">Ty's Ginseng</span>
         </NavLink>
@@ -82,16 +91,27 @@ const NavBar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          aria-expanded={!isNavCollapsed ? true : false}
           aria-label="Toggle navigation"
+          onClick={handleMobileNavCollapse}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
         {/* Collapsible navigation links */}
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className={`collapse navbar-collapse ${
+            isNavCollapsed ? "collapse" : ""
+          }`}
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/products">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/products"
+                onClick={handleMobileNavLinkClick}
+              >
                 Products
               </NavLink>
             </li>
@@ -100,6 +120,7 @@ const NavBar = () => {
                 className="nav-link"
                 aria-current="page"
                 to="/products-bulk"
+                onClick={handleMobileNavLinkClick}
               >
                 Bulk Products
               </NavLink>
@@ -116,22 +137,38 @@ const NavBar = () => {
               </NavLink>
               <ul className="dropdown-menu">
                 <li>
-                  <NavLink className="dropdown-item" to="/our-process">
+                  <NavLink
+                    className="dropdown-item"
+                    to="/our-process"
+                    onClick={handleMobileNavLinkClick}
+                  >
                     Our Process
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/pictures">
+                  <NavLink
+                    className="dropdown-item"
+                    to="/pictures"
+                    onClick={handleMobileNavLinkClick}
+                  >
                     Our Ginseng
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/recipes">
+                  <NavLink
+                    className="dropdown-item"
+                    to="/recipes"
+                    onClick={handleMobileNavLinkClick}
+                  >
                     How to use Ginseng
                   </NavLink>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/testimonials">
+                  <Link
+                    className="dropdown-item"
+                    to="/testimonials"
+                    onClick={handleMobileNavLinkClick}
+                  >
                     Testimonials
                   </Link>
                 </li>

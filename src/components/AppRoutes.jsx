@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router";
+import ScrollToTop from "./ScrollToTop";
 import Homepage from "./Homepage";
 import ProductList from "./ProductList";
 import BulkProductList from "./BulkProductList";
@@ -14,6 +15,7 @@ import "../css/AppRoutes.css";
 const AppRoutes = () => {
   return (
     <div className="AppRoutes pt-4">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductList />} />
