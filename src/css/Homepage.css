@@ -49,14 +49,12 @@ main a {
   color: #78be21;
 }
 
-/* General styles for mobile responsiveness */
+/* Styles for mobile responsiveness */
 @media (max-width: 768px) {
-  .container-fluid {
-    padding-left: 15px;
-    padding-right: 15px;
+  #homepage-top-div {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
   }
-
-  /* Stack content vertically on smaller screens */
   #about-us-div,
   #why-choose-us-div,
   #benefits-div,
@@ -65,20 +63,32 @@ main a {
     text-align: center;
   }
 
-  /* Adjust image size for mobile */
+  #find-us-div,
+  #why-choose-us-div {
+    flex-direction: column-reverse !important;
+  }
+
+  #about-us-div p {
+    font-size: 0.7rem;
+  }
+
+  #find-us-div p {
+    font-size: 1rem !important;
+  }
+
   img.img-custom {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
+    object-fit: cover;
   }
 
-  /* Adjust button alignment */
   .Homepage-our-process-btn {
     width: 100%;
     margin-bottom: 15px;
+    font-size: 1rem !important;
   }
 
-  /* Adjust padding and margins */
   .p-3 {
     padding: 1rem !important;
   }
@@ -88,22 +98,34 @@ main a {
     margin-top: 2rem !important;
     margin-bottom: 2rem !important;
   }
+
+  .follow-us {
+    font-size: 0.7rem !important;
+  }
+
+  a {
+    font-size: 1rem !important;
+  }
 }
 
-/* Additional breakpoints for smaller devices */
+/* Breakpoints for very small screen devices */
 @media (max-width: 576px) {
-  #about-us-div,
-  #why-choose-us-div,
-  #beneftis-div,
-  #find-us-div {
-    padding: 0 10px;
+  #homepage-top-div {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
   }
 
   #find-us-div,
   #why-choose-us-div {
     flex-direction: column-reverse !important;
   }
-  /* Adjust the font size for better readability on mobile */
+
+  .Homepage-our-process-btn {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 0.8rem !important;
+  }
+
   h2 {
     font-size: 1.5rem;
   }
@@ -111,5 +133,9 @@ main a {
   p,
   li {
     font-size: 1rem;
+  }
+
+  .follow-us {
+    font-size: 0.8rem !important;
   }
 }

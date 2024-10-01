@@ -5,3 +5,35 @@
 .carousel-arrow {
   color: black !important;
 }
+
+.img-custom-grid {
+  width: 25%;
+  height: auto;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+@media (max-width: 750px) {
+  .picture-list {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .img-custom {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  .img-custom-grid {
+    width: 75% !important;
+    height: auto !important;
+    margin-bottom: 20px !important;
+    object-fit: cover !important;
+  }
+
+  .pictures-title {
+    font-size: 2rem !important;
+  }
+}

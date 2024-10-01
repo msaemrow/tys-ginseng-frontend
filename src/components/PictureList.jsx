@@ -42,7 +42,7 @@ const PictureList = () => {
               <img
                 src={image.url}
                 alt={image.description}
-                className="h-100 img-fluid img-custom rounded m-4"
+                className="h-100 img-fluid img-custom rounded"
               />
             </div>
           ))}
@@ -72,13 +72,13 @@ const PictureList = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <div className="picture-list">
+      <div className="picture-list d-flex flex-wrap">
         {images.map((image, index) => (
           <img
             key={index}
             src={image.url}
             alt={image.description}
-            className="img-fluid img-custom rounded m-4"
+            className="img-fluid img-custom-grid rounded m-4"
           />
         ))}
       </div>

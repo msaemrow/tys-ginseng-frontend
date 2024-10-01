@@ -8,7 +8,7 @@ import ginsengPlant from "../assets/ginseng_plant.webp";
 
 const Homepage = () => {
   return (
-    <div className="container-fluid px-5">
+    <div id="homepage-top-div" className="container-fluid px-5">
       <Helmet>
         <title>Ty's Ginseng | Homepage</title>
         <meta
@@ -54,7 +54,7 @@ const Homepage = () => {
               legacy of excellence in ginseng farming.
             </p>
             <Link
-              className="Homepage-our-process-btn btn mt-2 d-flex align-items-center justify-content-center"
+              className="Homepage-our-process-btn btn mt-2 d-flex align-items-center justify-content-center w-50"
               to="/our-process"
             >
               See our process
@@ -219,7 +219,10 @@ const Homepage = () => {
                 <i className="fa-brands fa-instagram"></i> Instgram
               </a>
             </div>
-            <Link className="Homepage-our-process-btn btn mt-1" to="/products">
+            <Link
+              className="Homepage-our-process-btn btn mt-1 w-50"
+              to="/products"
+            >
               Buy Online Now
             </Link>
           </div>

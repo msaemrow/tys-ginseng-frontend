@@ -7,3 +7,10 @@
   width: 70%;
   border-radius: 25px;
 }
+
+@media (max-width: 750px) {
+  .our-process-page {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
