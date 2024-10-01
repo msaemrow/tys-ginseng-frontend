@@ -72,7 +72,7 @@ const PictureList = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <div className="picture-list d-flex flex-wrap">
+      <div className="picture-list d-flex flex-wrap justify-content-center">
         {images.map((image, index) => (
           <img
             key={index}

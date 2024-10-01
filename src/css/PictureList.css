@@ -10,7 +10,7 @@
   width: 25%;
   height: auto;
   margin-bottom: 20px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media (max-width: 750px) {
