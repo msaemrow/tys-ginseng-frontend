@@ -1,10 +1,27 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import "../css/OurProcess.css";
 
 const OurProcess = () => {
   return (
     <div className="pt-4 pb-5 our-process-page">
-      <h1 className="pt-3 mb-2">Our Process</h1>
+      <Helmet>
+        <title>Ty's Ginseng | Our Process</title>
+        <meta
+          name="description"
+          content="Premium Woods Grown Ginseng Roots, Ginseng Powder and Ginseng Products."
+        />
+        <meta
+          name="keywords"
+          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Powder, Premium Ginseng, Bulk Ginseng, Ginseng Roots, inflammation, energy, immune system, immunity, cold remedy, brain function, reduce inflammation, boost immunity"
+        />
+        <meta property="og:title" content="Ty's Ginseng - Our Process" />
+        <meta
+          property="og:description"
+          content="Learn about how we grow our ginseng and get it ready for our customers."
+        />
+      </Helmet>
+      <h2 className="pt-3 mb-2">Our Process</h2>
       <div
         id="carouselExample"
         className="carousel slide mt-0"
@@ -12,7 +29,7 @@ const OurProcess = () => {
         // data-bs-ride="carousel"
         data-bs-interval="9000"
         data-bs-pause="false"
-        style={{ width: "95%", margin: "0 auto" }}
+        style={{ width: "90%", margin: "0 auto" }}
       >
         <div className="carousel-inner">
           <div className="carousel-item active">

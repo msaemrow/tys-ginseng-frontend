@@ -3,6 +3,7 @@
 }
 
 .our-process-image {
-  height: 300px;
-  width: auto;
+  height: aut0;
+  width: 70%;
+  border-radius: 25px;
 }
