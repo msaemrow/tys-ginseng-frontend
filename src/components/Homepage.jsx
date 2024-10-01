@@ -26,7 +26,7 @@ const Homepage = () => {
         />
         <meta property="og:image" content={ginsengPlant} />
       </Helmet>
-      <main className="mt-4">
+      <main className="mt-1">
         {/* <h1 className="text-center">Ty's Ginseng</h1> */}
         <div
           id="about-us-div"
@@ -54,7 +54,7 @@ const Homepage = () => {
               legacy of excellence in ginseng farming.
             </p>
             <Link
-              className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
+              className="Homepage-our-process-btn btn mt-2 d-flex align-items-center justify-content-center"
               to="/our-process"
             >
               See our process
@@ -65,6 +65,7 @@ const Homepage = () => {
               .filter((image) => image.location === "about")
               .map((image) => (
                 <img
+                  key={image.url}
                   src={image.url}
                   alt={image.description}
                   className="img-fluid img-custom rounded"
@@ -76,26 +77,33 @@ const Homepage = () => {
           id="why-choose-us-div"
           className="d-flex justify-content-center mb-5 mt-4"
         >
-          {images
-            .filter((image) => image.location === "why")
-            .map((image) => (
-              <img
-                src={image.url}
-                alt={image.description}
-                className="img-fluid img-custom rounded"
-              />
-            ))}
-          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
+          <div style={{ flex: "0 0 40%" }}>
+            {images
+              .filter((image) => image.location === "why")
+              .map((image) => (
+                <img
+                  key={image.url}
+                  src={image.url}
+                  alt={image.description}
+                  className="img-fluid img-custom rounded"
+                />
+              ))}
+          </div>
+
+          <div
+            className="d-flex flex-column justify-content-center align-items-center rounded p-3"
+            style={{ flex: "0 0 60%" }}
+          >
             <h2 className="text-left">Why Choose Ty's Ginseng</h2>
             <ul className="list-group">
-              <li className="list-group-item">
+              <li className="list-group-item pt-1 pb-0">
                 100% pure ginseng in every jar
               </li>
-              <li className="list-group-item">Woods grown</li>
-              <li className="list-group-item">6+ year old roots</li>
-              <li className="list-group-item">Premium quality</li>
-              <li className="list-group-item">Family owned</li>
-              <li className="list-group-item">
+              <li className="list-group-item pt-1 pb-0">Woods grown</li>
+              <li className="list-group-item pt-1 pb-0">6+ year old roots</li>
+              <li className="list-group-item pt-1 pb-0">Premium quality</li>
+              <li className="list-group-item pt-1 pb-0">Family owned</li>
+              <li className="list-group-item pt-1 pb-0">
                 Combined 70 years of experience of growing ginseng
               </li>
             </ul>
@@ -116,10 +124,13 @@ const Homepage = () => {
           </div>
         </div>
         <div
-          id="bottom-row"
+          id="benefits-div"
           className="d-flex justify-content-evenly  mt-4 mb-5"
         >
-          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
+          <div
+            style={{ flex: "0 0 60%" }}
+            className="d-flex flex-column justify-content-center align-items-center rounded p-3"
+          >
             <h2 className="text-left">Benefits of Ginseng</h2>
             <ul className="list-group">
               <li className="list-group-item">Increases Energy</li>
@@ -146,31 +157,37 @@ const Homepage = () => {
               </Link>
             </div>
           </div>
-          {images
-            .filter((image) => image.location === "benefits")
-            .map((image) => (
-              <img
-                src={image.url}
-                alt={image.description}
-                className="img-fluid img-custom rounded"
-              />
-            ))}
+          <div
+            className="d-flex align-items-center"
+            style={{ flex: "0 0 40%" }}
+          >
+            {images
+              .filter((image) => image.location === "benefits")
+              .map((image) => (
+                <img
+                  key={image.url}
+                  src={image.url}
+                  alt={image.description}
+                  className="img-fluid img-custom rounded"
+                />
+              ))}
+          </div>
         </div>
-        .
         <div
-          id="middle-row"
+          id="find-us-div"
           className="d-flex justify-content-evenly mb-5 mt-4"
         >
           {images
             .filter((image) => image.location === "market")
             .map((image) => (
               <img
+                key={image.url}
                 src={image.url}
                 alt={image.description}
                 className="img-fluid img-custom rounded"
               />
             ))}
-          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3 w-50">
+          <div className="d-flex flex-column justify-content-center align-items-center rounded p-3">
             <h2 className="text-left">Where to Find Us</h2>
             <h4>Minneapolis Farmers Market</h4>
             <p className="mb-0">

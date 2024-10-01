@@ -19,7 +19,7 @@ main {
 }
 
 main p {
-  font-size: 1.5vw;
+  font-size: 1.4vw;
 }
 
 main a {
@@ -47,4 +47,69 @@ main a {
 
 .follow-us:hover {
   color: #78be21;
+}
+
+/* General styles for mobile responsiveness */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Stack content vertically on smaller screens */
+  #about-us-div,
+  #why-choose-us-div,
+  #benefits-div,
+  #find-us-div {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  /* Adjust image size for mobile */
+  img.img-custom {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust button alignment */
+  .Homepage-our-process-btn {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* Adjust padding and margins */
+  .p-3 {
+    padding: 1rem !important;
+  }
+
+  .mt-4,
+  .mb-5 {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Additional breakpoints for smaller devices */
+@media (max-width: 576px) {
+  #about-us-div,
+  #why-choose-us-div,
+  #beneftis-div,
+  #find-us-div {
+    padding: 0 10px;
+  }
+
+  #find-us-div,
+  #why-choose-us-div {
+    flex-direction: column-reverse !important;
+  }
+  /* Adjust the font size for better readability on mobile */
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p,
+  li {
+    font-size: 1rem;
+  }
 }

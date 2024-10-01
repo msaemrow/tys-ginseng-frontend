@@ -33,9 +33,12 @@ const PictureList = () => {
         data-bs-pause="false"
         style={{ width: "75%", margin: "0 auto" }}
       >
-        <div class="carousel-inner">
+        <div className="carousel-inner">
           {images.map((image, index) => (
-            <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
+            <div
+              key={index}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+            >
               <img
                 src={image.url}
                 alt={image.description}
@@ -47,7 +50,7 @@ const PictureList = () => {
         <button
           className="carousel-control-prev carousel-arrow"
           type="button"
-          data-bs-target="#carouselExample"
+          data-bs-target="#our-ginseng-carousel"
           data-bs-slide="prev"
         >
           <span
@@ -59,7 +62,7 @@ const PictureList = () => {
         <button
           className="carousel-control-next"
           type="button"
-          data-bs-target="our-ginseng-carousel"
+          data-bs-target="#our-ginseng-carousel"
           data-bs-slide="next"
         >
           <span
@@ -69,9 +72,10 @@ const PictureList = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="picture-list">
-        {images.map((image) => (
+      <div className="picture-list">
+        {images.map((image, index) => (
           <img
+            key={index}
             src={image.url}
             alt={image.description}
             className="img-fluid img-custom rounded m-4"
