@@ -40,7 +40,9 @@ const BulkProductList = () => {
       </h2>
       <div className="d-flex flex-wrap justify-content-center">
         {products
-          .filter((product) => product.type === "BULK")
+          .filter(
+            (product) => product.type === "BULK" || product.type === "ROOTLET"
+          )
           .map((product) => (
             <Product
               key={product.id}

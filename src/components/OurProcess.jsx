@@ -35,7 +35,7 @@ const OurProcess = () => {
           <div className="carousel-item active">
             <img
               className="our-process-image mb-0"
-              src="https://tysginseng.s3.us-east-2.amazonaws.com/Beds_ready_to_be_planted.jpg"
+              src="https://tysginseng.s3.us-east-2.amazonaws.com/cleaned_woods_ready_for_ginseng_beds.jpg"
               alt=""
             />
             <p className="mb-0 mt-1 fw-bold">Step 1: Prepare the Woods</p>
@@ -60,8 +60,9 @@ const OurProcess = () => {
           </div>
           <div className="carousel-item">
             <img
-              className="our-process-image mb-0"
-              src="https://tysginseng.s3.us-east-2.amazonaws.com/Beds_ready_to_be_planted.jpg"
+              className="our-process-image mb-0 portrait-images"
+              id="planting-beds"
+              src="https://tysginseng.s3.us-east-2.amazonaws.com/planting_ginseng.jpg"
               alt=""
             />
             <p className="mb-0 mt-1 fw-bold">Step 3: Plant Seeds</p>
@@ -73,8 +74,8 @@ const OurProcess = () => {
           </div>
           <div className="carousel-item">
             <img
-              className="our-process-image mb-0"
-              src="https://tysginseng.s3.us-east-2.amazonaws.com/Beds_ready_to_be_planted.jpg"
+              className="our-process-image mb-0 portrait-images"
+              src="https://tysginseng.s3.us-east-2.amazonaws.com/ginseng_beds_covered_with_straw.jpg"
               alt=""
             />
             <p className="mb-0 mt-1 fw-bold">Step 4: Monitor and Maintain</p>
@@ -86,8 +87,9 @@ const OurProcess = () => {
           </div>
           <div className="carousel-item">
             <img
-              className="our-process-image mb-0"
-              src="https://tysginseng.s3.us-east-2.amazonaws.com/Beds_ready_to_be_planted.jpg"
+              className="our-process-image mb-0 portrait-images"
+              id="digging-roots"
+              src="https://tysginseng.s3.us-east-2.amazonaws.com/ty_digging_ginseng_root.jpg"
               alt=""
             />
             <p className="mb-0 mt-1 fw-bold">Step 5: Harvest</p>

@@ -5,12 +5,28 @@
 .our-process-image {
   height: aut0;
   width: 70%;
-  border-radius: 25px;
+  max-height: 350px;
+  object-fit: contain;
+}
+
+#planting-beds {
+  object-fit: cover !important;
+}
+
+#digging-roots {
+  object-fit: cover !important;
+  width: 50% !important;
+  height: auto;
 }
 
 @media (max-width: 750px) {
   .our-process-page {
     padding-left: 5px !important;
     padding-right: 5px !important;
+  }
+
+  .our-process-image {
+    max-height: 250px;
+    object-fit: contain;
   }
 }

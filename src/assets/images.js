@@ -57,7 +57,7 @@ const images = [
   {
     description: "Ginseng powder",
     url: "https://tysginseng.s3.us-east-2.amazonaws.com/ginseng_powder.jpg",
-    location: "benefits",
+    location: "pictures",
   },
   {
     description: "Ty and his grandparents in the woods",
@@ -95,11 +95,6 @@ const images = [
     location: "why",
   },
   {
-    description: "Ginseng beds covered with straw",
-    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ginseng_beds_covered_with_straw_2.jpg",
-    location: "picture",
-  },
-  {
     description: "Ginseng beds almost ready to be planted",
     url: "https://tysginseng.s3.us-east-2.amazonaws.com/Beds_ready_to_be_planted.jpg",
     location: "pictures",
@@ -107,6 +102,46 @@ const images = [
   {
     description: "Ginseng plants in the woods",
     url: "https://tysginseng.s3.us-east-2.amazonaws.com/ginseng_plants_in_woods.jpg",
+    location: "pictures",
+  },
+  {
+    description: "Ginseng beds in the fall",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ginseng_in_the_fall.jpg",
+    location: "pictures",
+  },
+  {
+    description: "Ty planting ginseng",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/planting_ginseng.jpg",
+    location: "pictures",
+  },
+  {
+    description: "Ty with ginseng plants",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ty_with_ginseng_plants.jpg",
+    location: "pictures",
+  },
+  {
+    description: "Ty's Ginseng ginseng products",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/our_ginseng_products.jpg",
+    location: "pictures",
+  },
+  {
+    description: "Ty digging ginseng root",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ty_digging_ginseng_root.jpg",
+    location: "pictures",
+  },
+  {
+    description: "Ty's holding ginseng root",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ty_holding_ginseng_root_2.jpg",
+    location: "benefits",
+  },
+  {
+    description: "Woods cleaned up and ready to make ginseng beds",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/cleaned_woods_ready_for_ginseng_beds.jpg",
+    location: "pictures",
+  },
+  {
+    description: "Clean ginseng woods with sun shining between trees",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ginseng_woods_with_sunset.jpg",
     location: "pictures",
   },
 ];
