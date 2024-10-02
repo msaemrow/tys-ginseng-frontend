@@ -4,6 +4,7 @@ import Product from "./Product";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
 import { CartContext } from "./CartProvider";
+import logo from "../assets/TysGinsengLogo.png";
 
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
@@ -19,17 +20,18 @@ const BulkProductList = () => {
         <title>Ty's Ginseng | Bulk Products</title>
         <meta
           name="description"
-          content="Premium Wild Simulated Ginseng Roots, Ginseng Powder and Ginseng Products."
+          content="Premium Woods Grown Ginseng Roots, Ginseng Powder and Ginseng Products."
         />
         <meta
           name="keywords"
-          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Powder, Premium Ginseng, Bulk Ginseng, Ginseng Roots, inflammation, energy, immune system, immunity, cold remedy, brain function, reduce inflammation, boost immunity"
+          content="Ginseng, Woods Grown Ginseng, Ginseng Products, Ginseng Powder, Premium Ginseng, Bulk Ginseng, Ginseng Roots, inflammation, energy, immune system, immunity, cold remedy, brain function, reduce inflammation, boost immunity"
         />
         <meta property="og:title" content="Ty's Ginseng - Products" />
         <meta
           property="og:description"
-          content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
+          content="Discover premium woods grown Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
+        <meta property="og:image" content={logo} />
       </Helmet>
       <h2 className="Products-title">
         Products by the pound{" "}

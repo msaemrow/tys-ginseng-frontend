@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import "../css/OurProcess.css";
+import logo from "../assets/TysGinsengLogo.png";
 
 const OurProcess = () => {
   return (
@@ -13,7 +14,7 @@ const OurProcess = () => {
         />
         <meta
           name="keywords"
-          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Powder, Premium Ginseng, Bulk Ginseng, Ginseng Roots, inflammation, energy, immune system, immunity, cold remedy, brain function, reduce inflammation, boost immunity"
+          content="Ginseng, Woods Grown Ginseng, Ginseng Products, Ginseng Powder, Premium Ginseng, Bulk Ginseng, Ginseng Roots, inflammation, energy, immune system, immunity, cold remedy, brain function, reduce inflammation, boost immunity"
         />
         <meta property="og:title" content="Ty's Ginseng - Our Process" />
         <meta

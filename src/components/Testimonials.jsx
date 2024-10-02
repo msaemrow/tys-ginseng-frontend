@@ -5,7 +5,7 @@ const Testimonials = () => {
     <div className="pt-5">
       <h2>Customer Testimonials</h2>
       <a href="https://www.facebook.com/TysGinseng/reviews" target="_blank">
-        Leave us review on Facebook
+        Leave us a review on Facebook
       </a>
       <p>These are testimonials from real customers</p>
       <div className="py-3">

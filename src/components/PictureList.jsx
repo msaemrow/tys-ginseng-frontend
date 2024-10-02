@@ -3,12 +3,13 @@ import images from "../assets/images";
 import { Helmet } from "react-helmet-async";
 import ginsengPlant from "../assets/ginseng_plant.webp";
 import "../css/PictureList.css";
+import logo from "../assets/TysGinsengLogo.png";
 
 const PictureList = () => {
   return (
     <div className="picture-list">
       <Helmet>
-        <title>Ty's Ginseng | Our Ginseng</title>
+        <title>Ty's Ginseng | Photos</title>
         <meta
           name="description"
           content="Images of premium woods grown Ginseng Roots, Ginseng Roots, and Ginseng Plants."
@@ -22,11 +23,12 @@ const PictureList = () => {
           property="og:description"
           content="Discover premium woods grown Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
+        <meta property="og:image" content={logo} />
       </Helmet>
-      <h1 className="pictures-title mb-0">Our Ginseng</h1>
+      {/* <h1 className="pictures-title mb-0">Photos</h1> */}
       <div
         id="our-ginseng-carousel"
-        className="carousel slide mt-0"
+        className="carousel slide mt-5"
         data-bs-theme="dark"
         data-bs-ride="carousel"
         data-bs-interval="3000"

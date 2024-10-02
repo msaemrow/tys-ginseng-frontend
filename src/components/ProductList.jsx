@@ -6,6 +6,7 @@ import "../css/ProductList.css";
 import { CartContext } from "./CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import logo from "../assets/TysGinsengLogo.png";
 
 const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
@@ -32,6 +33,7 @@ const ProductList = () => {
           property="og:description"
           content="Discover premium Woods Grown Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
+        <meta property="og:image" content={logo} />
       </Helmet>
       <ToastContainer position="top-right" autoClose={2000} />
       <h2 className="Products-title">

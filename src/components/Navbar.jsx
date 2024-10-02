@@ -134,7 +134,7 @@ const NavBar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                About Us
+                Learn More
               </NavLink>
               <ul className="dropdown-menu">
                 <li>
@@ -152,7 +152,7 @@ const NavBar = () => {
                     to="/pictures"
                     onClick={handleMobileNavLinkClick}
                   >
-                    Our Ginseng
+                    Photos
                   </NavLink>
                 </li>
                 <li>
@@ -164,7 +164,8 @@ const NavBar = () => {
                     How to use Ginseng
                   </NavLink>
                 </li>
-                <li>
+                {/* Testimonials Page-- Currently demo and no real testimonials-- not on live site */}
+                {/* <li>
                   <Link
                     className="dropdown-item"
                     to="/testimonials"
@@ -172,7 +173,7 @@ const NavBar = () => {
                   >
                     Testimonials
                   </Link>
-                </li>
+                </li> */}
 
                 {/* Example of a dropdown divider <li>
                   <hr className="dropdown-divider" />

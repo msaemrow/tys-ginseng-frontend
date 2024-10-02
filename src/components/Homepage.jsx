@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import images from "../assets/images";
 import "../css/Homepage.css";
 import ginsengPlant from "../assets/ginseng_plant.webp";
+import logo from "../assets/TysGinsengLogo.png";
 
 const Homepage = () => {
   return (
@@ -13,18 +14,18 @@ const Homepage = () => {
         <title>Ty's Ginseng | Homepage</title>
         <meta
           name="description"
-          content="Welcome to Ty's Ginseng. We offer premium Wild Simulated Ginseng and ginseng products. Learn about the benefits and visit us at the Minneapolis Farmers Market."
+          content="Welcome to Ty's Ginseng. We offer premium woods grown Ginseng and ginseng products. Learn about the benefits and shop online or visit us at the Minneapolis Farmers Market."
         />
         <meta
           name="keywords"
-          content="Ginseng, Wild Simulated Ginseng, Ginseng Products, Ginseng Powder, Minneapolis Farmers Market"
+          content="Ginseng, Woods Grown Ginseng, Ginseng Products, Ginseng Powder, Ginseg Roots, Minneapolis Farmers Market"
         />
         <meta property="og:title" content="Ty's Ginseng - Homepage" />
         <meta
           property="og:description"
-          content="Discover premium Wild Simulated Ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
+          content="Discover premium woods grown ginseng and its benefits. Visit us at the Minneapolis Farmers Market."
         />
-        <meta property="og:image" content={ginsengPlant} />
+        <meta property="og:image" content={logo} />
       </Helmet>
       <main className="mt-1">
         {/* <h1 className="text-center">Ty's Ginseng</h1> */}
@@ -104,7 +105,7 @@ const Homepage = () => {
               <li className="list-group-item pt-1 pb-0">Premium quality</li>
               <li className="list-group-item pt-1 pb-0">Family owned</li>
               <li className="list-group-item pt-1 pb-0">
-                Combined 70 years of experience of growing ginseng
+                Combined 70 years of experience in growing ginseng
               </li>
             </ul>
             <div className="d-flex justify-content-center w-100 px-5">
@@ -118,7 +119,7 @@ const Homepage = () => {
                 className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
                 to="/pictures"
               >
-                See our Ginseng
+                See Photos
               </Link>
             </div>
           </div>
@@ -149,12 +150,19 @@ const Homepage = () => {
               >
                 How to use Ginseng
               </Link>
-              <Link
+              {/* <Link
                 className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
                 to="/testimonials"
               >
                 Read Testimonials
-              </Link>
+              </Link> */}
+              <a
+                href="https://www.facebook.com/TysGinseng/reviews"
+                className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
+                target="_blank"
+              >
+                Read Reviews
+              </a>
             </div>
           </div>
           <div
