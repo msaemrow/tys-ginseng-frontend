@@ -80,7 +80,7 @@ main a {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .Homepage-our-process-btn {

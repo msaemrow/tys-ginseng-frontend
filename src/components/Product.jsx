@@ -55,7 +55,7 @@ const Product = ({
             </p>
             <p className="m-0"> (507) 384-2390</p>
             <p className="m-0">or</p>
-            <p className="m-0">tysginseng@gmail.com</p>
+            <p className="m-0">tylersaemrow@gmail.com</p>
           </>
         ) : null}
       </div>

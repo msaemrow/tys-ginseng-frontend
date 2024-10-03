@@ -73,16 +73,17 @@ const NavBar = () => {
     };
   }, [isCartShowing, toggleIsCartShowing]);
 
+  //HTML RETURN
   return (
     <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light fixed-top">
-      <div className="container">
+      <div className="container pb-1 pt-1">
         {/* Brand name or logo */}
         <NavLink
           className="navbar-brand"
           to="/"
           onClick={handleMobileNavLinkClick}
         >
-          <img className="navbar-logo" src={Logo} />
+          <img className="navbar-logo" src={Logo} alt="Ty's Ginseng Logo" />
           <span className="ms-2">Ty's Ginseng</span>
         </NavLink>
         {/* Toggle button for mobile view */}
@@ -181,13 +182,16 @@ const NavBar = () => {
               </ul>
             </li>
           </ul>
-          <ul className="navbar-nav ms-auto d-flex flex-direction-column align-items-center pb-3">
-            <Link
-              className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
-              to="/products"
-            >
-              Buy Online Now
-            </Link>
+          <ul className="navbar-nav ms-auto d-flex flex-direction-column align-items-center justify-content-center">
+            <li>
+              <Link
+                className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
+                to="/products"
+              >
+                Buy Online Now
+              </Link>
+            </li>
+
             <li className="nav-item">
               <button
                 ref={cartIconRef}

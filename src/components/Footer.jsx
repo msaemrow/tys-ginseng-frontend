@@ -5,12 +5,12 @@ import Logo from "../assets/TysGinsengLogo.png";
 const Footer = () => {
   return (
     <div className="Footer pt-3 mb-3">
-      <h2>Ty's Ginseng</h2>
-      <img className="Footer-logo" src={Logo} />
+      <h4 className="fs-2">Ty's Ginseng</h4>
+      <img className="Footer-logo" src={Logo} alt="Ty's Ginseng Logo" />
       <h5>Contact Us</h5>
-      <h6>Phone: 507-384-2390</h6>
-      <h6>Email: tylersaemrow@gmail.com</h6>
-      <h6>Follow Us</h6>
+      <p className="m-0">Phone: 507-384-2390</p>
+      <p className="m-0">Email: tylersaemrow@gmail.com</p>
+      <h5 className="mt-2 mb-0">Follow Us</h5>
       <div>
         <span>
           <a

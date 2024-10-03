@@ -10,6 +10,7 @@ import logo from "../assets/TysGinsengLogo.png";
 const Homepage = () => {
   return (
     <div id="homepage-top-div" className="container-fluid px-5">
+      {/* Helmet component which sets meta data */}
       <Helmet>
         <title>Ty's Ginseng | Homepage</title>
         <meta
@@ -27,8 +28,9 @@ const Homepage = () => {
         />
         <meta property="og:image" content={logo} />
       </Helmet>
+      {/* main element of homepages */}
       <main className="mt-1">
-        {/* <h1 className="text-center">Ty's Ginseng</h1> */}
+        {/* About us div-- contains text then image  */}
         <div
           id="about-us-div"
           className="d-flex justify-content-center align-items-center mt-4 mb-5"
@@ -74,6 +76,7 @@ const Homepage = () => {
               ))}
           </div>
         </div>
+        {/* Why Choose Ty's Ginseng div -- contains image then text  */}
         <div
           id="why-choose-us-div"
           className="d-flex justify-content-center mb-5 mt-4"
@@ -124,6 +127,7 @@ const Homepage = () => {
             </div>
           </div>
         </div>
+        {/* Benefits of Ginseng div -- contains text then image  */}
         <div
           id="benefits-div"
           className="d-flex justify-content-evenly  mt-4 mb-5"
@@ -181,6 +185,7 @@ const Homepage = () => {
               ))}
           </div>
         </div>
+        {/* Where to find us div -- contains image then text */}
         <div
           id="find-us-div"
           className="d-flex justify-content-evenly mb-5 mt-4"
@@ -197,13 +202,13 @@ const Homepage = () => {
             ))}
           <div className="d-flex flex-column justify-content-center align-items-center rounded p-3">
             <h2 className="text-left">Where to Find Us</h2>
-            <h4>Minneapolis Farmers Market</h4>
+            <p className="m-0 fs-5 fw-bold">Minneapolis Farmers Market</p>
             <p className="mb-0">
-              We are at the Minneapolis Farmers Market 6am-1pm on Saturdays and
-              Sundays from June - September. Check our Instagram and Facebook
-              for the days we will be at the market.
+              We are at the Minneapolis Farmers Market 6am-1pm on Saturdays
+              and/or Sundays from June - September. Check our Instagram and
+              Facebook for when we will be at the market.
             </p>
-            <div className="mt-0 d-flex flex-column align-items-center justify-content-start">
+            <div className="mt-2 d-flex flex-column align-items-center justify-content-start">
               <p className="text-start mt-0 mb-0 fw-bold">Market Address:</p>
               <p className="text-start m-0">312 East Lyndale Ave N</p>
               <p className="text-start m-0">Minneapolis, MN 55405</p>
