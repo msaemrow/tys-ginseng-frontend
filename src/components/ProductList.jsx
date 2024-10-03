@@ -52,11 +52,14 @@ const ProductList = () => {
               id={product.id}
               name={product.name}
               price={product.price}
+              sale_price={product.sale_price}
+              on_sale={product.on_sale}
               description={product.description}
               servings={product.servings}
               url={product.image_url}
               type={product.type}
               weight={product.weight}
+              quantity={product.quantity}
             />
           ))}
       </div>

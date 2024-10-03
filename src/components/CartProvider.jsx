@@ -6,6 +6,7 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const emptyCart = { contents: 0 };
 
+  const [jarsRemaining, setJarsRemaining] = useState({ quantity: 20 });
   const [isCartShowing, setIsCartShowing] = useState(false);
   const [cartContents, setCartContents] = useState(() => {
     const storedCart = localStorage.getItem("cartContents");
@@ -37,6 +38,15 @@ export const CartProvider = ({ children }) => {
       newCart.contents += 1;
       return newCart;
     });
+    if (productId === 1004) {
+      setJarsRemaining((prevRemaining) => {
+        const newRemaining = { ...prevRemaining };
+        newRemaining.quantity = (newRemaining.quantity || 0) - 1;
+        return newRemaining;
+      });
+    }
+    console.log("Jars remaining", jarsRemaining);
+    console.log(cartContents);
     toast.success(`${product.name} added to cart!`);
   };
 
@@ -79,8 +89,8 @@ export const CartProvider = ({ children }) => {
 
   const calculateTotal = (cartContents) => {
     return Object.values(cartContents).reduce((acc, el) => {
-      if (el.price && el.quantity) {
-        acc += el.price * el.quantity;
+      if (el.cost && el.quantity) {
+        acc += el.cost * el.quantity;
       }
       return acc;
     }, 0);
@@ -96,6 +106,7 @@ export const CartProvider = ({ children }) => {
         toggleIsCartShowing,
         calculateTotal,
         clearCart,
+        jarsRemaining,
       }}
     >
       {children}

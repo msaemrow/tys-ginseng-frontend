@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Footer.css";
 import Logo from "../assets/TysGinsengLogo.png";
+import SmallLogo from "../assets/TysGinsengLogo.webp";
 
 const Footer = () => {
   return (

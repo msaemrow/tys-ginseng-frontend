@@ -10,3 +10,8 @@
 .add-to-cart-btn {
   background-color: #fdb913 !important;
 }
+
+.on-sale {
+  color: red;
+  text-decoration: line-through;
+}

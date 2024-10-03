@@ -6,17 +6,23 @@ const Product = ({
   id,
   name,
   price,
+  sale_price,
+  on_sale,
   description,
   servings,
   url,
   type,
   weight,
+  quantity,
 }) => {
-  const { addToCart, cartContents, isCartShowing } = useContext(CartContext);
+  const { addToCart, cartContents, isCartShowing, jarsRemaining } =
+    useContext(CartContext);
 
   const handleAddToCart = () => {
     console.log("Adding to cart", id);
-    const product = { id, name, price, url, weight };
+    const cost = on_sale ? sale_price : price;
+    const product = { id, name, cost, url, weight };
+    console.log(quantity);
     addToCart(id, product);
   };
 
@@ -41,6 +47,10 @@ const Product = ({
           <h3 className="mt-2 mb-0">${price} / lb</h3>
         ) : type === "ROOTLET" ? (
           <h3 className="mt-2 mb-0">${price} / rootlet</h3>
+        ) : on_sale ? (
+          <h3 className="mt-2 mb-0">
+            <span className="on-sale me-3">${price}</span>${sale_price}
+          </h3>
         ) : (
           <h3 className="mt-2 mb-0">${price}</h3>
         )}
@@ -57,6 +67,9 @@ const Product = ({
             <p className="m-0">or</p>
             <p className="m-0">tylersaemrow@gmail.com</p>
           </>
+        ) : null}
+        {id === 1004 ? (
+          <p>Quantity remaining- {jarsRemaining.quantity}</p>
         ) : null}
       </div>
     </div>
