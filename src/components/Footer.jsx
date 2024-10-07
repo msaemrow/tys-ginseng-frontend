@@ -20,7 +20,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="social-links"
           >
-            <i className="fa-brands fa-instagram"></i> Instgram: tysginseng
+            <i className="fa-brands fa-instagram"></i> Instagram: tysginseng
           </a>
         </span>
       </div>

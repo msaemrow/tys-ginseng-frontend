@@ -17,7 +17,7 @@ const BulkProductList = () => {
   return (
     <div className="pt-5">
       <Helmet>
-        <title>Ty's Ginseng | Bulk Products</title>
+        <title>Ty's Ginseng | Bulk Roots</title>
         <meta
           name="description"
           content="Premium Woods Grown Ginseng Roots, Ginseng Powder and Ginseng Products."
@@ -34,7 +34,7 @@ const BulkProductList = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       <h2 className="Products-title">
-        Products by the pound{" "}
+        Roots by the Pound{" "}
         {/* button to view cart contents-- for testing purposes only */}
         {/* <button className="btn view-cart-btn m-2" onClick={viewCart}>
           View cart

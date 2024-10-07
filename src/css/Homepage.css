@@ -41,6 +41,14 @@ main a {
   width: 50%;
 }
 
+.market-address {
+  color: green;
+}
+
+.market-address:hover {
+  color: #78be21;
+}
+
 .follow-us {
   color: green;
 }

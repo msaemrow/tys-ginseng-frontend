@@ -41,20 +41,22 @@ const Homepage = () => {
           >
             <h2 className="text-left">About Us</h2>
             <p>
-              Our Minnesota weather creates the perfect condition for ginseng to
-              grow in our woods. My family and I grow woods grown ginseng in
-              southern Minnesota and take great pride in our roots to make sure
-              that you get only the best quality ginseng.
+              At Ty's Ginseng, we're proud to be a small, family-owned business,
+              where every customer has the opportunity to interact directly with
+              the owner. My family and I grow ginseng in southern Minnesota and
+              our Minnesota weather creates the perfect conditions for ginseng
+              to grow in our woods. We take great pride in our roots to make
+              sure that you get only the best quality woods grown ginseng.
             </p>
             <p>
               At the age of 10, I started to help my grandpa in his ginseng
               patch. Who knew that 8 years later, I would be starting my own
               ginseng business taking it to a new level. I founded my ginseng
               business in 2012, building on the knowledge and skills I acquired
-              from my grandpa, who has over 50 years of expertise in growing
-              woods grown ginseng. With a strong emphasis on producing
-              high-quality roots, I am dedicated to upholding my grandfather's
-              legacy of excellence in ginseng farming.
+              from my grandpa, who has over 50 years of expertise in woods grown
+              ginseng. With a strong emphasis on producing high-quality roots, I
+              am dedicated to upholding my grandfather's legacy of excellence in
+              ginseng farming.
             </p>
             <Link
               className="Homepage-our-process-btn btn mt-2 d-flex align-items-center justify-content-center w-50"
@@ -108,6 +110,9 @@ const Homepage = () => {
               <li className="list-group-item pt-1 pb-0">Premium quality</li>
               <li className="list-group-item pt-1 pb-0">Family owned</li>
               <li className="list-group-item pt-1 pb-0">
+                Minnesota Grown member
+              </li>
+              <li className="list-group-item pt-1 pb-0">
                 Combined 70 years of experience in growing ginseng
               </li>
             </ul>
@@ -152,7 +157,7 @@ const Homepage = () => {
                 className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
                 to="/recipes"
               >
-                How to use Ginseng
+                How to Use Ginseng
               </Link>
               {/* <Link
                 className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
@@ -204,14 +209,26 @@ const Homepage = () => {
             <h2 className="text-left">Where to Find Us</h2>
             <p className="m-0 fs-5 fw-bold">Minneapolis Farmers Market</p>
             <p className="mb-0">
-              We are at the Minneapolis Farmers Market 6am-1pm on Saturdays
-              and/or Sundays from June - September. Check our Instagram and
-              Facebook for when we will be at the market.
+              We are at the Minneapolis Farmers Market 6am-1pm on Saturdays and
+              Sundays from June - September. Check our Instagram and Facebook
+              for when we will be at the market.
             </p>
             <div className="mt-2 d-flex flex-column align-items-center justify-content-start">
               <p className="text-start mt-0 mb-0 fw-bold">Market Address:</p>
-              <p className="text-start m-0">312 East Lyndale Ave N</p>
-              <p className="text-start m-0">Minneapolis, MN 55405</p>
+              <a
+                href="https://maps.app.goo.gl/6E8tSiL7Bh8bawXCA"
+                target="_blank"
+                className="text-start m-0 market-address"
+              >
+                312 East Lyndale Ave N
+              </a>
+              <a
+                href="https://maps.app.goo.gl/6E8tSiL7Bh8bawXCA"
+                target="_blank"
+                className="text-start m-0 market-address"
+              >
+                Minneapolis, MN 55405
+              </a>
             </div>
             <h4 className="mt-3 mb-0">Follow Us</h4>
             <div className="mt-1 mb-0">
@@ -229,7 +246,7 @@ const Homepage = () => {
                 rel="noopener noreferrer"
                 className="follow-us ms-4"
               >
-                <i className="fa-brands fa-instagram"></i> Instgram
+                <i className="fa-brands fa-instagram"></i> Instagram
               </a>
             </div>
             <Link

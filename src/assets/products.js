@@ -47,10 +47,9 @@ const products = [
     type: "SINGLE",
     price: 55.0,
     sale_price: 46.75,
-    on_sale: true,
-    description:
-      "1oz jar of 100% Minnesota forest grown ginseng. No additives. ",
-    servings: "Approximately 3 week supply if used daily at 1/4-1/2 tsp.",
+    on_sale: false,
+    description: "100% pure American ginseng powder - Minnesota woods grown",
+    servings: "Approximately 21 daily servings at ¼-½ teaspoon",
     image_url:
       "https://tysginseng.s3.us-east-2.amazonaws.com/jar_of_ginseng_075.jpg",
     weight: 2.87,
@@ -94,7 +93,7 @@ const products = [
     sale_price: 1.5,
     on_sale: false,
     description:
-      "Fresh woods grown rootlets 1 year old.  Quantities based on seasonal availability.  Minimum order is 50 rootlets. Orders over 150 may need additional time to fulfill.",
+      "Fresh woods grown rootlets-- 1 or 2 year olds.  Quantities based on seasonal availability.  Minimum order is 50 rootlets. Orders over 150 may need additional time to fulfill.",
     servings: "",
     image_url:
       "https://tysginseng.s3.us-east-2.amazonaws.com/fresh_dug_ginseng_root.jpg",

@@ -8,6 +8,7 @@ import "../css/Navbar.css";
 
 const NavBar = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const navigate = useNavigate();
   const {
     cartContents,
@@ -18,12 +19,28 @@ const NavBar = () => {
     clearCart,
   } = useContext(CartContext);
 
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
   const cartRef = useRef(null);
   const cartIconRef = useRef(null);
 
   const handleMobileNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
   const handleMobileNavLinkClick = () => setIsNavCollapsed(true);
+
+  const mobileNavigateToCheckout = () => {
+    handleMobileNavLinkClick();
+    navigate("/checkout");
+  };
 
   const handleClickCartBtn = () => {
     toggleIsCartShowing();
@@ -32,7 +49,6 @@ const NavBar = () => {
   const navigateToCheckout = () => {
     toggleIsCartShowing();
     handleMobileNavLinkClick();
-    console.log(cartContents);
     navigate("/checkout");
   };
 
@@ -44,8 +60,8 @@ const NavBar = () => {
     removeFromCart(productId);
   };
 
-  const handleIncrementCartItem = (productId) => {
-    addToCart(productId);
+  const handleIncrementCartItem = (productId, product) => {
+    addToCart(productId, product);
   };
   const calculateTotal = (cartContents) => {
     return Object.values(cartContents).reduce((acc, el) => {
@@ -126,7 +142,7 @@ const NavBar = () => {
                 to="/products-bulk"
                 onClick={handleMobileNavLinkClick}
               >
-                Bulk Products
+                Bulk Roots
               </NavLink>
             </li>
             <li className="nav-item dropdown">
@@ -164,7 +180,7 @@ const NavBar = () => {
                     to="/recipes"
                     onClick={handleMobileNavLinkClick}
                   >
-                    How to use Ginseng
+                    How to Use Ginseng
                   </NavLink>
                 </li>
                 {/* Testimonials Page-- Currently demo and no real testimonials-- not on live site */}
@@ -184,7 +200,10 @@ const NavBar = () => {
               </ul>
             </li>
           </ul>
-          <ul className="navbar-nav ms-auto d-flex flex-direction-column align-items-center justify-content-center">
+          <ul
+            id="cart-dropdown"
+            className="navbar-nav ms-auto d-flex flex-direction-column align-items-center justify-content-center"
+          >
             <li>
               <Link
                 className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
@@ -195,14 +214,26 @@ const NavBar = () => {
             </li>
 
             <li className="nav-item">
-              <button
-                ref={cartIconRef}
-                className="btn btn-link nav-link"
-                onClick={handleClickCartBtn}
-              >
-                <i className="fa-solid fa-cart-shopping"></i> (
-                {cartContents.contents})
-              </button>
+              {isMobile === true ? (
+                <button
+                  onClick={mobileNavigateToCheckout}
+                  className="btn checkout-button m-2"
+                >
+                  {" "}
+                  Go to Cart <i className="fa-solid fa-cart-shopping"></i> (
+                  {cartContents.contents})
+                </button>
+              ) : (
+                <button
+                  ref={cartIconRef}
+                  className="btn btn-link nav-link"
+                  onClick={handleClickCartBtn}
+                >
+                  <i className="fa-solid fa-cart-shopping"></i> (
+                  {cartContents.contents})
+                </button>
+              )}
+
               {isCartShowing && (
                 <ul
                   className="dropdown-menu show custom-dropdown"
@@ -225,7 +256,9 @@ const NavBar = () => {
                             </button>
                             <button
                               className="btn pt-0 pb-0 ps-2 pe-2"
-                              onClick={() => handleIncrementCartItem(productId)}
+                              onClick={() =>
+                                handleIncrementCartItem(productId, product)
+                              }
                             >
                               <i className="fa-solid fa-plus"></i>
                             </button>
@@ -246,7 +279,7 @@ const NavBar = () => {
                       onClick={navigateToCheckout}
                       className="btn checkout-button m-2"
                     >
-                      Go to checkout
+                      Go to Checkout
                     </button>
 
                     {/* <Link className="btn checkout-button m-2" to="/checkout">

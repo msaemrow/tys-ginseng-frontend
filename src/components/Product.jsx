@@ -68,9 +68,6 @@ const Product = ({
             <p className="m-0">tylersaemrow@gmail.com</p>
           </>
         ) : null}
-        {id === 1004 ? (
-          <p>Quantity remaining- {jarsRemaining.quantity}</p>
-        ) : null}
       </div>
     </div>
   );

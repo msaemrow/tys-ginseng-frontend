@@ -22,11 +22,15 @@ const CheckoutPage = () => {
       .reduce((total, weight) => total + weight, 0);
 
     if (totalOrderWeight <= 4.0) {
-      return 400;
+      return 500;
     } else if (totalOrderWeight > 4 && totalOrderWeight < 8) {
       return 800;
-    } else {
+    } else if (totalOrderWeight > 8 && totalOrderWeight < 12) {
       return 1200;
+    } else if (totalOrderWeight > 12 && totalOrderWeight < 16) {
+      return 1600;
+    } else {
+      return 2000;
     }
   };
 
@@ -162,7 +166,7 @@ const CheckoutPage = () => {
               onClick={returnToProducts}
               disabled={isLoading}
             >
-              {isLoading ? "Processing cart items..." : "Back to products"}
+              {isLoading ? "Processing cart items..." : "Keep Shopping"}
             </button>
           ) : (
             ""

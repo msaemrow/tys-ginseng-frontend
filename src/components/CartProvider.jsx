@@ -24,6 +24,7 @@ export const CartProvider = ({ children }) => {
   }, [cartContents]);
 
   const addToCart = (productId, product) => {
+    console.log("Product", product);
     setCartContents((prevCart) => {
       const newCart = { ...prevCart };
 
