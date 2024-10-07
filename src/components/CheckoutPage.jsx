@@ -98,10 +98,10 @@ const CheckoutPage = () => {
       </Helmet>
       <ToastContainer position="top-center" autoClose={10000} />
       {cartContents.contents === 0 ? (
-        <div className="checkout-page-empty">
+        <div className="checkout-page-empty mb-5">
           <h2>Cart Summary</h2>
           <h4>Your cart is empty</h4>
-          <Link className="btn checkout-button mt-2 mb-2 fs-5" to="/products">
+          <Link className="btn checkout-button mt-2 mb-5 fs-5" to="/products">
             Go to products
           </Link>
         </div>

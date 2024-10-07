@@ -26,8 +26,13 @@ nav {
   display: none;
 }
 
+.dropdown-menu a:hover {
+  background-color: transparent !important;
+  color: black !important;
+}
+
 .dropdown-menu a.active {
-  background-color: black !important;
+  background-color: transparent !important;
   color: black !important;
 }
 
