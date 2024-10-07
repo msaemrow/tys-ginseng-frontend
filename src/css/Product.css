@@ -1,5 +1,7 @@
 .Product-image {
-  height: 100px;
+  height: 150px;
+  max-width: 150px;
+  object-fit: cover;
 }
 
 .Product {

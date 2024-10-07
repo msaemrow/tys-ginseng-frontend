@@ -40,13 +40,14 @@ const CheckoutPage = () => {
 
   const handleCheckout = async () => {
     setIsLoading(true);
+    console.log("First check", cartContents);
     try {
       const shippingCost = calculateShippingCost(cartContents);
       const squareCheckoutItems = Object.entries(cartContents)
         .filter(([key]) => key !== "contents")
         .map(([productId, product]) => ({
           name: product.name,
-          price: product.price * 100,
+          price: product.cost * 100,
           quantity: product.quantity,
         }));
 
@@ -55,9 +56,11 @@ const CheckoutPage = () => {
         price: shippingCost,
         quantity: 1,
       });
+      console.log("Second check", squareCheckoutItems);
       const checkoutUrl = await GinsengApi.generateCheckoutUrl(
         squareCheckoutItems
       );
+      console.log("checkout URL", checkoutUrl);
       if (checkoutUrl.url) {
         window.location.href = checkoutUrl.url;
         setTimeout(clearCartAfterCheckout, 3000);
@@ -123,7 +126,7 @@ const CheckoutPage = () => {
                       key={productId}
                       id={productId}
                       name={product.name}
-                      price={product.price}
+                      price={product.cost}
                       quantity={product.quantity}
                     />
                   ))}

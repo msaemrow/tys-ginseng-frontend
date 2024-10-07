@@ -32,6 +32,7 @@ const NavBar = () => {
   const navigateToCheckout = () => {
     toggleIsCartShowing();
     handleMobileNavLinkClick();
+    console.log(cartContents);
     navigate("/checkout");
   };
 
