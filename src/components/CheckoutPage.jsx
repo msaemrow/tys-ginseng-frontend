@@ -55,14 +55,15 @@ const CheckoutPage = () => {
           quantity: product.quantity,
         }));
 
-      squareCheckoutItems.push({
-        name: "Shipping (USPS)",
-        price: shippingCost,
-        quantity: 1,
-      });
+      // squareCheckoutItems.push({
+      //   name: "Shipping (USPS)",
+      //   price: shippingCost,
+      //   quantity: 1,
+      // });
       console.log("Second check", squareCheckoutItems);
       const checkoutUrl = await GinsengApi.generateCheckoutUrl(
-        squareCheckoutItems
+        squareCheckoutItems,
+        shippingCost
       );
       console.log("checkout URL", checkoutUrl);
       if (checkoutUrl.url) {
