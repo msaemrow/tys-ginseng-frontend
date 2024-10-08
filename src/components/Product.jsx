@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "./CartProvider";
 import "../css/Product.css";
+import BestSeller from "../assets/bestSeller.png";
 
 const Product = ({
   id,
@@ -14,6 +15,7 @@ const Product = ({
   type,
   weight,
   quantity,
+  best_seller,
 }) => {
   const { addToCart, cartContents, isCartShowing, jarsRemaining } =
     useContext(CartContext);
@@ -33,10 +35,17 @@ const Product = ({
   return (
     <div className="Product d-flex flex-wrap flex-column border border-dark rounded m-3 p-2 w-25 justify-content-start align-items-center">
       <h3>{name}</h3>
+      {best_seller ? (
+        <img
+          src={BestSeller}
+          alt="best selling product"
+          className="best-seller"
+        />
+      ) : null}
 
       <div className="Product-footer mt-auto text-center">
         <img
-          className="Product-image rounded mb-2"
+          className="Product-image img-thumbnail rounded mb-2"
           src={url}
           alt={`picture of ${name}`}
         />

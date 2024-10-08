@@ -12,6 +12,7 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/jar_of_ginseng_025.jpg",
     weight: 0.43,
     quantity: 20,
+    best_seller: false,
   },
   {
     id: 1002,
@@ -26,6 +27,7 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/jar_of_ginseng_100.jpg",
     weight: 3.93,
     quantity: 20,
+    best_seller: true,
   },
   {
     id: 1003,
@@ -40,6 +42,7 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/jar_of_ginseng_600.jpg",
     weight: 7.32,
     quantity: 20,
+    best_seller: false,
   },
   {
     id: 1004,
@@ -54,6 +57,7 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/jar_of_ginseng_075.jpg",
     weight: 2.87,
     quantity: 20,
+    best_seller: false,
   },
   {
     id: 1005,
@@ -69,6 +73,7 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/dried_ginseng.jpg",
     weight: 0,
     quantity: 20,
+    best_seller: false,
   },
   {
     id: 1006,
@@ -84,6 +89,7 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/fresh_ginseng_roots.jpg",
     weight: 0,
     quantity: 20,
+    best_seller: false,
   },
   {
     id: 1007,
@@ -99,6 +105,7 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/fresh_dug_ginseng_root.jpg",
     weight: 0,
     quantity: 20,
+    best_seller: false,
   },
 ];
 

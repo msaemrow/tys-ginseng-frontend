@@ -1,12 +1,13 @@
 .Product-image {
-  height: 150px;
-  max-width: 150px;
+  /* height: 150px; */
+  max-height: 180px !important;
   object-fit: cover;
 }
 
 .Product {
   min-width: 250px;
   background-color: white;
+  position: relative !important;
 }
 
 .add-to-cart-btn {
@@ -16,4 +17,13 @@
 .on-sale {
   color: red;
   text-decoration: line-through;
+}
+
+.best-seller {
+  border: none;
+  width: 90px;
+  height: auto;
+  position: absolute !important;
+  top: -35px;
+  right: -45px;
 }

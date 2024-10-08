@@ -60,6 +60,7 @@ const ProductList = () => {
               type={product.type}
               weight={product.weight}
               quantity={product.quantity}
+              best_seller={product.best_seller}
             />
           ))}
       </div>

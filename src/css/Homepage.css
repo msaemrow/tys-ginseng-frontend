@@ -31,6 +31,10 @@ main a {
   width: auto; /* Optional: allows the image to scale proportionally */
 }
 
+.mnGrownLogo {
+  max-height: 75px;
+}
+
 .list-group-item {
   background-color: transparent !important; /* Removes the background color */
   border: none !important; /* Optional: Removes the border */

@@ -6,6 +6,7 @@ import images from "../assets/images";
 import "../css/Homepage.css";
 import ginsengPlant from "../assets/ginseng_plant.webp";
 import logo from "../assets/TysGinsengLogo.png";
+import mnGrownLogo from "../assets/mn-grown-logo.png";
 
 const Homepage = () => {
   return (
@@ -58,12 +59,19 @@ const Homepage = () => {
               am dedicated to upholding my grandfather's legacy of excellence in
               ginseng farming.
             </p>
-            <Link
-              className="Homepage-our-process-btn btn mt-2 d-flex align-items-center justify-content-center w-50"
-              to="/our-process"
-            >
-              See our process
-            </Link>
+            <div className="d-flex justify-content-space-between align-items-center">
+              <Link
+                className="Homepage-our-process-btn btn mt-2 me-4 d-flex align-items-center justify-content-center w-50"
+                to="/our-process"
+              >
+                See our process
+              </Link>
+              <img
+                src={mnGrownLogo}
+                alt="Minnesota Grown logo"
+                className="mnGrownLogo rounded"
+              />
+            </div>
           </div>
           <div style={{ flex: "0 0 40%" }}>
             {images
