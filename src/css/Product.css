@@ -1,5 +1,5 @@
 .Product-image {
-  /* height: 150px; */
+  height: 175px !important;
   max-height: 180px !important;
   object-fit: cover;
 }

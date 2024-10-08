@@ -144,6 +144,11 @@ const images = [
     url: "https://tysginseng.s3.us-east-2.amazonaws.com/ginseng_woods_with_sunset.jpg",
     location: "pictures",
   },
+  {
+    description: "One year old rootlet",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/one_year_old_rootlet.jpg",
+    location: "pictures",
+  },
 ];
 
 export default images;

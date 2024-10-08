@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import images from "../assets/images";
 import { Helmet } from "react-helmet-async";
-import ginsengPlant from "../assets/ginseng_plant.webp";
+import ImageModal from "./ImageModal";
 import "../css/PictureList.css";
 import logo from "../assets/TysGinsengLogo.png";
 
 const PictureList = () => {
+  const [isModalShowing, setIsModalShowing] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({
+    url: "",
+    description: "",
+  });
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    setIsModalShowing(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalShowing(false);
+  };
+
   return (
     <div className="picture-list">
       <Helmet>
@@ -81,9 +96,16 @@ const PictureList = () => {
             src={image.url}
             alt={image.description}
             className="img-fluid img-custom-grid rounded m-4"
+            onClick={() => handleImageClick(image)}
           />
         ))}
       </div>
+      <ImageModal
+        imageUrl={selectedImage.url}
+        imageAlt={selectedImage.description}
+        isOpen={isModalShowing}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };

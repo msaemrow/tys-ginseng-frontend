@@ -67,7 +67,7 @@ const CheckoutPage = () => {
       console.log("checkout URL", checkoutUrl);
       if (checkoutUrl.url) {
         window.location.href = checkoutUrl.url;
-        setTimeout(clearCartAfterCheckout, 3000);
+        setTimeout(clearCartAfterCheckout(), 1000);
       } else {
         toast.error(
           "There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know."

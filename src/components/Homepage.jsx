@@ -228,14 +228,8 @@ const Homepage = () => {
                 target="_blank"
                 className="text-start m-0 market-address"
               >
-                312 East Lyndale Ave N
-              </a>
-              <a
-                href="https://maps.app.goo.gl/6E8tSiL7Bh8bawXCA"
-                target="_blank"
-                className="text-start m-0 market-address"
-              >
-                Minneapolis, MN 55405
+                <p className="m-0">312 East Lyndale Ave N</p>
+                <p className="m-0">Minneapolis, MN 55405</p>
               </a>
             </div>
             <h4 className="mt-3 mb-0">Follow Us</h4>
