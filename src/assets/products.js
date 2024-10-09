@@ -102,7 +102,7 @@ const products = [
       "Fresh woods grown rootlets-- 1 or 2 year olds.  Quantities based on seasonal availability.  Minimum order is 50 rootlets. Orders over 150 may need additional time to fulfill.",
     servings: "",
     image_url:
-      "https://tysginseng.s3.us-east-2.amazonaws.com/one_year_old_rootlet.jpg",
+      "https://tysginseng.s3.us-east-2.amazonaws.com/fresh_dug_ginseng_root.jpg",
     weight: 0,
     quantity: 20,
     best_seller: false,
