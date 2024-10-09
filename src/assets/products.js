@@ -1,11 +1,11 @@
 const products = [
   {
-    id: 1001,
+    barcode: 1001,
     type: "SINGLE",
     name: "Ginseng Powder 0.25oz",
     price: 20.0,
     sale_price: 17.0,
-    on_sale: false,
+    on_sale: "false",
     description: "100% pure American ginseng powder - Minnesota woods grown",
     servings: "Approximately 7 daily servings at ¼-½ teaspoon",
     image_url:
@@ -15,7 +15,7 @@ const products = [
     best_seller: false,
   },
   {
-    id: 1002,
+    barcode: 1002,
     type: "SINGLE",
     name: "Ginseng Powder 1oz ",
     price: 70,
@@ -27,10 +27,10 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/jar_of_ginseng_100.jpg",
     weight: 3.93,
     quantity: 20,
-    best_seller: true,
+    best_seller: false,
   },
   {
-    id: 1003,
+    barcode: 1003,
     type: "SINGLE",
     name: "Ginseng Powder 6oz",
     price: 360.0,
@@ -45,7 +45,7 @@ const products = [
     best_seller: false,
   },
   {
-    id: 1004,
+    barcode: 1004,
     name: "Ginseng Powder 0.75oz",
     type: "SINGLE",
     price: 55.0,
@@ -60,7 +60,7 @@ const products = [
     best_seller: false,
   },
   {
-    id: 1005,
+    barcode: 1005,
     type: "BULK",
     name: "Dried Ginseng Roots by the Pound",
     price: 800,
@@ -76,7 +76,7 @@ const products = [
     best_seller: false,
   },
   {
-    id: 1006,
+    barcode: 1006,
     type: "BULK",
     name: "Fresh Ginseng Roots by the Pound",
     price: 300,
@@ -92,7 +92,7 @@ const products = [
     best_seller: false,
   },
   {
-    id: 1007,
+    barcode: 1007,
     type: "ROOTLET",
     name: "Rootlets for Sale",
     price: 2,
