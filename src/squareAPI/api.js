@@ -4,7 +4,7 @@ const BASE_URL = "/api";
 class GinsengApi {
   static async generateCheckoutUrl(shoppingCart, shipping) {
     try {
-      let res = await axios.post(`${BASE_URL}/payment/create`, {
+      let res = await axios.post(`/payment/create`, {
         products: shoppingCart,
         shippingCharge: shipping,
       });
