@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
@@ -9,11 +9,17 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../css/CheckoutPage.css";
+import LoadingOverlay from "./LoadingOverlay";
+import LoadingSquareCheckout from "./LoadingSquareCheckout";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
   const { cartContents, calculateTotal, clearCart } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
 
   const calculateShippingCost = () => {
     const totalOrderWeight = Object.entries(cartContents)
@@ -44,7 +50,7 @@ const CheckoutPage = () => {
 
   const handleCheckout = async () => {
     setIsLoading(true);
-    console.log("First check", cartContents);
+
     try {
       const shippingCost = calculateShippingCost(cartContents);
       const squareCheckoutItems = Object.entries(cartContents)
@@ -60,14 +66,14 @@ const CheckoutPage = () => {
         shippingCost
       );
       if (checkoutUrl.url) {
-        window.open(checkoutUrl.url, "_blank");
-        clearCartAfterCheckout();
-        navigate("/");
+        window.location.href = checkoutUrl.url;
+        // clearCartAfterCheckout();
       } else {
         toast.error(
           "There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know."
         );
         console.error("Invalid response format", checkoutUrl);
+        setIsLoading(false);
       }
     } catch (error) {
       toast.error(
@@ -75,7 +81,6 @@ const CheckoutPage = () => {
       );
       console.log("THERE WAS AN ERROR");
       console.error("Error generating checkout URL", error);
-    } finally {
       setIsLoading(false);
     }
   };
@@ -96,6 +101,9 @@ const CheckoutPage = () => {
         />
       </Helmet>
       <ToastContainer position="top-center" autoClose={10000} />
+
+      {isLoading && <LoadingOverlay />}
+
       {cartContents.contents === 0 ? (
         <div className="checkout-page-empty mb-5">
           <h2>Cart Summary</h2>
@@ -149,15 +157,13 @@ const CheckoutPage = () => {
                 </tr>
               </tbody>
             </table>
-          </div>
-          <button
-            className="btn checkout-button mt-2 mb-2 fs-5"
-            onClick={handleCheckout}
-            disabled={isLoading}
-          >
-            {isLoading ? "Processing cart items..." : "Checkout"}
-          </button>
-          {isLoading === false ? (
+            <button
+              className="btn checkout-button mt-2 mb-2 fs-5"
+              onClick={handleCheckout}
+              disabled={isLoading}
+            >
+              {isLoading ? "Processing cart items..." : "Checkout"}
+            </button>
             <button
               className="btn checkout-button ms-4 mt-2 mb-2 fs-5"
               onClick={returnToProducts}
@@ -165,25 +171,23 @@ const CheckoutPage = () => {
             >
               {isLoading ? "Processing cart items..." : "Keep Shopping"}
             </button>
-          ) : (
-            ""
-          )}
-          <p>
-            You will be redirected to a secure Square checkout page upon
-            clicking checkout
-          </p>
-          <p>
-            *All orders are shipped via USPS and have an estimated 3-5 day ship
-            time.
-          </p>
-          <p>
-            **Due to this being a consumable product, all sales are final and
-            returns will not be issued.
-          </p>
-          <p>
-            If you need special arrangements, please email or call the number at
-            the bottom of the page and we can discuss your options.
-          </p>
+            <p>
+              You will be redirected to a secure Square checkout page upon
+              clicking checkout.
+            </p>
+            <p>
+              *All orders are shipped via USPS and have an estimated 3-5 day
+              ship time.
+            </p>
+            <p>
+              **Due to this being a consumable product, all sales are final and
+              returns will not be issued.
+            </p>
+            <p>
+              If you need special arrangements, please email or call the number
+              at the bottom of the page and we can discuss your options.
+            </p>
+          </div>
         </div>
       )}
     </div>
