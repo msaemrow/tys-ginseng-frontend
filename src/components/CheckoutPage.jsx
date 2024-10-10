@@ -57,49 +57,36 @@ const CheckoutPage = () => {
         .filter(([key]) => key !== "contents")
         .map(([productId, product]) => ({
           name: product.name,
-          price: product.cost * 100, // Ensure price is in cents
+          price: product.cost * 100,
           quantity: product.quantity,
         }));
 
-      // Retry logic in case of network issues
-      const checkoutUrl = await retryAsync(() =>
-        GinsengApi.generateCheckoutUrl(squareCheckoutItems, shippingCost)
+      const checkoutUrl = await GinsengApi.generateCheckoutUrl(
+        squareCheckoutItems,
+        shippingCost
       );
 
-      if (checkoutUrl && checkoutUrl.url) {
-        // Navigate to the checkout URL
+      if (checkoutUrl.url) {
         window.location.href = checkoutUrl.url;
-        // Optionally clear the cart after checkout
         // clearCartAfterCheckout();
       } else {
-        // If the URL response is invalid, show an error message
         toast.error(
-          `There was an error processing your cart. Invalid URL received. Please try again later.`
+          `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know. URL is ${checkoutUrl}`
         );
-        console.error("Invalid checkout URL response", checkoutUrl);
+        console.error("Invalid response format", checkoutUrl);
         setIsLoading(false);
       }
     } catch (error) {
-      // General error handling
+      let urlError = error;
       toast.error(
-        `There was an error processing your cart. Please try again later. Error details: ${error.message}`
+        `Error: ${urlError}. URL: ${checkoutUrl}. There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`
       );
+      console.log("THERE WAS AN ERROR");
       console.error("Error generating checkout URL", error);
       setIsLoading(false);
     }
   };
 
-  // Helper function to add retry logic
-  const retryAsync = async (fn, retries = 3, delay = 1000) => {
-    for (let i = 0; i < retries; i++) {
-      try {
-        return await fn();
-      } catch (error) {
-        if (i === retries - 1) throw error; // Last attempt, throw error
-        await new Promise((resolve) => setTimeout(resolve, delay)); // Wait before retrying
-      }
-    }
-  };
   return (
     <div className="checkout-page pt-5 d-flex flex-column align-items-center">
       <Helmet>
