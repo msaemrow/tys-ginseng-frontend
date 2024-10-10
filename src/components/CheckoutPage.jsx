@@ -77,8 +77,9 @@ const CheckoutPage = () => {
         setIsLoading(false);
       }
     } catch (error) {
+      let urlError = error;
       toast.error(
-        "There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know."
+        `Error: ${urlError}. URL: ${checkoutUrl}. There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`
       );
       console.log("THERE WAS AN ERROR");
       console.error("Error generating checkout URL", error);
