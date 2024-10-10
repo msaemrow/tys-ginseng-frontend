@@ -65,7 +65,7 @@ const CheckoutPage = () => {
         squareCheckoutItems,
         shippingCost
       );
-
+      console.log("CHECKOUT URL", checkoutUrl);
       if (checkoutUrl.url) {
         window.location.href = checkoutUrl.url;
         // clearCartAfterCheckout();
