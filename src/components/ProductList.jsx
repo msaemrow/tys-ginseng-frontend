@@ -48,8 +48,8 @@ const ProductList = () => {
           .filter((product) => product.type === "SINGLE")
           .map((product) => (
             <Product
-              key={product.id}
-              id={product.id}
+              key={product.barcode}
+              barcode={product.barcode}
               name={product.name}
               price={product.price}
               sale_price={product.sale_price}

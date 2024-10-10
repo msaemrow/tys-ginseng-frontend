@@ -5,7 +5,7 @@ const products = [
     name: "Ginseng Powder 0.25oz",
     price: 20.0,
     sale_price: 17.0,
-    on_sale: "false",
+    on_sale: false,
     description: "100% pure American ginseng powder - Minnesota woods grown",
     servings: "Approximately 7 daily servings at ¼-½ teaspoon",
     image_url:
@@ -27,7 +27,7 @@ const products = [
       "https://tysginseng.s3.us-east-2.amazonaws.com/jar_of_ginseng_100.jpg",
     weight: 3.93,
     quantity: 20,
-    best_seller: false,
+    best_seller: true,
   },
   {
     barcode: 1003,

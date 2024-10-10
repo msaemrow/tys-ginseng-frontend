@@ -14,9 +14,9 @@ const CartItem = ({ id, name, price, quantity }) => {
 
   return (
     <tr>
-      <td>{name}</td>
-      <td>${price}</td>
-      <td>
+      <td className="text-center">{name}</td>
+      <td className="text-center">${price}</td>
+      <td className="text-center">
         <button
           className="btn pt-0 pb-0 ps-2 pe-2 ms-1"
           onClick={() => handleRemoveFromCart(id)}

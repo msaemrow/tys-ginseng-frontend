@@ -4,7 +4,7 @@ import "../css/Product.css";
 import BestSeller from "../assets/bestSeller.png";
 
 const Product = ({
-  id,
+  barcode,
   name,
   price,
   sale_price,
@@ -21,11 +21,11 @@ const Product = ({
     useContext(CartContext);
 
   const handleAddToCart = () => {
-    console.log("Adding to cart", id);
+    console.log("Adding to cart", barcode);
     const cost = on_sale ? sale_price : price;
-    const product = { id, name, cost, url, weight };
+    const product = { barcode, name, cost, url, weight };
     console.log(quantity);
-    addToCart(id, product);
+    addToCart(barcode, product);
   };
 
   const viewCart = () => {

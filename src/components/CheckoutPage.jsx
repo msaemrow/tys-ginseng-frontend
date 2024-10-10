@@ -55,20 +55,14 @@ const CheckoutPage = () => {
           quantity: product.quantity,
         }));
 
-      // squareCheckoutItems.push({
-      //   name: "Shipping (USPS)",
-      //   price: shippingCost,
-      //   quantity: 1,
-      // });
-      console.log("Second check", squareCheckoutItems);
       const checkoutUrl = await GinsengApi.generateCheckoutUrl(
         squareCheckoutItems,
         shippingCost
       );
-      console.log("checkout URL", checkoutUrl);
       if (checkoutUrl.url) {
-        window.location.href = checkoutUrl.url;
-        setTimeout(clearCartAfterCheckout(), 1000);
+        window.open(checkoutUrl.url, "_blank");
+        clearCartAfterCheckout();
+        navigate("/");
       } else {
         toast.error(
           "There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know."
@@ -114,7 +108,7 @@ const CheckoutPage = () => {
         <div className="checkout-page-contains-items">
           <h2>Cart Summary</h2>
           <div className="p-2">
-            <table className="cart-summary table mb-1 border rounded">
+            <table className="cart-summary table table-striped table-bordered mb-1">
               <thead>
                 <tr>
                   <th>Item Name</th>
@@ -139,13 +133,15 @@ const CheckoutPage = () => {
                   <td colSpan="3" className="text-end">
                     Shipping:
                   </td>
-                  <td>${calculateShippingCost() / 100}</td>
+                  <td className="text-center">
+                    ${calculateShippingCost() / 100}
+                  </td>
                 </tr>
                 <tr>
                   <td colSpan="3" className="text-end">
                     Cart Total:
                   </td>
-                  <td>
+                  <td className="text-center">
                     $
                     {calculateTotal(cartContents) +
                       calculateShippingCost() / 100}
@@ -173,6 +169,10 @@ const CheckoutPage = () => {
             ""
           )}
           <p>
+            You will be redirected to a secure Square checkout page upon
+            clicking checkout
+          </p>
+          <p>
             *All orders are shipped via USPS and have an estimated 3-5 day ship
             time.
           </p>
@@ -184,13 +184,6 @@ const CheckoutPage = () => {
             If you need special arrangements, please email or call the number at
             the bottom of the page and we can discuss your options.
           </p>
-
-          {/* <Link
-            className="btn checkout-button ms-4 mt-2 mb-2 fs-5"
-            to="/products"
-          >
-            Back to products
-          </Link> */}
         </div>
       )}
     </div>

@@ -1,11 +1,18 @@
 .cart-summary {
-  width: 75%;
+  width: 75% !important;
+  margin: 0 auto;
+  table-layout: auto;
 }
 
-.checkout-page-empty {
-  padding-top: 130px;
+.cart-summary th,
+.cart-summary td {
+  padding: 15px; /* Add padding for readability */
+  text-align: center; /* Default alignment for all cells */
 }
 
-.checkout-page-contains-items {
-  padding-top: 50px;
+.cart-summary td:nth-child(2),
+.cart-summary td:nth-child(3),
+.cart-summary td:nth-child(4),
+.cart-summary tr td.text-end {
+  text-align: right; /* Align numbers (price, quantity, totals) to the right */
 }
