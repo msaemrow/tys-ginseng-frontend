@@ -70,7 +70,7 @@ const CheckoutPage = () => {
         // clearCartAfterCheckout();
       } else {
         toast.error(
-          "There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know."
+          `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know. URL is ${checkoutUrl.url}`
         );
         console.error("Invalid response format", checkoutUrl);
         setIsLoading(false);
