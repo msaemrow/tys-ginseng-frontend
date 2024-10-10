@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://localhost:3001";
-
+const BASE_URL = "https://159.65.236.59:3001";
 class GinsengApi {
   static async generateCheckoutUrl(shoppingCart, shipping) {
     try {
