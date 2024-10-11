@@ -67,10 +67,14 @@ const CheckoutPage = () => {
       );
       console.log("CHECKOUT URL", checkoutUrl);
       if (checkoutUrl.url) {
-        window.location.href = checkoutUrl.url;
-        // window.open(checkoutUrl.url, "_blank");
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+          window.location.href = checkoutUrl.url;
+        } else {
+          window.open(checkoutUrl.url, "_blank");
+          navigate("/");
+        }
         clearCartAfterCheckout();
-        // navigate("/");
       } else {
         toast.error(
           `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know. URL is ${checkoutUrl}`
