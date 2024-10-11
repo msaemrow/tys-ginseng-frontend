@@ -11,6 +11,7 @@ import OurProcess from "./OurProcess";
 import CheckoutPage from "./CheckoutPage";
 import OrderConfirmation from "./OrderConfirmation";
 import AdminHomepage from "./Admin/AdminHomepage";
+import ProductPage from "./Admin/ProductPage";
 import "../css/AppRoutes.css";
 
 const AppRoutes = () => {
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
         <Route path="/admin/homepage" element={<AdminHomepage />} />
+        <Route path="/admin/:barcode" element={<ProductPage />} />
         {/* catch all route */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

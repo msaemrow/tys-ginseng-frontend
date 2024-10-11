@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductRow from "./ProductRow";
 import Products from "../../assets/products";
+import GinsengApi from "../../squareAPI/api";
 import "../../css/Admin/AdminHomepage.css";
 
 const AdminHomepage = () => {
@@ -48,12 +49,23 @@ const AdminHomepage = () => {
       best_seller: false,
     },
   ];
-  const [currentProducts, setCurrentProducts] = useState(Products);
+
+  const [currentProducts, setCurrentProducts] = useState(sampleProducts);
 
   useEffect(() => {
-    //this is where i would make the api call to get the products
-    setCurrentProducts(Products);
-  }, [Products]);
+    const fetchProducts = async () => {
+      try {
+        const response = await GinsengApi.getProducts();
+        const allProducts = response.products || [];
+        console.log("PRODUCTS", response.products);
+        setCurrentProducts(allProducts);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <div className="container d-flex flex-column">
@@ -66,14 +78,9 @@ const AdminHomepage = () => {
               <td>Type</td>
               <td>Name</td>
               <td>Price</td>
-              <td>Sale Price</td>
               <td>On Sale?</td>
               <td>Description</td>
-              <td>Servings</td>
-              <td>Image URL</td>
-              <td>Weight</td>
               <td>Quantity</td>
-              <td>Best Seller?</td>
             </tr>
           </thead>
           <tbody>
@@ -82,6 +89,7 @@ const AdminHomepage = () => {
                 key={index}
                 barcode={product.barcode}
                 type={product.type}
+                name={product.name}
                 price={product.price}
                 sale_price={product.sale_price}
                 on_sale={product.on_sale}

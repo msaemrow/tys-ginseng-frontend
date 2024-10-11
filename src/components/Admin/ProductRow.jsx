@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductRow = ({
   barcode,
@@ -16,18 +17,15 @@ const ProductRow = ({
 }) => {
   return (
     <tr>
-      <td>{barcode}</td>
+      <td>
+        <Link to={`/admin/${barcode}`}>{barcode}</Link>
+      </td>
       <td>{type}</td>
       <td>{name}</td>
       <td>{price}</td>
-      <td>{sale_price}</td>
       <td>{on_sale ? "true" : "false"}</td>
       <td>{description}</td>
-      <td>{servings}</td>
-      <td>{image_url}</td>
-      <td>{weight}</td>
       <td>{quantity}</td>
-      <td>{best_seller === true ? "true" : "false"}</td>
     </tr>
   );
 };
