@@ -208,6 +208,7 @@ const NavBar = () => {
               <Link
                 className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
                 to="/products"
+                onClick={handleMobileNavLinkClick}
               >
                 Buy Online Now
               </Link>

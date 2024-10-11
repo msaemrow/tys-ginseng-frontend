@@ -65,9 +65,9 @@ const CheckoutPage = () => {
         squareCheckoutItems,
         shippingCost
       );
-      console.log("CHECKOUT URL", checkoutUrl);
       if (checkoutUrl.url) {
         const isMobile = window.innerWidth < 768;
+        console.log("MOBILE SCREEN SIZE? ", isMobile);
         if (isMobile) {
           window.location.href = checkoutUrl.url;
         } else {
