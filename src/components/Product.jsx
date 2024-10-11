@@ -21,10 +21,8 @@ const Product = ({
     useContext(CartContext);
 
   const handleAddToCart = () => {
-    console.log("Adding to cart", barcode);
     const cost = on_sale ? sale_price : price;
     const product = { barcode, name, cost, url, weight };
-    console.log(quantity);
     addToCart(barcode, product);
   };
 

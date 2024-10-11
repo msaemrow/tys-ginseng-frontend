@@ -24,7 +24,6 @@ export const CartProvider = ({ children }) => {
   }, [cartContents]);
 
   const addToCart = (productId, product) => {
-    console.log("Product", product);
     setCartContents((prevCart) => {
       const newCart = { ...prevCart };
 
@@ -46,8 +45,7 @@ export const CartProvider = ({ children }) => {
         return newRemaining;
       });
     }
-    console.log("Jars remaining", jarsRemaining);
-    console.log(cartContents);
+
     toast.success(`${product.name} added to cart!`);
   };
 
@@ -57,13 +55,11 @@ export const CartProvider = ({ children }) => {
 
       if (newCart[productId]) {
         if (newCart[productId].quantity > 1) {
-          console.log("MULIPLE CONTENTS");
           newCart[productId] = {
             ...newCart[productId],
             quantity: newCart[productId].quantity - 1,
           };
         } else {
-          console.log("SINGLE ITEM");
           delete newCart[productId];
         }
 

@@ -67,7 +67,6 @@ const CheckoutPage = () => {
       );
       if (checkoutUrl.url) {
         const isMobile = window.innerWidth < 768;
-        console.log("MOBILE SCREEN SIZE? ", isMobile);
         if (isMobile) {
           window.location.href = checkoutUrl.url;
         } else {
@@ -87,7 +86,6 @@ const CheckoutPage = () => {
       toast.error(
         `Error: ${urlError}. URL: ${checkoutUrl}. There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`
       );
-      console.log("THERE WAS AN ERROR");
       console.error("Error generating checkout URL", error);
       setIsLoading(false);
     }
