@@ -72,6 +72,7 @@ const CheckoutPage = () => {
         } else {
           window.open(checkoutUrl.url, "_blank");
           navigate("/");
+          setIsLoading(false);
         }
         clearCartAfterCheckout();
       } else {
