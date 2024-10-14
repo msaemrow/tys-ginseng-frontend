@@ -67,28 +67,29 @@ const CheckoutPage = () => {
       );
       if (checkoutUrl.url) {
         const isMobile = window.innerWidth < 768;
-        if (isMobile) {
-          window.location.href = checkoutUrl.url;
-        } else {
-          window.open(checkoutUrl.url, "_blank");
-          navigate("/");
+        setTimeout(() => {
+          if (isMobile) {
+            window.location.href = checkoutUrl.url;
+          } else {
+            window.open(checkoutUrl.url, "_blank");
+            navigate("/");
+          }
+          clearCartAfterCheckout();
           setIsLoading(false);
-        }
-        clearCartAfterCheckout();
+        }, 300);
       } else {
-        toast.error(
-          `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know. URL is ${checkoutUrl}`
-        );
-        console.error("Invalid response format", checkoutUrl);
         setIsLoading(false);
+        toast.error(
+          `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know.`
+        );
       }
     } catch (error) {
+      setIsLoading(false);
       let urlError = error;
       toast.error(
-        `Error: ${urlError}. URL: ${checkoutUrl}. There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`
+        `There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`
       );
       console.error("Error generating checkout URL", error);
-      setIsLoading(false);
     }
   };
 
