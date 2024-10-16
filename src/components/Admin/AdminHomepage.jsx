@@ -2,58 +2,25 @@ import React, { useEffect, useState } from "react";
 import ProductRow from "./ProductRow";
 import Products from "../../assets/products";
 import "../../css/Admin/AdminHomepage.css";
+import GinsengApi from "../../apiGinsengAPI/api";
 
 const AdminHomepage = () => {
-  const sampleProducts = [
-    {
-      barcode: 1234567,
-      type: "SINGLE",
-      name: "Ginseng 1oz",
-      price: 20.0,
-      sale_price: 20.0,
-      on_sale: true,
-      description: "1oz jar of ginseng",
-      servings: "28 daily servings",
-      weight: 0.45,
-      image_url: "www.espn.com",
-      quantity: 20,
-      best_seller: true,
-    },
-    {
-      barcode: 1234568,
-      type: "SINGLE",
-      name: "Ginseng 1oz",
-      price: 20.0,
-      sale_price: 20.0,
-      on_sale: false,
-      description: "1oz jar of ginseng",
-      servings: "28 daily servings",
-      weight: 0.45,
-      image_url: "www.espn.com",
-      quantity: 20,
-      best_seller: false,
-    },
-    {
-      barcode: 1234569,
-      type: "BULK",
-      name: "Ginseng 1oz",
-      price: 20.0,
-      sale_price: 20.0,
-      on_sale: false,
-      description: "1oz jar of ginseng",
-      servings: "28 daily servings",
-      weight: 0.45,
-      image_url: "www.facebook.com",
-      quantity: 20,
-      best_seller: false,
-    },
-  ];
-  const [currentProducts, setCurrentProducts] = useState(Products);
+  const [currentProducts, setCurrentProducts] = useState(null);
 
   useEffect(() => {
     //this is where i would make the api call to get the products
-    setCurrentProducts(Products);
-  }, [Products]);
+    const fetchProducts = async () => {
+      try {
+        let productList = await GinsengApi.getAllProducts();
+        console.log(productList);
+        setCurrentProducts(productList.products);
+      } catch (err) {
+        console.error("Error fetching products", err);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <div className="container d-flex flex-column">
@@ -62,37 +29,37 @@ const AdminHomepage = () => {
         <table className="mt-4">
           <thead>
             <tr>
-              <td>Barcode</td>
-              <td>Type</td>
-              <td>Name</td>
-              <td>Price</td>
-              <td>Sale Price</td>
-              <td>On Sale?</td>
-              <td>Description</td>
-              <td>Servings</td>
-              <td>Image URL</td>
-              <td>Weight</td>
-              <td>Quantity</td>
-              <td>Best Seller?</td>
+              <td className="text-center">Barcode</td>
+              <td className="text-center">Type</td>
+              <td className="text-center">Name</td>
+              <td className="text-center">Price</td>
+              <td className="text-center">Sale Price</td>
+              <td className="text-center">On Sale</td>
+              <td className="text-center">Description</td>
+              <td className="text-center">Quantity</td>
             </tr>
           </thead>
           <tbody>
-            {currentProducts.map((product, index) => (
-              <ProductRow
-                key={index}
-                barcode={product.barcode}
-                type={product.type}
-                price={product.price}
-                sale_price={product.sale_price}
-                on_sale={product.on_sale}
-                description={product.description}
-                servings={product.servings}
-                image_url={product.image_url}
-                weight={product.weight}
-                quantity={product.quantity}
-                best_seller={product.best_seller}
-              />
-            ))}
+            {currentProducts ? (
+              currentProducts.map((product, index) => (
+                <ProductRow
+                  key={index}
+                  barcode={product.barcode}
+                  name={product.name}
+                  type={product.type}
+                  price={product.price}
+                  sale_price={product.sale_price}
+                  on_sale={product.on_sale}
+                  description={product.description}
+                  quantity={product.quantity}
+                  best_seller={product.best_seller}
+                />
+              ))
+            ) : (
+              <tr>
+                <td colSpan="12">Loading...</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

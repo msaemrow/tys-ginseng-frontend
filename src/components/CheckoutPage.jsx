@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import { CartContext } from "./CartProvider";
-import GinsengApi from "../squareAPI/api";
+import SquareApi from "../apiSquareAPI/api";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -61,7 +61,7 @@ const CheckoutPage = () => {
           quantity: product.quantity,
         }));
 
-      const checkoutUrl = await GinsengApi.generateCheckoutUrl(
+      const checkoutUrl = await SquareApi.generateCheckoutUrl(
         squareCheckoutItems,
         shippingCost
       );
