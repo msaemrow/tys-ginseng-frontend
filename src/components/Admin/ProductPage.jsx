@@ -20,7 +20,11 @@ const ProductPage = () => {
   }, [barcode]);
 
   const handleClickEditBtn = () => {
-    navigate("/admin/homepage");
+    navigate(`/admin/product/update/${barcode}`);
+  };
+
+  const handleClickAdminHomeBtn = () => {
+    navigate(`/admin/homepage`);
   };
 
   const handleDeleteProduct = () => {
@@ -43,6 +47,12 @@ const ProductPage = () => {
           onClick={handleClickEditBtn}
         >
           Edit Product
+        </button>
+        <button
+          className="ms-4  btn btn-secondary"
+          onClick={handleClickAdminHomeBtn}
+        >
+          Admin Homepage
         </button>
       </div>
       {product ? (

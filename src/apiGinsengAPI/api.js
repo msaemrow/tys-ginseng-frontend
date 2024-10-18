@@ -29,6 +29,18 @@ class GinsengApi {
     }
   }
 
+  static async updateProduct(barcode, product) {
+    try {
+      let res = await axios.patch(
+        `${BASE_URL}/api/products/${barcode}`,
+        product
+      );
+      return res.data;
+    } catch (err) {
+      console.error("ERROR Updating Product", err.response.data);
+    }
+  }
+
   static async deleteProduct(barcode) {
     try {
       let res = await axios.delete(`${BASE_URL}/api/products/${barcode}`);

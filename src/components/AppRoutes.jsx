@@ -12,6 +12,7 @@ import CheckoutPage from "./CheckoutPage";
 import OrderConfirmation from "./OrderConfirmation";
 import AdminHomepage from "./Admin/AdminHomepage";
 import NewProductPage from "./Admin/NewProductPage";
+import UpdateProductPage from "./Admin/UpdateProductPage";
 import ProductPage from "./Admin/ProductPage";
 import "../css/AppRoutes.css";
 
@@ -29,9 +30,14 @@ const AppRoutes = () => {
         <Route path="/our-process" element={<OurProcess />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
-        <Route path="/admin/product/new" element={<NewProductPage />} />
-        <Route path="/admin/product/:barcode" element={<ProductPage />} />
         <Route path="/admin/homepage" element={<AdminHomepage />} />
+        <Route path="/admin/product/new" element={<NewProductPage />} />
+        <Route
+          path="/admin/product/update/:barcode"
+          element={<UpdateProductPage />}
+        />
+        <Route path="/admin/product/:barcode" element={<ProductPage />} />
+
         {/* catch all route */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

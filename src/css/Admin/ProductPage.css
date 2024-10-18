@@ -3,8 +3,17 @@ img {
   width: auto;
 }
 
+.header-content {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
 .top-content-div {
   gap: 3rem;
+}
+
+.main-div {
+  min-height: 40vh;
 }
 
 @media (max-width: 768px) {
@@ -18,7 +27,7 @@ img {
     flex-direction: column;
     align-items: center;
     padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
+    padding-top: 0.2rem !important;
   }
 
   .main-div {

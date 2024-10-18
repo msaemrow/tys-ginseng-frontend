@@ -43,7 +43,7 @@ const AdminHomepage = () => {
     <div className="container d-flex flex-column">
       <ToastContainer position="top-center" autoClose={2000} />
       <div className="header-content d-flex justify-content-center align-items-center pt-4">
-        <h1 className="me-4 pt-3">Admin Homepage</h1>
+        <h1 className="me-4 pt-4">Admin Homepage</h1>
         <button onClick={handleClickNewProductBtn} className="btn btn-success">
           Add New Product
         </button>
