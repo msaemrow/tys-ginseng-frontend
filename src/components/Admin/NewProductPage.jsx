@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router";
 import GinsengApi from "../../apiGinsengAPI/api";
 
 const NewProductPage = () => {
+  const navigate = useNavigate();
   const emptyForm = {
     barcode: 0,
     type: "",
@@ -16,6 +17,7 @@ const NewProductPage = () => {
     weight: 0,
     quantity: 0,
     best_seller: false,
+    listed_on_site: true,
   };
   const [formData, setFormData] = useState(emptyForm);
 
@@ -41,6 +43,7 @@ const NewProductPage = () => {
     try {
       const response = await GinsengApi.addProduct(productData);
       console.log("Product created:", response);
+      navigate("/admin/homepage");
     } catch (error) {
       console.error("Error creating product:", error);
     }
@@ -73,14 +76,20 @@ const NewProductPage = () => {
             <label className="form-label me-2" style={{ width: "30%" }}>
               Type:
             </label>
-            <input
-              type="text"
+            <select
               name="type"
               className="form-control"
               value={formData.type}
               onChange={handleChange}
               required
-            />
+            >
+              <option value="">Select Type</option>
+              <option value="SINGLE">SINGLE</option>
+              <option value="BULK">BULK</option>
+              <option value="ROOTLET">ROOTLET</option>
+              <option value="PRODUCT">PRODUCT</option>
+              <option value="OTHER">OTHER</option>
+            </select>
           </div>
 
           <div className="col-md-6 mb-3 d-flex align-items-center">
@@ -122,52 +131,6 @@ const NewProductPage = () => {
               value={formData.sale_price}
               onChange={handleChange}
             />
-          </div>
-
-          <div className="col-md-6 mb-3 d-flex align-items-center">
-            <label className="form-label me-2" style={{ width: "30%" }}>
-              On Sale:
-            </label>
-            <div className="ms-2">
-              <div className="form-check form-check-inline">
-                <input
-                  type="radio"
-                  name="on_sale"
-                  id="on_sale_yes"
-                  value={true}
-                  className="form-check-input"
-                  checked={formData.on_sale === true}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      on_sale: e.target.value === "true",
-                    })
-                  }
-                />
-                <label className="form-check-label" htmlFor="on_sale_yes">
-                  Yes
-                </label>
-              </div>
-              <div className="form-check form-check-inline">
-                <input
-                  type="radio"
-                  name="on_sale"
-                  id="on_sale_no"
-                  value={false}
-                  className="form-check-input"
-                  checked={formData.on_sale === false}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      on_sale: e.target.value === "false",
-                    })
-                  }
-                />
-                <label className="form-check-label" htmlFor="on_sale_no">
-                  No
-                </label>
-              </div>
-            </div>
           </div>
 
           <div className="col-md-6 mb-3 d-flex align-items-center">
@@ -237,6 +200,52 @@ const NewProductPage = () => {
 
           <div className="col-md-6 mb-3 d-flex align-items-center">
             <label className="form-label me-2" style={{ width: "30%" }}>
+              On Sale:
+            </label>
+            <div className="ms-2">
+              <div className="form-check form-check-inline">
+                <input
+                  type="radio"
+                  name="on_sale"
+                  id="on_sale_yes"
+                  value={true}
+                  className="form-check-input"
+                  checked={formData.on_sale === true}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      on_sale: e.target.value === "true",
+                    })
+                  }
+                />
+                <label className="form-check-label" htmlFor="on_sale_yes">
+                  Yes
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  type="radio"
+                  name="on_sale"
+                  id="on_sale_no"
+                  value={false}
+                  className="form-check-input"
+                  checked={formData.on_sale === false}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      on_sale: e.target.value === "false",
+                    })
+                  }
+                />
+                <label className="form-check-label" htmlFor="on_sale_no">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-6 mb-3 d-flex align-items-center">
+            <label className="form-label me-2" style={{ width: "30%" }}>
               Best Seller:
             </label>
             <div className="ms-2">
@@ -275,6 +284,55 @@ const NewProductPage = () => {
                   }
                 />
                 <label className="form-check-label" htmlFor="best_seller_no">
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-6 mb-3 d-flex align-items-center">
+            <label className="form-label me-2" style={{ width: "30%" }}>
+              Listed on Site?
+            </label>
+            <div className="ms-2">
+              <div className="form-check form-check-inline">
+                <input
+                  type="radio"
+                  name="listed_on_site"
+                  id="listed_on_site_yes"
+                  value={true}
+                  className="form-check-input"
+                  checked={formData.listed_on_site === true}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      listed_on_site: e.target.value === "true",
+                    })
+                  }
+                />
+                <label
+                  className="form-check-label"
+                  htmlFor="listed_on_site_yes"
+                >
+                  Yes
+                </label>
+              </div>
+              <div className="form-check form-check-inline">
+                <input
+                  type="radio"
+                  name="listed_on_site"
+                  id="listed_on_site_no"
+                  value={false}
+                  className="form-check-input"
+                  checked={formData.listed_on_site === false}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      listed_on_site: e.target.value === "false",
+                    })
+                  }
+                />
+                <label className="form-check-label" htmlFor="listed_on_site_no">
                   No
                 </label>
               </div>

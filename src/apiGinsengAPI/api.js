@@ -19,6 +19,23 @@ class GinsengApi {
       console.error("ERROR. ", err.response.data);
     }
   }
+
+  static async getProduct(barcode) {
+    try {
+      let res = await axios.get(`${BASE_URL}/api/products/${barcode}`);
+      return res.data;
+    } catch (err) {
+      console.error("ERROR. ", err.response.data);
+    }
+  }
+
+  static async deleteProduct(barcode) {
+    try {
+      let res = await axios.delete(`${BASE_URL}/api/products/${barcode}`);
+    } catch (err) {
+      console.error("ERROR Deleting Product", err.response.data);
+    }
+  }
 }
 
 export default GinsengApi;
