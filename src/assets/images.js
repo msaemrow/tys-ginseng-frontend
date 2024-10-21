@@ -11,7 +11,7 @@ const images = [
   },
   {
     description: "Ty holding ginseng root",
-    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ty_holding_ginseg_root.webp",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ty_holding_ginseg_root.jpg",
     location: "about",
   },
   {
@@ -76,7 +76,7 @@ const images = [
   },
   {
     description: "Ty at the farmers market",
-    url: "https://tysginseng.s3.us-east-2.amazonaws.com/tys_at_farmers_market.webp",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/tys_at_farmers_market.jpg",
     location: "market",
   },
   {
@@ -131,7 +131,7 @@ const images = [
   },
   {
     description: "Ty's holding ginseng root",
-    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ty_holding_ginseng_root_2.webp",
+    url: "https://tysginseng.s3.us-east-2.amazonaws.com/ty_holding_ginseng_root_2.jpg",
     location: "benefits",
   },
   {

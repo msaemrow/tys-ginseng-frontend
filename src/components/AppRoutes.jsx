@@ -28,6 +28,7 @@ const AppRoutes = () => {
         <Route path="/our-process" element={<OurProcess />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin/homepage" element={<AdminHomepage />} />
         <Route path="/admin/:barcode" element={<ProductPage />} />
         {/* catch all route */}

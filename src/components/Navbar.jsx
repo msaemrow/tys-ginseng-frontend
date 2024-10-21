@@ -145,6 +145,16 @@ const NavBar = () => {
                 Bulk Roots
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/admin/homepage"
+                onClick={handleMobileNavLinkClick}
+              >
+                Admin Homepage
+              </NavLink>
+            </li>
             <li className="nav-item dropdown">
               <NavLink
                 className="nav-link dropdown-toggle about-us-dropdown"

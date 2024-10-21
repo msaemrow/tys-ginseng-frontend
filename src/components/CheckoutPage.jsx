@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import { CartContext } from "./CartProvider";
-import GinsengApi from "../squareAPI/api";
+import SquareApi from "../apiSquareAPI/api";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -61,33 +61,35 @@ const CheckoutPage = () => {
           quantity: product.quantity,
         }));
 
-      const checkoutUrl = await GinsengApi.generateCheckoutUrl(
+      const checkoutUrl = await SquareApi.generateCheckoutUrl(
         squareCheckoutItems,
         shippingCost
       );
       if (checkoutUrl.url) {
         const isMobile = window.innerWidth < 768;
-        if (isMobile) {
-          window.location.href = checkoutUrl.url;
-        } else {
-          window.open(checkoutUrl.url, "_blank");
-          navigate("/");
-        }
-        clearCartAfterCheckout();
+        setTimeout(() => {
+          if (isMobile) {
+            window.location.href = checkoutUrl.url;
+          } else {
+            window.open(checkoutUrl.url, "_blank");
+            navigate("/");
+          }
+          clearCartAfterCheckout();
+          setIsLoading(false);
+        }, 300);
       } else {
-        toast.error(
-          `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know. URL is ${checkoutUrl}`
-        );
-        console.error("Invalid response format", checkoutUrl);
         setIsLoading(false);
+        toast.error(
+          `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know.`
+        );
       }
     } catch (error) {
+      setIsLoading(false);
       let urlError = error;
       toast.error(
-        `Error: ${urlError}. URL: ${checkoutUrl}. There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`
+        `There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`
       );
       console.error("Error generating checkout URL", error);
-      setIsLoading(false);
     }
   };
 
