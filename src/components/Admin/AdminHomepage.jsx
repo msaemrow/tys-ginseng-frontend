@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import ProductRow from "./ProductRow";
 import MobileProductRow from "./MobileProductRow";
+import { UserContext } from "../UserProvider";
 import { ToastContainer } from "react-toastify";
 import "../../css/Admin/AdminHomepage.css";
 import GinsengApi from "../../apiGinsengAPI/api";
@@ -10,6 +11,8 @@ const AdminHomepage = () => {
   const navigate = useNavigate();
   const [currentProducts, setCurrentProducts] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+
+  const { adminUser, loading } = useContext(UserContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -38,11 +41,17 @@ const AdminHomepage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>; // Render a loading message or spinner
+  }
+
   return (
     <div className="container d-flex flex-column">
       <ToastContainer position="top-center" autoClose={2000} />
       <div className="header-content d-flex justify-content-center align-items-center pt-4">
-        <h1 className="me-4 pt-4">Admin Homepage</h1>
+        <h1 className="me-4 pt-4">
+          Admin Homepage {adminUser ? adminUser.username : "Loading..."}
+        </h1>
         <button onClick={handleClickNewProductBtn} className="btn btn-success">
           Add New Product
         </button>

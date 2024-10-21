@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 import { CartContext } from "./CartProvider";
 import { useNavigate } from "react-router-dom";
 import { NavLink, Link } from "react-router-dom";
+import { UserContext } from "./UserProvider";
 import Logo from "../assets/TysGinsengLogo.png";
 import SmallLogo from "../assets/TysGinsengLogo.webp";
 import "../css/Navbar.css";
@@ -18,6 +19,8 @@ const NavBar = () => {
     addToCart,
     clearCart,
   } = useContext(CartContext);
+
+  const { adminUser, logout } = useContext(UserContext);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -125,6 +128,18 @@ const NavBar = () => {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
+            {adminUser && adminUser.role === "admin" && (
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  aria-current="page"
+                  to="/admin/homepage"
+                  onClick={handleMobileNavLinkClick}
+                >
+                  Admin Homepage
+                </NavLink>
+              </li>
+            )}
             <li className="nav-item">
               <NavLink
                 className="nav-link"
@@ -145,16 +160,7 @@ const NavBar = () => {
                 Bulk Roots
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                aria-current="page"
-                to="/admin/homepage"
-                onClick={handleMobileNavLinkClick}
-              >
-                Admin Homepage
-              </NavLink>
-            </li>
+
             <li className="nav-item dropdown">
               <NavLink
                 className="nav-link dropdown-toggle about-us-dropdown"
@@ -214,15 +220,17 @@ const NavBar = () => {
             id="cart-dropdown"
             className="navbar-nav ms-auto d-flex flex-direction-column align-items-center justify-content-center"
           >
-            <li>
-              <Link
-                className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
-                to="/products"
-                onClick={handleMobileNavLinkClick}
-              >
-                Buy Online Now
-              </Link>
-            </li>
+            {!adminUser && (
+              <li>
+                <Link
+                  className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
+                  to="/products"
+                  onClick={handleMobileNavLinkClick}
+                >
+                  Buy Online Now
+                </Link>
+              </li>
+            )}
 
             <li className="nav-item">
               {isMobile === true ? (
@@ -303,6 +311,16 @@ const NavBar = () => {
                 </ul>
               )}
             </li>
+            {adminUser && adminUser.role === "admin" && (
+              <li className="nav-item">
+                <button
+                  className="nav-link btn btn-link" // Ensuring it looks like a link
+                  onClick={logout}
+                >
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>
