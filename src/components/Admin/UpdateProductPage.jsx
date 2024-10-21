@@ -60,13 +60,13 @@ const UpdateProductPage = () => {
       weight: Number(formData.weight),
       quantity: Number(formData.quantity),
     };
-
+    console.log("Form Data:", formData);
+    console.log("Updated Form Data", updatedProductData);
     try {
       const response = await GinsengApi.updateProduct(
         barcode,
         updatedProductData
       );
-      console.log("Product updated:", response);
       navigate(`/admin/product/${barcode}`);
     } catch (error) {
       console.error("Error updating product:", error);
@@ -238,7 +238,7 @@ const UpdateProductPage = () => {
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      on_sale: e.target.value === true,
+                      on_sale: JSON.parse(e.target.value),
                     })
                   }
                 />
@@ -257,7 +257,7 @@ const UpdateProductPage = () => {
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      on_sale: e.target.value === false,
+                      on_sale: JSON.parse(e.target.value),
                     })
                   }
                 />
@@ -284,7 +284,7 @@ const UpdateProductPage = () => {
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      best_seller: e.target.value === true,
+                      best_seller: JSON.parse(e.target.value),
                     })
                   }
                 />
@@ -303,7 +303,7 @@ const UpdateProductPage = () => {
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      best_seller: e.target.value === false,
+                      best_seller: JSON.parse(e.target.value),
                     })
                   }
                 />
@@ -324,13 +324,13 @@ const UpdateProductPage = () => {
                   type="radio"
                   name="listed_on_site"
                   id="listed_on_site_yes"
-                  value={true}
+                  value="true"
                   className="form-check-input"
                   checked={formData.listed_on_site === true}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      listed_on_site: e.target.value === true,
+                      listed_on_site: JSON.parse(e.target.value),
                     })
                   }
                 />
@@ -346,13 +346,13 @@ const UpdateProductPage = () => {
                   type="radio"
                   name="listed_on_site"
                   id="listed_on_site_no"
-                  value={false}
+                  value="false"
                   className="form-check-input"
                   checked={formData.listed_on_site === false}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      listed_on_site: e.target.value === false,
+                      listed_on_site: JSON.parse(e.target.value),
                     })
                   }
                 />

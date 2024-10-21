@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
-import products from "../assets/products";
+import React, { useContext, useState, useEffect } from "react";
+// import products from "../assets/products";
 import Product from "./Product";
+import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
 import { CartContext } from "./CartProvider";
@@ -10,11 +11,19 @@ import logo from "../assets/TysGinsengLogo.png";
 
 const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
+  const [products, setProducts] = useState([]);
 
-  const viewCart = () => {
-    console.log(cartContents);
-    console.log(isCartShowing);
-  };
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        let productList = await GinsengApi.getAllProducts();
+        setProducts(productList.products);
+      } catch (err) {
+        console.error("Error fetching products", err);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <div className="pt-5">
@@ -45,7 +54,10 @@ const ProductList = () => {
       </h2>
       <div className="d-flex flex-wrap justify-content-center">
         {products
-          .filter((product) => product.type === "SINGLE")
+          .filter(
+            (product) =>
+              product.type === "SINGLE" && product.listed_on_site === true
+          )
           .map((product) => (
             <Product
               key={product.barcode}

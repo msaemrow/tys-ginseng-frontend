@@ -14,6 +14,7 @@ import AdminHomepage from "./Admin/AdminHomepage";
 import NewProductPage from "./Admin/NewProductPage";
 import UpdateProductPage from "./Admin/UpdateProductPage";
 import ProductPage from "./Admin/ProductPage";
+import AdminLogin from "./Admin/AdminLogin";
 import "../css/AppRoutes.css";
 
 const AppRoutes = () => {
@@ -30,6 +31,7 @@ const AppRoutes = () => {
         <Route path="/our-process" element={<OurProcess />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin/homepage" element={<AdminHomepage />} />
         <Route path="/admin/product/new" element={<NewProductPage />} />
         <Route

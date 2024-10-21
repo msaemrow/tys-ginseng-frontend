@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import products from "../assets/products";
+import React, { useContext, useState, useEffect } from "react";
 import Product from "./Product";
+import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
 import { CartContext } from "./CartProvider";
@@ -8,11 +8,20 @@ import logo from "../assets/TysGinsengLogo.png";
 
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
+  const [products, setProducts] = useState([]);
 
-  const viewCart = () => {
-    console.log(cartContents);
-    console.log(isCartShowing);
-  };
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        let productList = await GinsengApi.getAllProducts();
+        setProducts(productList.products);
+        console.log("products", products);
+      } catch (err) {
+        console.error("Error fetching products", err);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <div className="pt-5">
@@ -33,17 +42,13 @@ const BulkProductList = () => {
         />
         <meta property="og:image" content={logo} />
       </Helmet>
-      <h2 className="Products-title">
-        Roots by the Pound{" "}
-        {/* button to view cart contents-- for testing purposes only */}
-        {/* <button className="btn view-cart-btn m-2" onClick={viewCart}>
-          View cart
-        </button> */}
-      </h2>
+      <h2 className="Products-title">Roots by the Pound </h2>
       <div className="d-flex flex-wrap justify-content-center">
         {products
           .filter(
-            (product) => product.type === "BULK" || product.type === "ROOTLET"
+            (product) =>
+              (product.type === "BULK" || product.type === "ROOTLET") &&
+              product.listed_on_site === true
           )
           .map((product) => (
             <Product

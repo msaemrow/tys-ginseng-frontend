@@ -15,7 +15,6 @@ const AdminHomepage = () => {
     const fetchProducts = async () => {
       try {
         let productList = await GinsengApi.getAllProducts();
-        console.log(productList);
         setCurrentProducts(productList.products);
       } catch (err) {
         console.error("Error fetching products", err);

@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../css/Footer.css";
 import Logo from "../assets/TysGinsengLogo.png";
 import SmallLogo from "../assets/TysGinsengLogo.webp";
 
 const Footer = () => {
   return (
-    <div className="Footer pt-3 mb-3">
+    <div className="Footer pt-3 mb-3 pb-3">
       <h4 className="fs-2">Ty's Ginseng</h4>
       <img className="Footer-logo" src={Logo} alt="Ty's Ginseng Logo" />
       <h5>Contact Us</h5>
@@ -36,6 +37,9 @@ const Footer = () => {
           </a>
         </span>
       </div>
+      <Link className="pb-4" to="/admin-login">
+        Admin Login
+      </Link>
     </div>
   );
 };
