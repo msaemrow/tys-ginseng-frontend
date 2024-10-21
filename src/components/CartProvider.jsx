@@ -6,7 +6,6 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const emptyCart = { contents: 0 };
 
-  const [jarsRemaining, setJarsRemaining] = useState({ quantity: 20 });
   const [isCartShowing, setIsCartShowing] = useState(false);
   const [cartContents, setCartContents] = useState(() => {
     const storedCart = localStorage.getItem("cartContents");
@@ -103,7 +102,6 @@ export const CartProvider = ({ children }) => {
         toggleIsCartShowing,
         calculateTotal,
         clearCart,
-        jarsRemaining,
       }}
     >
       {children}

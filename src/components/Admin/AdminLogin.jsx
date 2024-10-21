@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router";
+import { UserContext } from "../UserProvider";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const { login } = useContext(UserContext); // Destructure the login function
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Username:", username);
-    console.log("Password:", password);
+    // Call the login function from UserContext
+    const result = await login({ username, password });
+    setPassword("");
+    // Handle the result of the login attempt
+    if (result.success) {
+      console.log("Login successful", result);
+      setUsername("");
+      navigate("/admin/homepage");
+      // Optionally redirect or update the UI to reflect the login
+    } else {
+      console.error("Login failed:", result.message);
+      // Optionally show an error message to the user
+    }
   };
 
   return (

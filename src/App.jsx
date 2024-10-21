@@ -5,15 +5,18 @@ import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AppRoutes from "./components/AppRoutes";
 import { CartProvider } from "./components/CartProvider";
+import { UserProvider } from "./components/UserProvider";
 
 function App() {
   return (
     <>
       <HelmetProvider>
         <CartProvider>
-          <NavBar />
-          <AppRoutes />
-          <Footer />
+          <UserProvider>
+            <NavBar />
+            <AppRoutes />
+            <Footer />
+          </UserProvider>
         </CartProvider>
       </HelmetProvider>
     </>
