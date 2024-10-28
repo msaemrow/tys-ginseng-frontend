@@ -8,7 +8,7 @@ const AdminLogin = () => {
 
   const navigate = useNavigate();
 
-  const { login } = useContext(UserContext); // Destructure the login function
+  const { login, loading } = useContext(UserContext); // Destructure the login function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +17,9 @@ const AdminLogin = () => {
     setPassword("");
     // Handle the result of the login attempt
     if (result.success) {
+      while (loading) {
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
       console.log("Login successful", result);
       setUsername("");
       navigate("/admin/homepage");
