@@ -3,12 +3,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import GinsengApi from "../../apiGinsengAPI/api";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
+import ChangePhoto from "./ChangePhoto";
 import "../../css/Admin/ProductPage.css";
 
 const ProductPage = () => {
   const navigate = useNavigate();
   const { barcode } = useParams();
   const [product, setProduct] = useState(null);
+  const [isModalShowing, setIsModalShowing] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -21,6 +23,10 @@ const ProductPage = () => {
 
   const handleClickEditBtn = () => {
     navigate(`/admin/product/update/${barcode}`);
+  };
+
+  const handleClickChangePhotoBtn = () => {
+    setIsModalShowing(true);
   };
 
   const handleClickAdminHomeBtn = () => {
@@ -36,6 +42,18 @@ const ProductPage = () => {
     toast.success(`${product.barcode} deleted from inventory`);
   };
 
+  const handlePhotoUpdate = async (newPhotoUrl) => {
+    try {
+      await GinsengApi.updateProductPhoto(product.barcode, newPhotoUrl);
+
+      setProduct((prevProduct) => ({ ...prevProduct, image_url: newPhotoUrl }));
+
+      toast.success("Product photo updated successfully");
+    } catch (error) {
+      toast.error("Failed to update product photo -- Product page");
+    }
+  };
+
   return (
     <div className="pt-5 pb-4 d-flex flex-column align-items-center">
       <ToastContainer position="top-center" autoClose={2000} />
@@ -47,6 +65,12 @@ const ProductPage = () => {
           onClick={handleClickEditBtn}
         >
           Edit Product
+        </button>
+        <button
+          className="ms-4  btn btn-secondary"
+          onClick={handleClickChangePhotoBtn}
+        >
+          Change Photo
         </button>
         <button
           className="ms-4  btn btn-secondary"
@@ -132,6 +156,12 @@ const ProductPage = () => {
       <button onClick={handleDeleteProduct} className="btn btn-danger">
         Delete Product
       </button>
+      {isModalShowing && (
+        <ChangePhoto
+          onClose={() => setIsModalShowing(false)}
+          onSubmit={handlePhotoUpdate}
+        />
+      )}
     </div>
   );
 };

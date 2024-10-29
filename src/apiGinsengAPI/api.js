@@ -70,6 +70,21 @@ class GinsengApi {
       throw err;
     }
   }
+
+  static async updateProductPhoto(barcode, photoUrl) {
+    try {
+      console.log("URL", photoUrl);
+      const response = await axios.patch(
+        `${BASE_URL}/api/photos/update/${barcode}`,
+        {
+          photoUrl,
+        }
+      );
+    } catch (err) {
+      console.error("Error updating product photo", err);
+      throw err;
+    }
+  }
 }
 
 export default GinsengApi;

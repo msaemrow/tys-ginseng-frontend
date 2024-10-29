@@ -193,9 +193,6 @@ const NewProductPage = () => {
               accept="image/*" // Optional: Restrict file types to images only
               onChange={handleFileChange}
             />
-            {file && (
-              <span className="ms-2">{file.name}</span> // Show the name of the selected file
-            )}
           </div>
 
           <div className="col-md-6 mb-3 d-flex align-items-center">

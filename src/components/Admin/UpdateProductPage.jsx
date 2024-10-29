@@ -60,8 +60,7 @@ const UpdateProductPage = () => {
       weight: Number(formData.weight),
       quantity: Number(formData.quantity),
     };
-    console.log("Form Data:", formData);
-    console.log("Updated Form Data", updatedProductData);
+
     try {
       const response = await GinsengApi.updateProduct(
         barcode,
@@ -192,19 +191,6 @@ const UpdateProductPage = () => {
               value={formData.servings}
               onChange={handleChange}
               rows={5}
-            />
-          </div>
-
-          <div className="col-md-6 mb-3 d-flex align-items-center">
-            <label className="form-label me-2" style={{ width: "30%" }}>
-              Image URL:
-            </label>
-            <input
-              type="text"
-              name="image_url"
-              className="form-control"
-              value={formData.image_url}
-              onChange={handleChange}
             />
           </div>
 
