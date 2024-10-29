@@ -156,17 +156,29 @@ const UpdateProductPage = () => {
               onChange={handleChange}
             />
           </div>
+          <div className="col-md-6 mb-3 d-flex align-items-center">
+            <label className="form-label me-2" style={{ width: "30%" }}>
+              Quantity:
+            </label>
+            <input
+              type="number"
+              name="quantity"
+              className="form-control"
+              value={formData.quantity}
+              onChange={handleChange}
+            />
+          </div>
 
           <div className="col-md-6 mb-3 d-flex align-items-center">
             <label className="form-label me-2" style={{ width: "30%" }}>
               Description:
             </label>
-            <input
-              type="text"
+            <textarea
               name="description"
               className="form-control"
               value={formData.description}
               onChange={handleChange}
+              rows={5}
             />
           </div>
 
@@ -174,12 +186,12 @@ const UpdateProductPage = () => {
             <label className="form-label me-2" style={{ width: "30%" }}>
               Servings:
             </label>
-            <input
-              type="text"
+            <textarea
               name="servings"
               className="form-control"
               value={formData.servings}
               onChange={handleChange}
+              rows={5}
             />
           </div>
 
@@ -205,19 +217,6 @@ const UpdateProductPage = () => {
               name="weight"
               className="form-control"
               value={formData.weight}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6 mb-3 d-flex align-items-center">
-            <label className="form-label me-2" style={{ width: "30%" }}>
-              Quantity:
-            </label>
-            <input
-              type="number"
-              name="quantity"
-              className="form-control"
-              value={formData.quantity}
               onChange={handleChange}
             />
           </div>

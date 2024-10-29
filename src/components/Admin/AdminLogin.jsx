@@ -17,16 +17,13 @@ const AdminLogin = () => {
     setPassword("");
     // Handle the result of the login attempt
     if (result.success) {
-      while (loading) {
-        await new Promise((resolve) => setTimeout(resolve, 50));
-      }
       console.log("Login successful", result);
       setUsername("");
-      navigate("/admin/homepage");
-      // Optionally redirect or update the UI to reflect the login
+      setTimeout(() => {
+        navigate("/admin/homepage");
+      }, 200);
     } else {
       console.error("Login failed:", result.message);
-      // Optionally show an error message to the user
     }
   };
 

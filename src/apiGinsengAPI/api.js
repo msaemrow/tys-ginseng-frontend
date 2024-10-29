@@ -48,6 +48,28 @@ class GinsengApi {
       console.error("ERROR Deleting Product", err.response.data);
     }
   }
+
+  static async uploadImage(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/photos/upload`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      return response.data.url;
+    } catch (err) {
+      console.error("Error uploading image", err);
+      throw err;
+    }
+  }
 }
 
 export default GinsengApi;
