@@ -73,7 +73,6 @@ class GinsengApi {
 
   static async updateProductPhoto(barcode, photoUrl) {
     try {
-      console.log("URL", photoUrl);
       const response = await axios.patch(
         `${BASE_URL}/api/photos/update/${barcode}`,
         {

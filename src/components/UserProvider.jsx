@@ -18,8 +18,6 @@ export const UserProvider = ({ children }) => {
         try {
           const decodedUser = jwtDecode(token);
           setAdminUser(decodedUser); // Decoding and storing the user info
-          console.log("Admin User", decodedUser);
-          console.log("Token", token);
         } catch (err) {
           console.error("Error getting admin user", err);
           setAdminUser(null);

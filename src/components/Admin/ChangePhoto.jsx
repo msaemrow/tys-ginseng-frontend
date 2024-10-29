@@ -29,7 +29,7 @@ const ChangePhoto = ({ onClose, onSubmit }) => {
   };
 
   return (
-    <div className="modal">
+    <div className="change-photo-modal">
       <form onSubmit={handleSubmit}>
         <h2>Change Product Photo</h2>
         <div className="d-flex align-items-center">

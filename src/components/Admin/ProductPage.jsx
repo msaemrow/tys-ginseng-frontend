@@ -16,6 +16,7 @@ const ProductPage = () => {
     const fetchProduct = async () => {
       const response = await GinsengApi.getProduct(barcode);
       setProduct(response.product);
+      console.log("Modal state:", isModalShowing);
     };
 
     fetchProduct();
@@ -26,8 +27,13 @@ const ProductPage = () => {
   };
 
   const handleClickChangePhotoBtn = () => {
+    console.log("Opening modal...");
     setIsModalShowing(true);
   };
+
+  useEffect(() => {
+    console.log("Modal state:", isModalShowing);
+  }, [isModalShowing]);
 
   const handleClickAdminHomeBtn = () => {
     navigate(`/admin/homepage`);
@@ -57,7 +63,12 @@ const ProductPage = () => {
   return (
     <div className="pt-5 pb-4 d-flex flex-column align-items-center">
       <ToastContainer position="top-center" autoClose={2000} />
-
+      {isModalShowing && (
+        <ChangePhoto
+          onClose={() => setIsModalShowing(false)}
+          onSubmit={handlePhotoUpdate}
+        />
+      )}
       <div className="header-content d-flex justify-content-center align-items-center">
         <h1>Full Product Details</h1>
         <button
@@ -156,12 +167,6 @@ const ProductPage = () => {
       <button onClick={handleDeleteProduct} className="btn btn-danger">
         Delete Product
       </button>
-      {isModalShowing && (
-        <ChangePhoto
-          onClose={() => setIsModalShowing(false)}
-          onSubmit={handlePhotoUpdate}
-        />
-      )}
     </div>
   );
 };

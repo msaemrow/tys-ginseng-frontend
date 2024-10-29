@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { UserContext } from "../UserProvider";
+import "../../css/Admin/AdminLogin.css";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
@@ -17,7 +18,6 @@ const AdminLogin = () => {
     setPassword("");
     // Handle the result of the login attempt
     if (result.success) {
-      console.log("Login successful", result);
       setUsername("");
       setTimeout(() => {
         navigate("/admin/homepage");
