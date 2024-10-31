@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Product from "./Product";
+import ProductList from "../assets/products.js";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
@@ -8,20 +9,20 @@ import logo from "../assets/TysGinsengLogo.png";
 
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(ProductList);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        let productList = await GinsengApi.getAllProducts();
-        setProducts(productList.products);
-        console.log("products", products);
-      } catch (err) {
-        console.error("Error fetching products", err);
-      }
-    };
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       let productList = await GinsengApi.getAllProducts();
+  //       setProducts(productList.products);
+  //       console.log("products", products);
+  //     } catch (err) {
+  //       console.error("Error fetching products", err);
+  //     }
+  //   };
+  //   fetchProducts();
+  // }, []);
 
   return (
     <div className="pt-5">

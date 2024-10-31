@@ -4,6 +4,7 @@ import Product from "./Product";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
+import ProductList from "../assets/products.js";
 import { CartContext } from "./CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,19 +12,19 @@ import logo from "../assets/TysGinsengLogo.png";
 
 const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(ProductList);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        let productList = await GinsengApi.getAllProducts();
-        setProducts(productList.products);
-      } catch (err) {
-        console.error("Error fetching products", err);
-      }
-    };
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       let productList = await GinsengApi.getAllProducts();
+  //       setProducts(productList.products);
+  //     } catch (err) {
+  //       console.error("Error fetching products", err);
+  //     }
+  //   };
+  //   fetchProducts();
+  // }, []);
 
   return (
     <div className="pt-5">
