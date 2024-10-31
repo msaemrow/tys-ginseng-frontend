@@ -26,10 +26,6 @@ const Product = ({
     addToCart(barcode, product);
   };
 
-  const viewCart = () => {
-    console.log(cartContents);
-    console.log(isCartShowing);
-  };
   return (
     <div className="Product d-flex flex-wrap flex-column border border-dark rounded m-3 p-2 w-25 justify-content-start align-items-center">
       <h3>{name}</h3>

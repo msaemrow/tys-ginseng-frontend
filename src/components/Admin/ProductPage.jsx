@@ -16,7 +16,6 @@ const ProductPage = () => {
     const fetchProduct = async () => {
       const response = await GinsengApi.getProduct(barcode);
       setProduct(response.product);
-      console.log("Modal state:", isModalShowing);
     };
 
     fetchProduct();
@@ -27,13 +26,8 @@ const ProductPage = () => {
   };
 
   const handleClickChangePhotoBtn = () => {
-    console.log("Opening modal...");
     setIsModalShowing(true);
   };
-
-  useEffect(() => {
-    console.log("Modal state:", isModalShowing);
-  }, [isModalShowing]);
 
   const handleClickAdminHomeBtn = () => {
     navigate(`/admin/homepage`);

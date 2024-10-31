@@ -3,7 +3,6 @@ import { CartContext } from "./CartProvider";
 
 const OrderConfirmation = () => {
   const { orderId } = useContext(CartContext);
-  console.log("ORDER ID", orderId);
   return (
     <div className="p-5 mt-5">
       <h2 className="m-2">Your order was successful.</h2>

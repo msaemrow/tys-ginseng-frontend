@@ -16,7 +16,6 @@ const BulkProductList = () => {
       try {
         let productList = await GinsengApi.getAllProducts();
         setProducts(productList.products);
-        console.log("products", products);
       } catch (err) {
         console.error("Error fetching products", err);
       }
