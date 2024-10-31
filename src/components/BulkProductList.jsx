@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Product from "./Product";
-import ProductArray from "../assets/products.js";
+import ProductArray from "../assets/products";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";

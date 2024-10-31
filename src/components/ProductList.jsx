@@ -4,7 +4,7 @@ import Product from "./Product";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
-import ProductArray from "../assets/products.js";
+import ProductArray from "../assets/products";
 import { CartContext } from "./CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
