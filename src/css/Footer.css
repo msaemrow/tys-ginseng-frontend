@@ -15,3 +15,11 @@
 .social-links:hover {
   color: #78be21;
 }
+
+.admin-login {
+  color: black;
+}
+
+.admin-login:hover {
+  color: gray;
+}
