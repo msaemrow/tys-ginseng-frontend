@@ -2,12 +2,14 @@ import React, { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import AdminApi from "../apiGinsengAPI/admin.js";
 import { useNavigate } from "react-router";
+import useLocalStorage from "../hooks/useLocalStorage.js";
 
 export const UserContext = createContext();
+export const TOKEN_KEY = "token";
 
 export const UserProvider = ({ children }) => {
   const [adminUser, setAdminUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useLocalStorage(TOKEN_KEY);
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
