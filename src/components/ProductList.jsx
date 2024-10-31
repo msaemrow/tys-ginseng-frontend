@@ -1,10 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-// import products from "../assets/products";
+import products from "../assets/products";
 import Product from "./Product";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
-import ProductArray from "../assets/products";
 import { CartContext } from "./CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,7 +11,7 @@ import logo from "../assets/TysGinsengLogo.png";
 
 const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
-  const [products, setProducts] = useState(ProductArray);
+  // const [products, setProducts] = useState([]);
 
   // useEffect(() => {
   //   const fetchProducts = async () => {

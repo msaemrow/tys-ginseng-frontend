@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Product from "./Product";
-import ProductArray from "../assets/products";
+import products from "../assets/products";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
@@ -9,7 +9,7 @@ import logo from "../assets/TysGinsengLogo.png";
 
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
-  const [products, setProducts] = useState(ProductArray);
+  // const [products, setProducts] = useState(ProductArray);
 
   // useEffect(() => {
   //   const fetchProducts = async () => {
