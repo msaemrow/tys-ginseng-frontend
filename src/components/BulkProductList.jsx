@@ -9,7 +9,7 @@ import logo from "../assets/TysGinsengLogo.png";
 
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
-  const [products, setProducts] = useState(ProductArray);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
