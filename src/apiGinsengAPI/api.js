@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = "http://localhost:3001";
+//BASE URL ONLY NEEDED FOR LOCAL USAGE. REMOVE BASE_URL FOR PRODUCTION
 class GinsengApi {
   static async addProduct(product) {
     try {
