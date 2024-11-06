@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 // import products from "../assets/products";
+import { useNavigate } from "react-router";
 import Product from "./Product";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
@@ -12,6 +13,7 @@ import logo from "../assets/TysGinsengLogo.png";
 const ProductSpecial = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -25,6 +27,9 @@ const ProductSpecial = () => {
     fetchProducts();
   }, []);
 
+  const navigateToProducts = () => {
+    navigate("/products");
+  };
   return (
     <div className="pt-5">
       <Helmet>
@@ -45,31 +50,50 @@ const ProductSpecial = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       <ToastContainer position="top-right" autoClose={2000} />
-      <h2 className="Products-title">MN Grown Product Specials </h2>
-      <div className="d-flex flex-wrap justify-content-center">
-        {products
-          .filter(
-            (product) =>
-              product.type === "SPECIAL" && product.listed_on_site === true
-          )
-          .map((product) => (
-            <Product
-              key={product.barcode}
-              barcode={product.barcode}
-              name={product.name}
-              price={product.price}
-              sale_price={product.sale_price}
-              on_sale={product.on_sale}
-              description={product.description}
-              servings={product.servings}
-              url={product.image_url}
-              type={product.type}
-              weight={product.weight}
-              quantity={product.quantity}
-              best_seller={product.best_seller}
-            />
-          ))}
-      </div>
+      <h2 className="Products-title pt-3">MN Grown Deals </h2>
+      {products.filter(
+        (product) =>
+          product.type === "SPECIAL" && product.listed_on_site === true
+      ).length === 0 ? (
+        <div className="pt-3 pb-5 mt-5">
+          <h5>
+            We are not running any specials at the time. Check back soon to see
+            upcoming deals.
+          </h5>
+          <h5 className="pt-2">Click below to see our other products</h5>
+          <button
+            onClick={navigateToProducts}
+            className="mt-2 btn btn-secondary"
+          >
+            See Products
+          </button>
+        </div>
+      ) : (
+        <div className="d-flex flex-wrap justify-content-center">
+          {products
+            .filter(
+              (product) =>
+                product.type === "SPECIAL" && product.listed_on_site === true
+            )
+            .map((product) => (
+              <Product
+                key={product.barcode}
+                barcode={product.barcode}
+                name={product.name}
+                price={product.price}
+                sale_price={product.sale_price}
+                on_sale={product.on_sale}
+                description={product.description}
+                servings={product.servings}
+                url={product.image_url}
+                type={product.type}
+                weight={product.weight}
+                quantity={product.quantity}
+                best_seller={product.best_seller}
+              />
+            ))}
+        </div>
+      )}
     </div>
   );
 };
