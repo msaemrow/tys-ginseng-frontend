@@ -61,7 +61,7 @@ const Product = ({
         ) : (
           <h3 className="mt-2 mb-0">${price}</h3>
         )}
-        {type === "SINGLE" ? (
+        {type === "SINGLE" || type === "SPECIAL" ? (
           <button className="btn add-to-cart-btn m-2" onClick={handleAddToCart}>
             Add to cart
           </button>

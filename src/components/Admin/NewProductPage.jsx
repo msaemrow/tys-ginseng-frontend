@@ -98,6 +98,7 @@ const NewProductPage = () => {
               <option value="BULK">BULK</option>
               <option value="ROOTLET">ROOTLET</option>
               <option value="PRODUCT">PRODUCT</option>
+              <option value="SPECIAL">SPECIAL</option>
               <option value="OTHER">OTHER</option>
             </select>
           </div>
