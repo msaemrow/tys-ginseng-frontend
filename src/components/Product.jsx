@@ -43,7 +43,9 @@ const Product = ({
           src={url}
           alt={`picture of ${name}`}
         />
-        {type === "SINGLE" ? <p>Servings: {servings}</p> : null}
+        {type === "SINGLE" || type === "SPECIAL" ? (
+          <p>Servings: {servings}</p>
+        ) : null}
         <p>{description}</p>
 
         {type === "BULK" ? (
