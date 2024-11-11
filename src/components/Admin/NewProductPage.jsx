@@ -193,6 +193,7 @@ const NewProductPage = () => {
               className="form-control"
               accept="image/*" // Optional: Restrict file types to images only
               onChange={handleFileChange}
+              required
             />
           </div>
 
