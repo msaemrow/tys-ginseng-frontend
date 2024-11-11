@@ -6,10 +6,11 @@ import "../../css/Admin/AdminLogin.css";
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
-  const { login, loading } = useContext(UserContext); // Destructure the login function
+  const { login } = useContext(UserContext); // Destructure the login function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,10 +20,13 @@ const AdminLogin = () => {
     // Handle the result of the login attempt
     if (result.success) {
       setUsername("");
+      setErrorMessage("");
       setTimeout(() => {
         navigate("/admin/homepage");
       }, 200);
     } else {
+      //Display login error message
+      setErrorMessage("Login failed. Please try again.");
       console.error("Login failed:", result.message);
     }
   };
@@ -32,6 +36,11 @@ const AdminLogin = () => {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h2 className="text-center mb-4">Admin Login</h2>
+          {errorMessage && ( // Conditionally render error message
+            <div className="alert alert-danger" role="alert">
+              {errorMessage}
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
             <div className="row mb-3">
               <label
