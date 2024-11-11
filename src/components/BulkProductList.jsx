@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Product from "./Product";
+// import products from "../assets/products";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
@@ -15,7 +16,6 @@ const BulkProductList = () => {
       try {
         let productList = await GinsengApi.getAllProducts();
         setProducts(productList.products);
-        console.log("products", products);
       } catch (err) {
         console.error("Error fetching products", err);
       }

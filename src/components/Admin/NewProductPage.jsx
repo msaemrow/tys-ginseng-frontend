@@ -20,6 +20,7 @@ const NewProductPage = () => {
     listed_on_site: true,
   };
   const [formData, setFormData] = useState(emptyForm);
+  const [file, setFile] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +28,10 @@ const NewProductPage = () => {
       ...formData,
       [name]: value,
     });
+  };
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
@@ -41,6 +46,12 @@ const NewProductPage = () => {
       quantity: Number(formData.quantity),
     };
     try {
+      let url = null;
+      if (file) {
+        url = await GinsengApi.uploadImage(file);
+      }
+      productData.image_url = url;
+
       const response = await GinsengApi.addProduct(productData);
       navigate("/admin/homepage");
     } catch (error) {
@@ -87,6 +98,7 @@ const NewProductPage = () => {
               <option value="BULK">BULK</option>
               <option value="ROOTLET">ROOTLET</option>
               <option value="PRODUCT">PRODUCT</option>
+              <option value="SPECIAL">SPECIAL</option>
               <option value="OTHER">OTHER</option>
             </select>
           </div>
@@ -134,14 +146,27 @@ const NewProductPage = () => {
 
           <div className="col-md-6 mb-3 d-flex align-items-center">
             <label className="form-label me-2" style={{ width: "30%" }}>
-              Description:
+              Quantity:
             </label>
             <input
-              type="text"
+              type="number"
+              name="quantity"
+              className="form-control"
+              value={formData.quantity}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="col-md-6 mb-3 d-flex align-items-center">
+            <label className="form-label me-2" style={{ width: "30%" }}>
+              Description:
+            </label>
+            <textarea
               name="description"
               className="form-control"
               value={formData.description}
               onChange={handleChange}
+              rows={5}
             />
           </div>
 
@@ -149,25 +174,25 @@ const NewProductPage = () => {
             <label className="form-label me-2" style={{ width: "30%" }}>
               Servings:
             </label>
-            <input
-              type="text"
+            <textarea
               name="servings"
               className="form-control"
               value={formData.servings}
               onChange={handleChange}
+              rows={5}
             />
           </div>
 
           <div className="col-md-6 mb-3 d-flex align-items-center">
             <label className="form-label me-2" style={{ width: "30%" }}>
-              Image URL:
+              Image File:
             </label>
             <input
-              type="text"
-              name="image_url"
+              type="file"
+              name="image"
               className="form-control"
-              value={formData.image_url}
-              onChange={handleChange}
+              accept="image/*" // Optional: Restrict file types to images only
+              onChange={handleFileChange}
             />
           </div>
 
@@ -180,19 +205,6 @@ const NewProductPage = () => {
               name="weight"
               className="form-control"
               value={formData.weight}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="col-md-6 mb-3 d-flex align-items-center">
-            <label className="form-label me-2" style={{ width: "30%" }}>
-              Quantity:
-            </label>
-            <input
-              type="number"
-              name="quantity"
-              className="form-control"
-              value={formData.quantity}
               onChange={handleChange}
             />
           </div>

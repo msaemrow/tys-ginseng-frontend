@@ -199,6 +199,15 @@ const NavBar = () => {
                     How to Use Ginseng
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    className="dropdown-item"
+                    to="/products/deals"
+                    onClick={handleMobileNavLinkClick}
+                  >
+                    MN Grown Deals
+                  </NavLink>
+                </li>
                 {/* Testimonials Page-- Currently demo and no real testimonials-- not on live site */}
                 {/* <li>
                   <Link

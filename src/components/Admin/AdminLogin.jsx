@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { UserContext } from "../UserProvider";
+import "../../css/Admin/AdminLogin.css";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
@@ -8,7 +9,7 @@ const AdminLogin = () => {
 
   const navigate = useNavigate();
 
-  const { login } = useContext(UserContext); // Destructure the login function
+  const { login, loading } = useContext(UserContext); // Destructure the login function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,13 +18,12 @@ const AdminLogin = () => {
     setPassword("");
     // Handle the result of the login attempt
     if (result.success) {
-      console.log("Login successful", result);
       setUsername("");
-      navigate("/admin/homepage");
-      // Optionally redirect or update the UI to reflect the login
+      setTimeout(() => {
+        navigate("/admin/homepage");
+      }, 200);
     } else {
       console.error("Login failed:", result.message);
-      // Optionally show an error message to the user
     }
   };
 

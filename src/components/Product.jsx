@@ -26,10 +26,6 @@ const Product = ({
     addToCart(barcode, product);
   };
 
-  const viewCart = () => {
-    console.log(cartContents);
-    console.log(isCartShowing);
-  };
   return (
     <div className="Product d-flex flex-wrap flex-column border border-dark rounded m-3 p-2 w-25 justify-content-start align-items-center">
       <h3>{name}</h3>
@@ -47,7 +43,9 @@ const Product = ({
           src={url}
           alt={`picture of ${name}`}
         />
-        {type === "SINGLE" ? <p>Servings: {servings}</p> : null}
+        {type === "SINGLE" || type === "SPECIAL" ? (
+          <p>Servings: {servings}</p>
+        ) : null}
         <p>{description}</p>
 
         {type === "BULK" ? (
@@ -61,7 +59,7 @@ const Product = ({
         ) : (
           <h3 className="mt-2 mb-0">${price}</h3>
         )}
-        {type === "SINGLE" ? (
+        {type === "SINGLE" || type === "SPECIAL" ? (
           <button className="btn add-to-cart-btn m-2" onClick={handleAddToCart}>
             Add to cart
           </button>

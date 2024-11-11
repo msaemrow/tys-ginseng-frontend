@@ -1,6 +1,7 @@
 const products = [
   {
     barcode: 1001,
+    listed_on_site: true,
     type: "SINGLE",
     name: "Ginseng Powder 0.25oz",
     price: 20.0,
@@ -16,6 +17,7 @@ const products = [
   },
   {
     barcode: 1002,
+    listed_on_site: true,
     type: "SINGLE",
     name: "Ginseng Powder 1oz ",
     price: 70,
@@ -31,6 +33,7 @@ const products = [
   },
   {
     barcode: 1003,
+    listed_on_site: true,
     type: "SINGLE",
     name: "Ginseng Powder 6oz",
     price: 360.0,
@@ -46,6 +49,7 @@ const products = [
   },
   {
     barcode: 1004,
+    listed_on_site: true,
     name: "Ginseng Powder 0.75oz",
     type: "SINGLE",
     price: 55.0,
@@ -61,6 +65,7 @@ const products = [
   },
   {
     barcode: 1005,
+    listed_on_site: true,
     type: "BULK",
     name: "Dried Ginseng Roots by the Pound",
     price: 800,
@@ -77,6 +82,7 @@ const products = [
   },
   {
     barcode: 1006,
+    listed_on_site: true,
     type: "BULK",
     name: "Fresh Ginseng Roots by the Pound",
     price: 300,
@@ -93,6 +99,7 @@ const products = [
   },
   {
     barcode: 1007,
+    listed_on_site: true,
     type: "ROOTLET",
     name: "Rootlets for Sale",
     price: 2,

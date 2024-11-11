@@ -37,7 +37,7 @@ const Footer = () => {
           </a>
         </span>
       </div>
-      <Link className="pb-4" to="/admin-login">
+      <Link className="pb-4 admin-link" to="/admin-login">
         Admin Login
       </Link>
     </div>
