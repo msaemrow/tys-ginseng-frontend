@@ -53,10 +53,16 @@ const ProductSpecial = () => {
       </Helmet>
       <ToastContainer position="top-right" autoClose={2000} />
       <h2 className="Products-title pt-3">MN Grown Deals </h2>
-      {products.filter(
-        (product) =>
-          product.type === "SPECIAL" && product.listed_on_site === true
-      ).length === 0 ? (
+      {isLoading ? (
+        <div className="spinner-div d-flex align-items-center justify-content-center">
+          <div class="spinner-border text-warning " role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      ) : products.filter(
+          (product) =>
+            product.type === "SPECIAL" && product.listed_on_site === true
+        ).length === 0 ? (
         <div className="pt-3 pb-5 mt-5">
           <h5>
             We are not running any specials at the time. Check back soon to see
@@ -69,12 +75,6 @@ const ProductSpecial = () => {
           >
             See Products
           </button>
-        </div>
-      ) : isLoading ? (
-        <div className="spinner-div d-flex align-items-center justify-content-center">
-          <div class="spinner-border text-warning " role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
