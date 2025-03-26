@@ -2,7 +2,7 @@ const products = [
   {
     barcode: 1001,
     listed_on_site: true,
-    type: "SINGLE",
+    type: "SPECIAL",
     name: "Ginseng Powder 0.25oz",
     price: 20.0,
     sale_price: 17.0,

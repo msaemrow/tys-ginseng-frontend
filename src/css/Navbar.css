@@ -72,8 +72,21 @@ nav {
   text-align: center;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 780px) {
   .navbar-buy-now-btn {
     width: 50%;
+  }
+
+  .container {
+    padding-top: 0px !important;
+  }
+
+  .nav-title {
+    padding: 0px !important;
+  }
+
+  .nav-text {
+    font-size: 1.3rem;
+    font-weight: 500;
   }
 }

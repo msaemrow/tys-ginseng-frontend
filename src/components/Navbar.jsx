@@ -97,15 +97,15 @@ const NavBar = () => {
   //HTML RETURN
   return (
     <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light fixed-top">
-      <div className="container pb-1 pt-1">
+      <div className="container pb-0 pt-1">
         {/* Brand name or logo */}
         <NavLink
-          className="navbar-brand"
+          className="navbar-brand nav-title"
           to="/"
           onClick={handleMobileNavLinkClick}
         >
           <img className="navbar-logo" src={Logo} alt="Ty's Ginseng Logo" />
-          <span className="ms-2">Ty's Ginseng</span>
+          <span className="ms-2 nav-text">Ty's Ginseng</span>
         </NavLink>
         {/* Toggle button for mobile view */}
         <button

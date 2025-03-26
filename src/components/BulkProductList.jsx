@@ -10,12 +10,14 @@ import logo from "../assets/TysGinsengLogo.png";
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         let productList = await GinsengApi.getAllProducts();
         setProducts(productList.products);
+        setIsLoading(false);
       } catch (err) {
         console.error("Error fetching products", err);
       }
@@ -43,26 +45,34 @@ const BulkProductList = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       <h2 className="Products-title">Roots by the Pound </h2>
-      <div className="d-flex flex-wrap justify-content-center">
-        {products
-          .filter(
-            (product) =>
-              (product.type === "BULK" || product.type === "ROOTLET") &&
-              product.listed_on_site === true
-          )
-          .map((product) => (
-            <Product
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              price={product.price}
-              description={product.description}
-              servings={product.servings}
-              url={product.image_url}
-              type={product.type}
-            />
-          ))}
-      </div>
+      {isLoading ? (
+        <div className="spinner-div d-flex align-items-center justify-content-center">
+          <div class="spinner-border text-warning " role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      ) : (
+        <div className="d-flex flex-wrap justify-content-center">
+          {products
+            .filter(
+              (product) =>
+                (product.type === "BULK" || product.type === "ROOTLET") &&
+                product.listed_on_site === true
+            )
+            .map((product) => (
+              <Product
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                description={product.description}
+                servings={product.servings}
+                url={product.image_url}
+                type={product.type}
+              />
+            ))}
+        </div>
+      )}
     </div>
   );
 };

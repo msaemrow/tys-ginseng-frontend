@@ -13,6 +13,7 @@ import logo from "../assets/TysGinsengLogo.png";
 const ProductSpecial = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const ProductSpecial = () => {
       try {
         let productList = await GinsengApi.getAllProducts();
         setProducts(productList.products);
+        setIsLoading(false);
       } catch (err) {
         console.error("Error fetching products", err);
       }
@@ -67,6 +69,12 @@ const ProductSpecial = () => {
           >
             See Products
           </button>
+        </div>
+      ) : isLoading ? (
+        <div className="spinner-div d-flex align-items-center justify-content-center">
+          <div class="spinner-border text-warning " role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">

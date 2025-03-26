@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-// import products from "../assets/products";
 import Product from "./Product";
+import productsArr from "../assets/products";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
@@ -11,6 +11,7 @@ import logo from "../assets/TysGinsengLogo.png";
 
 const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
+  const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -18,6 +19,7 @@ const ProductList = () => {
       try {
         let productList = await GinsengApi.getAllProducts();
         setProducts(productList.products);
+        setIsLoading(false);
       } catch (err) {
         console.error("Error fetching products", err);
       }
@@ -45,37 +47,39 @@ const ProductList = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       <ToastContainer position="top-right" autoClose={2000} />
-      <h2 className="Products-title">
-        Ginseng Products{" "}
-        {/* button to view cart contents-- for testing purposes only */}
-        {/* <button className="btn view-cart-btn m-2" onClick={viewCart}>
-          View cart
-        </button> */}
-      </h2>
-      <div className="d-flex flex-wrap justify-content-center">
-        {products
-          .filter(
-            (product) =>
-              product.type === "SINGLE" && product.listed_on_site === true
-          )
-          .map((product) => (
-            <Product
-              key={product.barcode}
-              barcode={product.barcode}
-              name={product.name}
-              price={product.price}
-              sale_price={product.sale_price}
-              on_sale={product.on_sale}
-              description={product.description}
-              servings={product.servings}
-              url={product.image_url}
-              type={product.type}
-              weight={product.weight}
-              quantity={product.quantity}
-              best_seller={product.best_seller}
-            />
-          ))}
-      </div>
+      <h2 className="Products-title">Ginseng Products </h2>
+      {isLoading ? (
+        <div className="spinner-div d-flex align-items-center justify-content-center">
+          <div class="spinner-border text-warning " role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      ) : (
+        <div className="d-flex flex-wrap justify-content-center">
+          {products
+            .filter(
+              (product) =>
+                product.type === "SINGLE" && product.listed_on_site === true
+            )
+            .map((product) => (
+              <Product
+                key={product.barcode}
+                barcode={product.barcode}
+                name={product.name}
+                price={product.price}
+                sale_price={product.sale_price}
+                on_sale={product.on_sale}
+                description={product.description}
+                servings={product.servings}
+                url={product.image_url}
+                type={product.type}
+                weight={product.weight}
+                quantity={product.quantity}
+                best_seller={product.best_seller}
+              />
+            ))}
+        </div>
+      )}
     </div>
   );
 };
