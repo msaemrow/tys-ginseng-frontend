@@ -40,8 +40,9 @@ main a {
   border: none !important; /* Optional: Removes the border */
 }
 
-.Homepage-our-process-btn {
+.homepage-btn {
   background-color: #fdb913 !important;
+  font-size: 1.1rem !important;
   width: 50%;
 }
 
@@ -95,9 +96,9 @@ main a {
     object-fit: contain;
   }
 
-  .Homepage-our-process-btn {
-    width: 100%;
-    margin-bottom: 15px;
+  .homepage-btn {
+    width: 100% !important;
+    margin-bottom: 10px;
     font-size: 1rem !important;
   }
 
@@ -132,9 +133,8 @@ main a {
     flex-direction: column-reverse !important;
   }
 
-  .Homepage-our-process-btn {
+  .homepage-btn {
     width: 100%;
-    margin-bottom: 15px;
     font-size: 0.8rem !important;
   }
 

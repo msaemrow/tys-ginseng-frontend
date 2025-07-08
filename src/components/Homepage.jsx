@@ -30,11 +30,11 @@ const Homepage = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       {/* main element of homepages */}
-      <main className="mt-1">
+      <main className="mt-1 px-md-5">
         {/* About us div-- contains text then image  */}
         <div
           id="about-us-div"
-          className="d-flex justify-content-center align-items-center mt-4 mb-5"
+          className="d-flex justify-content-center align-items-center mt-4 mb-2 mb-md-4"
         >
           <div
             className="d-flex flex-column justify-content-center align-items-center rounded p-3"
@@ -59,9 +59,9 @@ const Homepage = () => {
               am dedicated to upholding my grandfather's legacy of excellence in
               ginseng farming.
             </p>
-            <div className="d-flex justify-content-space-between align-items-center">
+            <div className="d-flex justify-content-center align-items-center w-100 px-2">
               <Link
-                className="Homepage-our-process-btn btn mt-2 me-4 d-flex align-items-center justify-content-center w-50"
+                className="homepage-btn btn me-5 d-flex align-items-center justify-content-center"
                 to="/our-process"
               >
                 See our process
@@ -89,7 +89,7 @@ const Homepage = () => {
         {/* Why Choose Ty's Ginseng div -- contains image then text  */}
         <div
           id="why-choose-us-div"
-          className="d-flex justify-content-center mb-5 mt-4"
+          className="d-flex justify-content-center mb-2 mb-md-4 mt-2"
         >
           <div style={{ flex: "0 0 40%" }}>
             {images
@@ -124,15 +124,15 @@ const Homepage = () => {
                 Combined 70 years of experience in growing ginseng
               </li>
             </ul>
-            <div className="d-flex justify-content-center w-100 px-5">
+            <div className="d-flex justify-content-center w-100 gap-2 mt-2">
               <Link
-                className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
+                className="homepage-btn btn d-flex align-items-center justify-content-center"
                 to="/products"
               >
                 Buy Online Now
               </Link>
               <Link
-                className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
+                className="homepage-btn btn d-flex align-items-center justify-content-center"
                 to="/pictures"
               >
                 See Photos
@@ -143,11 +143,11 @@ const Homepage = () => {
         {/* Benefits of Ginseng div -- contains text then image  */}
         <div
           id="benefits-div"
-          className="d-flex justify-content-evenly  mt-4 mb-5"
+          className="d-flex justify-content-evenly mt-2 mb-2 mb-md-4"
         >
           <div
             style={{ flex: "0 0 60%" }}
-            className="d-flex flex-column justify-content-center align-items-center rounded p-3"
+            className="d-flex flex-column justify-content-center align-items-center rounded px-3 py-1"
           >
             <h2 className="text-left">Benefits of Ginseng</h2>
             <ul className="list-group">
@@ -160,22 +160,16 @@ const Homepage = () => {
                 Potential benefits against cancer
               </li>
             </ul>
-            <div className="d-flex justify-content-center w-100 px-5">
+            <div className="d-flex justify-content-center w-100 gap-2">
               <Link
-                className="Homepage-our-process-btn btn mt-4 d-flex align-items-center justify-content-center"
+                className="homepage-btn btn mt-2 d-flex align-items-center justify-content-center"
                 to="/recipes"
               >
                 How to Use Ginseng
               </Link>
-              {/* <Link
-                className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
-                to="/testimonials"
-              >
-                Read Testimonials
-              </Link> */}
               <a
                 href="https://www.facebook.com/TysGinseng/reviews"
-                className="Homepage-our-process-btn btn mt-4 ms-3 d-flex align-items-center justify-content-center"
+                className="homepage-btn btn mt-2 d-flex align-items-center justify-content-center"
                 target="_blank"
               >
                 Read Reviews
@@ -201,7 +195,7 @@ const Homepage = () => {
         {/* Where to find us div -- contains image then text */}
         <div
           id="find-us-div"
-          className="d-flex justify-content-evenly mb-5 mt-4"
+          className="d-flex justify-content-evenly mb-2 mt-2 mb-md-4"
         >
           {images
             .filter((image) => image.location === "market")
@@ -251,10 +245,7 @@ const Homepage = () => {
                 <i className="fa-brands fa-instagram"></i> Instagram
               </a>
             </div>
-            <Link
-              className="Homepage-our-process-btn btn mt-1 w-50"
-              to="/products"
-            >
+            <Link className="homepage-btn btn mt-2" to="/products">
               Buy Online Now
             </Link>
           </div>
