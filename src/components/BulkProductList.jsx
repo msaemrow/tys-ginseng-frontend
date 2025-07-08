@@ -1,29 +1,30 @@
 import React, { useContext, useState, useEffect } from "react";
 import Product from "./Product";
-// import products from "../assets/products";
+import products from "../assets/products";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
 import { CartContext } from "./CartProvider";
 import logo from "../assets/TysGinsengLogo.png";
+import SkeletonProduct from "./SkeletonProduct";
 
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        let productList = await GinsengApi.getAllProducts();
-        setProducts(productList.products);
-        setIsLoading(false);
-      } catch (err) {
-        console.error("Error fetching products", err);
-      }
-    };
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       let productList = await GinsengApi.getAllProducts();
+  //       setProducts(productList.products);
+  //       setIsLoading(false);
+  //     } catch (err) {
+  //       console.error("Error fetching products", err);
+  //     }
+  //   };
+  //   fetchProducts();
+  // }, []);
 
   return (
     <div className="pt-5">
@@ -46,10 +47,10 @@ const BulkProductList = () => {
       </Helmet>
       <h2 className="Products-title">Roots by the Pound </h2>
       {isLoading ? (
-        <div className="spinner-div d-flex align-items-center justify-content-center">
-          <div class="spinner-border text-warning " role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
+        <div class="d-flex flex-wrap justify-content-center">
+          {[...Array(3)].map((_, i) => (
+            <SkeletonProduct key={i} />
+          ))}
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">

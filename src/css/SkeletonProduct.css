@@ -1,0 +1,46 @@
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  animation: pulse 1.6s infinite ease-in-out;
+}
+
+.skeleton-title {
+  height: 40px;
+  width: 80%;
+}
+
+.skeleton-image {
+  height: 180px;
+  width: 100%;
+}
+
+.skeleton-text {
+  height: 14px;
+  width: 90%;
+}
+
+.skeleton-text.short {
+  width: 80%;
+}
+
+.skeleton-price {
+  height: 25px;
+  width: 40%;
+}
+
+.skeleton-button {
+  height: 38px;
+  width: 90%;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.95;
+  }
+}
