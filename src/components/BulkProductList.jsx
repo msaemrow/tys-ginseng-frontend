@@ -10,21 +10,22 @@ import SkeletonProduct from "./SkeletonProduct";
 
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
-  // const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     try {
-  //       let productList = await GinsengApi.getAllProducts();
-  //       setProducts(productList.products);
-  //       setIsLoading(false);
-  //     } catch (err) {
-  //       console.error("Error fetching products", err);
-  //     }
-  //   };
-  //   fetchProducts();
-  // }, []);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        let productList = await GinsengApi.getAllProducts();
+        setProducts(productList.products);
+        console.log(products);
+        setIsLoading(false);
+      } catch (err) {
+        console.error("Error fetching products", err);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <div className="pt-5">
@@ -47,7 +48,7 @@ const BulkProductList = () => {
       </Helmet>
       <h2 className="Products-title">Roots by the Pound </h2>
       {isLoading ? (
-        <div class="d-flex flex-wrap justify-content-center">
+        <div className="d-flex flex-wrap justify-content-center">
           {[...Array(3)].map((_, i) => (
             <SkeletonProduct key={i} />
           ))}
@@ -62,8 +63,8 @@ const BulkProductList = () => {
             )
             .map((product) => (
               <Product
-                key={product.id}
-                id={product.id}
+                key={product.barcode}
+                id={product.barcode}
                 name={product.name}
                 price={product.price}
                 description={product.description}

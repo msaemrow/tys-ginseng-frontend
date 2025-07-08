@@ -15,18 +15,19 @@ const ProductList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     try {
-  //       let productList = await GinsengApi.getAllProducts();
-  //       setProducts(productList.products);
-  //       setIsLoading(false);
-  //     } catch (err) {
-  //       console.error("Error fetching products", err);
-  //     }
-  //   };
-  //   fetchProducts();
-  // }, []);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        let productList = await GinsengApi.getAllProducts();
+        setProducts(productList.products);
+        setIsLoading(false);
+        console.log("products", productList.products);
+      } catch (err) {
+        console.error("Error fetching products", err);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <div className="pt-5">
@@ -50,14 +51,14 @@ const ProductList = () => {
       <ToastContainer position="top-right" autoClose={2000} />
       <h2 className="Products-title">Ginseng Products </h2>
       {isLoading ? (
-        <div class="d-flex flex-wrap justify-content-center">
+        <div className="d-flex flex-wrap justify-content-center">
           {[...Array(3)].map((_, i) => (
             <SkeletonProduct key={i} />
           ))}
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
-          {productsArr
+          {products
             .filter(
               (product) =>
                 product.type === "SINGLE" && product.listed_on_site === true
