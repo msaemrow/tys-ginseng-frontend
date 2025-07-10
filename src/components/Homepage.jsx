@@ -31,10 +31,20 @@ const Homepage = () => {
       </Helmet>
       {/* main element of homepages */}
       <main className="mt-1 px-md-5">
+        <div className="w-100 mt-4 mb-0 ginseng-experience text-center">
+          <a
+            className="fs-5 text-white text-decoration-none fw-semibold d-inline-block"
+            href="https://book.squareup.com/appointments/vr4nm9pupnu29k/location/LCN2GNEA2T9HY/services"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🌿 New! Book Your Premium Ginseng Experience →
+          </a>
+        </div>
         {/* About us div-- contains text then image  */}
         <div
           id="about-us-div"
-          className="d-flex justify-content-center align-items-center mt-4 mb-2 mb-md-4"
+          className="d-flex justify-content-center align-items-center mt-1 mb-2 mb-md-4"
         >
           <div
             className="d-flex flex-column justify-content-center align-items-center rounded p-3"
