@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import Product from "./Product";
-// import products from "../assets/products";
+import products from "../assets/products";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
 import { CartContext } from "./CartProvider";
 import logo from "../assets/TysGinsengLogo.png";
+import SkeletonProduct from "./SkeletonProduct";
 
 const BulkProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
@@ -17,6 +18,7 @@ const BulkProductList = () => {
       try {
         let productList = await GinsengApi.getAllProducts();
         setProducts(productList.products);
+        console.log(products);
         setIsLoading(false);
       } catch (err) {
         console.error("Error fetching products", err);
@@ -46,10 +48,10 @@ const BulkProductList = () => {
       </Helmet>
       <h2 className="Products-title">Roots by the Pound </h2>
       {isLoading ? (
-        <div className="spinner-div d-flex align-items-center justify-content-center">
-          <div class="spinner-border text-warning " role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
+        <div className="d-flex flex-wrap justify-content-center">
+          {[...Array(3)].map((_, i) => (
+            <SkeletonProduct key={i} />
+          ))}
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
@@ -61,8 +63,8 @@ const BulkProductList = () => {
             )
             .map((product) => (
               <Product
-                key={product.id}
-                id={product.id}
+                key={product.barcode}
+                id={product.barcode}
                 name={product.name}
                 price={product.price}
                 description={product.description}

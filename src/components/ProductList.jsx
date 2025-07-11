@@ -8,6 +8,7 @@ import { CartContext } from "./CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../assets/TysGinsengLogo.png";
+import SkeletonProduct from "./SkeletonProduct";
 
 const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
@@ -23,6 +24,7 @@ const ProductList = () => {
 
         setProducts(productList.products);
         setIsLoading(false);
+        console.log("products", productList.products);
       } catch (err) {
         console.error("Error fetching products", err);
       }
@@ -30,7 +32,7 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  const categories = ["All", "Single", "Bulk", "Specials"];
+  const categories = ["All", "Powder", "Bulk Roots", "Specials"];
 
   const filteredProducts = products
     .filter((product) => product.item_data?.product_type === "REGULAR")
@@ -66,7 +68,7 @@ const ProductList = () => {
           <button
             key={cat}
             className={`btn btn-sm ${
-              selectedCategory === cat ? "btn-dark" : "btn-outline-dark"
+              selectedCategory === cat ? "selected-btn" : "btn-outline-dark"
             }`}
             onClick={() => setSelectedCategory(cat)}
           >
@@ -75,10 +77,10 @@ const ProductList = () => {
         ))}
       </div>
       {isLoading ? (
-        <div className="spinner-div d-flex align-items-center justify-content-center">
-          <div className="spinner-border text-warning " role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
+        <div className="d-flex flex-wrap justify-content-center">
+          {[...Array(3)].map((_, i) => (
+            <SkeletonProduct key={i} />
+          ))}
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">

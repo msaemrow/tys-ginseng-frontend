@@ -147,20 +147,18 @@ const NavBar = () => {
                 to="/products"
                 onClick={handleMobileNavLinkClick}
               >
-                Products
+                Shop Ginseng
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li>
               <NavLink
                 className="nav-link"
-                aria-current="page"
-                to="/products-bulk"
+                to="/our-process"
                 onClick={handleMobileNavLinkClick}
               >
-                Bulk Roots
+                Our Process
               </NavLink>
             </li>
-
             <li className="nav-item dropdown">
               <NavLink
                 className="nav-link dropdown-toggle about-us-dropdown"
@@ -172,15 +170,6 @@ const NavBar = () => {
                 Learn More
               </NavLink>
               <ul className="dropdown-menu">
-                <li>
-                  <NavLink
-                    className="dropdown-item"
-                    to="/our-process"
-                    onClick={handleMobileNavLinkClick}
-                  >
-                    Our Process
-                  </NavLink>
-                </li>
                 <li>
                   <NavLink
                     className="dropdown-item"
@@ -199,7 +188,7 @@ const NavBar = () => {
                     How to Use Ginseng
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink
                     className="dropdown-item"
                     to="/products/deals"
@@ -207,7 +196,7 @@ const NavBar = () => {
                   >
                     MN Grown Deals
                   </NavLink>
-                </li>
+                </li> */}
                 {/* Testimonials Page-- Currently demo and no real testimonials-- not on live site */}
                 {/* <li>
                   <Link

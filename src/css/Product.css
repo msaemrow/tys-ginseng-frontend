@@ -47,7 +47,19 @@
 
 .add-to-cart-btn {
   background-color: #fdb913 !important;
+  color: #000;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
   width: 90%;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.1s ease, transform 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e0a800 !important;
+  transform: scale(1.05);
 }
 
 .on-sale {
