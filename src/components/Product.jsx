@@ -10,8 +10,7 @@ const Product = ({
   price,
   description,
   imageUrls = [],
-  type,
-  ecomUri,
+  category,
 }) => {
   const { addToCart } = useContext(CartContext);
 
@@ -23,29 +22,33 @@ const Product = ({
   const mainImage = imageUrls[0] || null;
 
   return (
-    <div className="Product d-flex flex-column border border-dark rounded m-3 p-2 w-25 justify-content-start align-items-center">
-      <div className="Product-footer text-center">
+    <div className="product d-flex flex-column align-items-center">
+      <div className="product-content text-center w-100">
         {mainImage && (
           <img
-            className="Product-image img-thumbnail rounded mb-2"
+            className="product-image-top"
             src={mainImage}
             alt={`Picture of ${name}`}
           />
         )}
-        <h3>{name}</h3>
-        {description && <p>{description}</p>}
-        <h3 className="mt-2 mb-0">${(price / 100).toFixed(2)}</h3>
+        <h3 className="product-name mt-2">{name}</h3>
+      </div>
 
-        {type === "REGULAR" ? (
-          <button className="btn add-to-cart-btn m-2" onClick={handleAddToCart}>
+      <div className="product-footer text-center">
+        {description && <p className="product-description">{description}</p>}
+
+        <h3 className="product-price">${(price / 100).toFixed(2)}</h3>
+
+        {category === "Single" && (
+          <button className="btn add-to-cart-btn m-1" onClick={handleAddToCart}>
             Add to cart
           </button>
-        ) : null}
+        )}
 
-        {ecomUri && (
-          <a href={ecomUri} target="_blank" rel="noopener noreferrer">
-            View Product Page
-          </a>
+        {category === "Bulk" && (
+          <button className="btn add-to-cart-btn m-2">
+            Contact for ordering
+          </button>
         )}
       </div>
     </div>

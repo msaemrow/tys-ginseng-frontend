@@ -75,6 +75,7 @@ const ProductList = () => {
                   imageUrls={product.image_urls || []} // use joined image URLs here
                   type={itemData.product_type}
                   ecomUri={itemData.ecom_uri}
+                  category={product.category.name}
                 />
               );
             })}
