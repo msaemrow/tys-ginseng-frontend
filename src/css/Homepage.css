@@ -25,6 +25,29 @@ main p {
 main a {
   font-size: 1.5vw !important;
 }
+
+.ginseng-experience {
+  background-color: #78be21;
+  border-radius: 10px;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.ginseng-experience a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ginseng-experience a:hover {
+  background-color: #689f1c;
+  transform: scale(1.02);
+}
+
 .img-custom {
   max-height: 400px; /* Set the maximum height you want */
   object-fit: fill; /* Ensures the image covers the element, maintaining aspect ratio */
@@ -40,9 +63,10 @@ main a {
   border: none !important; /* Optional: Removes the border */
 }
 
-.Homepage-our-process-btn {
+.homepage-btn {
   background-color: #fdb913 !important;
-  width: 50%;
+  font-size: 1.1rem !important;
+  width: 35%;
 }
 
 .market-address {
@@ -61,6 +85,11 @@ main a {
   color: #78be21;
 }
 
+@media (max-width: 1200px) {
+  .homepage-btn {
+    width: 50%;
+  }
+}
 /* Styles for mobile responsiveness */
 @media (max-width: 768px) {
   #homepage-top-div {
@@ -95,9 +124,9 @@ main a {
     object-fit: contain;
   }
 
-  .Homepage-our-process-btn {
-    width: 100%;
-    margin-bottom: 15px;
+  .homepage-btn {
+    width: 70% !important;
+    margin-bottom: 10px;
     font-size: 1rem !important;
   }
 
@@ -132,9 +161,8 @@ main a {
     flex-direction: column-reverse !important;
   }
 
-  .Homepage-our-process-btn {
+  .homepage-btn {
     width: 100%;
-    margin-bottom: 15px;
     font-size: 0.8rem !important;
   }
 

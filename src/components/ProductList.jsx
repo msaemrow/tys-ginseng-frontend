@@ -8,6 +8,7 @@ import { CartContext } from "./CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../assets/TysGinsengLogo.png";
+import SkeletonProduct from "./SkeletonProduct";
 
 const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
@@ -20,6 +21,7 @@ const ProductList = () => {
         let productList = await GinsengApi.getAllProducts();
         setProducts(productList.products);
         setIsLoading(false);
+        console.log("products", productList.products);
       } catch (err) {
         console.error("Error fetching products", err);
       }
@@ -49,10 +51,10 @@ const ProductList = () => {
       <ToastContainer position="top-right" autoClose={2000} />
       <h2 className="Products-title">Ginseng Products </h2>
       {isLoading ? (
-        <div className="spinner-div d-flex align-items-center justify-content-center">
-          <div class="spinner-border text-warning " role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
+        <div className="d-flex flex-wrap justify-content-center">
+          {[...Array(3)].map((_, i) => (
+            <SkeletonProduct key={i} />
+          ))}
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
