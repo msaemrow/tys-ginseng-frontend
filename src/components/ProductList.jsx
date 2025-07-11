@@ -13,6 +13,7 @@ const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -28,6 +29,15 @@ const ProductList = () => {
     };
     fetchProducts();
   }, []);
+
+  const categories = ["All", "Single", "Bulk", "Specials"];
+
+  const filteredProducts = products
+    .filter((product) => product.item_data?.product_type === "REGULAR")
+    .filter((product) => {
+      const category = product.category?.name || "Other";
+      return selectedCategory === "All" || category === selectedCategory;
+    });
 
   return (
     <div className="pt-5">
@@ -49,7 +59,21 @@ const ProductList = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       <ToastContainer position="top-right" autoClose={2000} />
-      <h2 className="Products-title">Ginseng Products </h2>
+      <h2 className="mb-2">Shop Ginseng Products </h2>
+      <div className="filters d-flex align-items-center gap-2 px-3 ms-3 rounded">
+        <h6 className="mb-0">Product Filters:</h6>
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            className={`btn btn-sm ${
+              selectedCategory === cat ? "btn-dark" : "btn-outline-dark"
+            }`}
+            onClick={() => setSelectedCategory(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
       {isLoading ? (
         <div className="spinner-div d-flex align-items-center justify-content-center">
           <div className="spinner-border text-warning " role="status">
@@ -58,9 +82,12 @@ const ProductList = () => {
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
-          {products
-            .filter((product) => product.item_data?.product_type === "REGULAR")
-            .map((product) => {
+          {filteredProducts.length === 0 ? (
+            <p className="text-center mt-4">
+              No products found in this category.
+            </p>
+          ) : (
+            filteredProducts.map((product) => {
               const itemData = product.item_data;
               const variation = itemData.variations?.[0]?.item_variation_data;
 
@@ -72,13 +99,14 @@ const ProductList = () => {
                   name={itemData.name}
                   price={variation?.price_money?.amount}
                   description={itemData.description_plaintext}
-                  imageUrls={product.image_urls || []} // use joined image URLs here
+                  imageUrls={product.image_urls || []}
                   type={itemData.product_type}
                   ecomUri={itemData.ecom_uri}
-                  category={product.category.name}
+                  category={product.category?.name || "Other"}
                 />
               );
-            })}
+            })
+          )}
         </div>
       )}
     </div>
