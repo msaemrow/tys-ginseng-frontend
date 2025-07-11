@@ -18,6 +18,8 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         let productList = await GinsengApi.getAllProducts();
+        console.log("✅ Response from API:", productList.products[8].item_data);
+
         setProducts(productList.products);
         setIsLoading(false);
       } catch (err) {
@@ -50,34 +52,32 @@ const ProductList = () => {
       <h2 className="Products-title">Ginseng Products </h2>
       {isLoading ? (
         <div className="spinner-div d-flex align-items-center justify-content-center">
-          <div class="spinner-border text-warning " role="status">
-            <span class="sr-only">Loading...</span>
+          <div className="spinner-border text-warning " role="status">
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
           {products
-            .filter(
-              (product) =>
-                product.type === "SINGLE" && product.listed_on_site === true
-            )
-            .map((product) => (
-              <Product
-                key={product.barcode}
-                barcode={product.barcode}
-                name={product.name}
-                price={product.price}
-                sale_price={product.sale_price}
-                on_sale={product.on_sale}
-                description={product.description}
-                servings={product.servings}
-                url={product.image_url}
-                type={product.type}
-                weight={product.weight}
-                quantity={product.quantity}
-                best_seller={product.best_seller}
-              />
-            ))}
+            .filter((product) => product.item_data?.product_type === "REGULAR")
+            .map((product) => {
+              const itemData = product.item_data;
+              const variation = itemData.variations?.[0]?.item_variation_data;
+
+              return (
+                <Product
+                  key={product.id}
+                  id={product.id}
+                  sku={variation?.sku}
+                  name={itemData.name}
+                  price={variation?.price_money?.amount}
+                  description={itemData.description_plaintext}
+                  imageUrls={product.image_urls || []} // use joined image URLs here
+                  type={itemData.product_type}
+                  ecomUri={itemData.ecom_uri}
+                />
+              );
+            })}
         </div>
       )}
     </div>
