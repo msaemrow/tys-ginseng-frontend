@@ -20,11 +20,9 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         let productList = await GinsengApi.getAllProducts();
-        console.log("✅ Response from API:", productList.products[8].item_data);
 
         setProducts(productList.products);
         setIsLoading(false);
-        console.log("products", productList.products);
       } catch (err) {
         console.error("Error fetching products", err);
       }
@@ -62,19 +60,21 @@ const ProductList = () => {
       </Helmet>
       <ToastContainer position="top-right" autoClose={2000} />
       <h2 className="mb-2">Shop Ginseng Products </h2>
-      <div className="filters d-flex align-items-center gap-2 px-3 ms-3 rounded">
+      <div className="d-flex  flex-column flex-md-row align-items-center gap-2 px-3 ms-3 rounded">
         <h6 className="mb-0">Product Filters:</h6>
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            className={`btn btn-sm ${
-              selectedCategory === cat ? "selected-btn" : "btn-outline-dark"
-            }`}
-            onClick={() => setSelectedCategory(cat)}
-          >
-            {cat}
-          </button>
-        ))}
+        <div className="d-flex align-items-center gap-2 ms-1 rounded">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`btn btn-sm ${
+                selectedCategory === cat ? "selected-btn" : "btn-outline-dark"
+              }`}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </div>
       {isLoading ? (
         <div className="d-flex flex-wrap justify-content-center">
@@ -105,6 +105,7 @@ const ProductList = () => {
                   type={itemData.product_type}
                   ecomUri={itemData.ecom_uri}
                   category={product.category?.name || "Other"}
+                  variationID={itemData.variations[0].id}
                 />
               );
             })

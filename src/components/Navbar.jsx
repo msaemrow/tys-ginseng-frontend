@@ -68,8 +68,8 @@ const NavBar = () => {
   };
   const calculateTotal = (cartContents) => {
     return Object.values(cartContents).reduce((acc, el) => {
-      if (el.cost && el.quantity) {
-        acc += el.cost * el.quantity;
+      if (el.price && el.quantity) {
+        acc += (el.price * el.quantity) / 100;
       }
       return acc;
     }, 0);
@@ -282,7 +282,7 @@ const NavBar = () => {
                           </p>
                           <p className="m-0">QTY: {product.quantity}</p>
                           <p className="m-0">
-                            Price ${product.cost * product.quantity}
+                            Price ${(product.price * product.quantity) / 100}
                           </p>
                         </li>
                       ))

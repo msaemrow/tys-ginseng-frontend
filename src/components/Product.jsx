@@ -11,11 +11,19 @@ const Product = ({
   description,
   imageUrls = [],
   category,
+  variationID,
 }) => {
   const { addToCart } = useContext(CartContext);
 
   const handleAddToCart = () => {
-    const product = { id, sku, name, price, imageUrls };
+    const product = {
+      id,
+      sku,
+      name,
+      price,
+      imageUrls,
+      catalogObjectId: variationID,
+    };
     addToCart(sku, product);
   };
 
@@ -39,13 +47,13 @@ const Product = ({
 
         <h3 className="product-price">${(price / 100).toFixed(2)}</h3>
 
-        {category === "Single" && (
+        {category === "Powder" && (
           <button className="btn add-to-cart-btn m-1" onClick={handleAddToCart}>
             Add to cart
           </button>
         )}
 
-        {category === "Bulk" && (
+        {category === "Bulk Roots" && (
           <button className="btn add-to-cart-btn m-2">
             Contact for ordering
           </button>

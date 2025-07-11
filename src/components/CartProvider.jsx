@@ -32,18 +32,15 @@ export const CartProvider = ({ children }) => {
           quantity: newCart[productId].quantity + 1,
         };
       } else {
-        newCart[productId] = { ...product, quantity: 1 };
+        newCart[productId] = {
+          ...product,
+          quantity: 1,
+          variationID: product.variationID,
+        };
       }
       newCart.contents += 1;
       return newCart;
     });
-    if (productId === 1004) {
-      setJarsRemaining((prevRemaining) => {
-        const newRemaining = { ...prevRemaining };
-        newRemaining.quantity = (newRemaining.quantity || 0) - 1;
-        return newRemaining;
-      });
-    }
 
     toast.success(`${product.name} added to cart!`);
   };
