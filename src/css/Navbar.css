@@ -2,6 +2,18 @@ nav {
   background-color: #d2b48c !important;
 }
 
+.navbar-nav {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navbar-nav .nav-link,
+.navbar-brand .nav-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 .navbar-nav .nav-link {
   color: black !important; /* Custom link color */
 }
@@ -72,7 +84,27 @@ nav {
   text-align: center;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 992px) {
+  .navbar-nav .nav-link,
+  .navbar-brand .nav-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-link,
+  .navbar-brand .nav-text {
+    font-size: 0.95rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-nav {
+    white-space: normal; /* allow wrapping in mobile view */
+  }
+
   .navbar-buy-now-btn {
     width: 50%;
   }

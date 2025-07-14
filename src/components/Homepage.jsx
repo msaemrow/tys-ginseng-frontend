@@ -38,7 +38,7 @@ const Homepage = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            🌿 New! Book Your Premium Ginseng Experience →
+            🌿 New! Book Your "Wild Ginseng Experience" tour →
           </a>
         </div>
         {/* About us div-- contains text then image  */}
