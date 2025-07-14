@@ -63,8 +63,8 @@ const NavBar = () => {
     removeFromCart(productId);
   };
 
-  const handleIncrementCartItem = (productId, product) => {
-    addToCart(productId, product);
+  const handleIncrementCartItem = (sku, product) => {
+    addToCart(sku, product);
   };
   const calculateTotal = (cartContents) => {
     return Object.values(cartContents).reduce((acc, el) => {
@@ -274,7 +274,7 @@ const NavBar = () => {
                             <button
                               className="btn pt-0 pb-0 ps-2 pe-2"
                               onClick={() =>
-                                handleIncrementCartItem(productId, product)
+                                handleIncrementCartItem(product.sku, product)
                               }
                             >
                               <i className="fa-solid fa-plus"></i>

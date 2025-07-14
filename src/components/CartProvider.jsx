@@ -22,46 +22,47 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cartContents", JSON.stringify(cartContents));
   }, [cartContents]);
 
-  const addToCart = (productId, product) => {
+  const addToCart = (sku, product) => {
     setCartContents((prevCart) => {
       const newCart = { ...prevCart };
 
-      if (newCart[productId]) {
-        newCart[productId] = {
-          ...newCart[productId],
-          quantity: newCart[productId].quantity + 1,
+      if (newCart[sku]) {
+        newCart[sku] = {
+          ...newCart[sku],
+          quantity: newCart[sku].quantity + 1,
         };
       } else {
-        newCart[productId] = {
+        newCart[sku] = {
           ...product,
           quantity: 1,
-          variationID: product.variationID,
         };
       }
       newCart.contents += 1;
+
       return newCart;
     });
-
     toast.success(`${product.name} added to cart!`);
   };
 
-  const removeFromCart = (productId) => {
+  const removeFromCart = (sku) => {
     setCartContents((prevCart) => {
       const newCart = { ...prevCart };
 
-      if (newCart[productId]) {
-        if (newCart[productId].quantity > 1) {
-          newCart[productId] = {
-            ...newCart[productId],
-            quantity: newCart[productId].quantity - 1,
+      if (newCart[sku]) {
+        if (newCart[sku].quantity > 1) {
+          newCart[sku] = {
+            ...newCart[sku],
+            quantity: newCart[sku].quantity - 1,
           };
         } else {
-          delete newCart[productId];
+          delete newCart[sku];
         }
 
         newCart.contents = Object.values(newCart)
           .filter((item) => item.quantity)
           .reduce((total, item) => total + item.quantity, 0);
+
+        toast.warn(`Removed item from cart!`);
 
         return newCart;
       }
@@ -82,8 +83,8 @@ export const CartProvider = ({ children }) => {
 
   const calculateTotal = (cartContents) => {
     return Object.values(cartContents).reduce((acc, el) => {
-      if (el.cost && el.quantity) {
-        acc += el.cost * el.quantity;
+      if (el.price && el.quantity) {
+        acc += (el.price / 100) * el.quantity;
       }
       return acc;
     }, 0);
