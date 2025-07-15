@@ -85,7 +85,7 @@ const ProductList = () => {
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
           {filteredProducts.length === 0 ? (
-            <p className="text-center mt-4">
+            <p className="text-center mt-4 no-products">
               No products found in this category.
             </p>
           ) : (
