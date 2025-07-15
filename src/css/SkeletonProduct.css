@@ -5,32 +5,36 @@
 }
 
 .skeleton-title {
-  height: 40px;
-  width: 80%;
+  height: 35px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .skeleton-image {
-  height: 180px;
+  height: 225px;
   width: 100%;
 }
 
 .skeleton-text {
   height: 14px;
-  width: 90%;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .skeleton-text.short {
-  width: 80%;
+  width: 70%;
 }
 
 .skeleton-price {
-  height: 25px;
-  width: 40%;
+  height: 24px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .skeleton-button {
-  height: 38px;
+  height: 40px;
   width: 90%;
+  margin: 0 auto;
 }
 
 @keyframes pulse {

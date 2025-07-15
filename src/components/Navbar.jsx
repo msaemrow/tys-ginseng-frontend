@@ -63,13 +63,13 @@ const NavBar = () => {
     removeFromCart(productId);
   };
 
-  const handleIncrementCartItem = (productId, product) => {
-    addToCart(productId, product);
+  const handleIncrementCartItem = (sku, product) => {
+    addToCart(sku, product);
   };
   const calculateTotal = (cartContents) => {
     return Object.values(cartContents).reduce((acc, el) => {
-      if (el.cost && el.quantity) {
-        acc += el.cost * el.quantity;
+      if (el.price && el.quantity) {
+        acc += (el.price * el.quantity) / 100;
       }
       return acc;
     }, 0);
@@ -96,15 +96,19 @@ const NavBar = () => {
 
   //HTML RETURN
   return (
-    <nav className="navbar pb-0 pt-1 navbar-expand-md navbar-light fixed-top">
+    <nav className="navbar pb-1 pt-1 navbar-expand-md navbar-light fixed-top">
       <div className="container pb-0 pt-1">
         {/* Brand name or logo */}
         <NavLink
-          className="navbar-brand nav-title"
+          className="navbar-brand nav-title mb-1"
           to="/"
           onClick={handleMobileNavLinkClick}
         >
-          <img className="navbar-logo" src={Logo} alt="Ty's Ginseng Logo" />
+          <img
+            className="navbar-logo mb-0"
+            src={Logo}
+            alt="Ty's Ginseng Logo"
+          />
           <span className="ms-2 nav-text">Ty's Ginseng</span>
         </NavLink>
         {/* Toggle button for mobile view */}
@@ -147,20 +151,18 @@ const NavBar = () => {
                 to="/products"
                 onClick={handleMobileNavLinkClick}
               >
-                Products
+                Shop Ginseng
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li>
               <NavLink
                 className="nav-link"
-                aria-current="page"
-                to="/products-bulk"
+                to="/our-process"
                 onClick={handleMobileNavLinkClick}
               >
-                Bulk Roots
+                Our Process
               </NavLink>
             </li>
-
             <li className="nav-item dropdown">
               <NavLink
                 className="nav-link dropdown-toggle about-us-dropdown"
@@ -172,15 +174,6 @@ const NavBar = () => {
                 Learn More
               </NavLink>
               <ul className="dropdown-menu">
-                <li>
-                  <NavLink
-                    className="dropdown-item"
-                    to="/our-process"
-                    onClick={handleMobileNavLinkClick}
-                  >
-                    Our Process
-                  </NavLink>
-                </li>
                 <li>
                   <NavLink
                     className="dropdown-item"
@@ -199,7 +192,7 @@ const NavBar = () => {
                     How to Use Ginseng
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink
                     className="dropdown-item"
                     to="/products/deals"
@@ -207,7 +200,7 @@ const NavBar = () => {
                   >
                     MN Grown Deals
                   </NavLink>
-                </li>
+                </li> */}
                 {/* Testimonials Page-- Currently demo and no real testimonials-- not on live site */}
                 {/* <li>
                   <Link
@@ -285,7 +278,7 @@ const NavBar = () => {
                             <button
                               className="btn pt-0 pb-0 ps-2 pe-2"
                               onClick={() =>
-                                handleIncrementCartItem(productId, product)
+                                handleIncrementCartItem(product.sku, product)
                               }
                             >
                               <i className="fa-solid fa-plus"></i>
@@ -293,7 +286,7 @@ const NavBar = () => {
                           </p>
                           <p className="m-0">QTY: {product.quantity}</p>
                           <p className="m-0">
-                            Price ${product.cost * product.quantity}
+                            Price ${(product.price * product.quantity) / 100}
                           </p>
                         </li>
                       ))

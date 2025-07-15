@@ -2,16 +2,18 @@ import "../css/SkeletonProduct.css";
 
 const SkeletonProduct = () => {
   return (
-    <div className="Product d-flex flex-wrap flex-column border border-dark rounded m-3 p-2 w-25 justify-content-start align-items-center">
-      <div className="skeleton skeleton-title mb-2" />
-      <div className="skeleton skeleton-image mb-2" />
-      <div className="skeleton skeleton-text mb-1" />
-      <div className="skeleton skeleton-text short mb-3" />
+    <div className="product d-flex flex-column align-items-center">
+      <div className="product-content text-center w-100">
+        <div className="skeleton skeleton-image product-image-top" />
+        <div className="skeleton skeleton-title mt-2" />
+      </div>
 
-      <div className="skeleton skeleton-text mb-1" />
-      <div className="skeleton skeleton-text short mb-1" />
-      <div className="skeleton skeleton-price mt-3 mb-1" />
-      <div className="skeleton skeleton-button" />
+      <div className="product-footer text-center">
+        <div className="skeleton skeleton-text mb-1" />
+        <div className="skeleton skeleton-text short mb-2" />
+        <div className="skeleton skeleton-price mb-2" />
+        <div className="skeleton skeleton-button" />
+      </div>
     </div>
   );
 };

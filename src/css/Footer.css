@@ -1,11 +1,20 @@
-.Footer {
-  height: 375px;
+.footer {
   background-color: #fdb913;
+  align-items: stretch;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
 }
 
 .Footer-logo {
   margin-bottom: 10px;
   height: 100px;
+}
+
+.divider {
+  width: 1px;
+  background-color: black;
 }
 
 .social-links {
@@ -22,4 +31,19 @@
 
 .admin-link:hover {
   color: gray;
+}
+
+@media (max-width: 576px) {
+  .footer {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    gap: 0 !important;
+    text-align: center;
+  }
+
+  .divider {
+    width: 80%;
+    height: 1px;
+  }
 }

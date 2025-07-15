@@ -24,7 +24,11 @@ const CheckoutPage = () => {
   const calculateShippingCost = () => {
     const totalOrderWeight = Object.entries(cartContents)
       .filter(([key]) => key !== "contents")
-      .map(([productID, product]) => product.quantity * product.weight)
+      .map(([, product]) => {
+        //Product sku contains the container size; 1075 = 0.75oz jar, 1100 = 1oz jar
+        const weight = (product.sku - 1000) / 100 + 1;
+        return weight * product.quantity;
+      })
       .reduce((total, weight) => total + weight, 0);
 
     if (totalOrderWeight <= 4.0) {
@@ -55,16 +59,16 @@ const CheckoutPage = () => {
       const shippingCost = calculateShippingCost(cartContents);
       const squareCheckoutItems = Object.entries(cartContents)
         .filter(([key]) => key !== "contents")
-        .map(([productId, product]) => ({
-          name: product.name,
-          price: product.cost * 100,
-          quantity: product.quantity,
+        .map(([sku, product]) => ({
+          variationId: product.catalogObjectId,
+          quantity: product.quantity.toString(),
         }));
 
       const checkoutUrl = await SquareApi.generateCheckoutUrl(
         squareCheckoutItems,
         shippingCost
       );
+
       if (checkoutUrl.url) {
         const isMobile = window.innerWidth < 768;
         setTimeout(() => {
@@ -136,12 +140,13 @@ const CheckoutPage = () => {
               <tbody>
                 {Object.entries(cartContents)
                   .filter(([key]) => key !== "contents")
-                  .map(([productId, product]) => (
+                  .map(([, product]) => (
                     <CartItem
-                      key={productId}
-                      id={productId}
+                      key={product.id}
+                      product={product}
+                      id={product.id}
                       name={product.name}
-                      price={product.cost}
+                      price={product.price}
                       quantity={product.quantity}
                     />
                   ))}

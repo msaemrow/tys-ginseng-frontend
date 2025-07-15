@@ -14,20 +14,30 @@ const ProductList = () => {
   const { cartContents, isCartShowing } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         let productList = await GinsengApi.getAllProducts();
+
         setProducts(productList.products);
         setIsLoading(false);
-        console.log("products", productList.products);
       } catch (err) {
         console.error("Error fetching products", err);
       }
     };
     fetchProducts();
   }, []);
+
+  const categories = ["All", "Powder", "Bulk Roots", "Specials"];
+
+  const filteredProducts = products
+    .filter((product) => product.item_data?.product_type === "REGULAR")
+    .filter((product) => {
+      const category = product.category?.name || "Other";
+      return selectedCategory === "All" || category === selectedCategory;
+    });
 
   return (
     <div className="pt-5">
@@ -49,7 +59,23 @@ const ProductList = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       <ToastContainer position="top-right" autoClose={2000} />
-      <h2 className="Products-title">Ginseng Products </h2>
+      <h2 className="mb-2">Shop Ginseng Products </h2>
+      <div className="d-flex  flex-column flex-md-row align-items-center gap-2 px-3 ms-3 rounded">
+        <h6 className="mb-0">Product Filters:</h6>
+        <div className="d-flex align-items-center gap-2 ms-1 rounded">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`btn btn-sm ${
+                selectedCategory === cat ? "selected-btn" : "btn-outline-dark"
+              }`}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
       {isLoading ? (
         <div className="d-flex flex-wrap justify-content-center">
           {[...Array(3)].map((_, i) => (
@@ -58,28 +84,32 @@ const ProductList = () => {
         </div>
       ) : (
         <div className="d-flex flex-wrap justify-content-center">
-          {products
-            .filter(
-              (product) =>
-                product.type === "SINGLE" && product.listed_on_site === true
-            )
-            .map((product) => (
-              <Product
-                key={product.barcode}
-                barcode={product.barcode}
-                name={product.name}
-                price={product.price}
-                sale_price={product.sale_price}
-                on_sale={product.on_sale}
-                description={product.description}
-                servings={product.servings}
-                url={product.image_url}
-                type={product.type}
-                weight={product.weight}
-                quantity={product.quantity}
-                best_seller={product.best_seller}
-              />
-            ))}
+          {filteredProducts.length === 0 ? (
+            <p className="text-center mt-4 no-products">
+              No products found in this category.
+            </p>
+          ) : (
+            filteredProducts.map((product) => {
+              const itemData = product.item_data;
+              const variation = itemData.variations?.[0]?.item_variation_data;
+
+              return (
+                <Product
+                  key={product.id}
+                  id={product.id}
+                  sku={variation?.sku}
+                  name={itemData.name}
+                  price={variation?.price_money?.amount}
+                  description={itemData.description_plaintext}
+                  imageUrls={product.image_urls || []}
+                  type={itemData.product_type}
+                  ecomUri={itemData.ecom_uri}
+                  category={product.category?.name || "Other"}
+                  variationID={itemData.variations[0].id}
+                />
+              );
+            })
+          )}
         </div>
       )}
     </div>
