@@ -2,6 +2,22 @@ html,
 body {
   height: 100%;
   margin: 0;
+  position: relative;
+}
+
+#homepage-top-div {
+  width: 100% !important;
+  position: relative;
+}
+
+.navbar-spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 240px;
+  background-color: #faf9f8;
+  z-index: 0;
 }
 
 .container-fluid {
@@ -26,11 +42,89 @@ main a {
   font-size: 1.5vw !important;
 }
 
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 20;
+}
+
+.hero-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+
+.hero-text-wrapper h1,
+.hero-text-wrapper h2 {
+  font-family: "Georgia", serif;
+  color: #2c2c2c;
+}
+
+.hero-text-wrapper p {
+  font-size: 1.3rem;
+}
+
+.hero-top {
+  padding-top: 3rem;
+}
+
+.hero-top h1 {
+  font-size: 4rem;
+}
+
+.hero-bottom {
+  padding-top: 1rem;
+}
+
+.hero-bottom h2 {
+  font-size: 3.5rem !important;
+}
+
+.hero-images {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2rem;
+  gap: 1rem;
+}
+
+.main-hero-image img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.sub-hero-images {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sub-hero-images img {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.shop-now-btn {
+  background-color: #78be21 !important;
+  margin-top: auto;
+  width: 100%;
+}
+
 .ginseng-experience {
   background-color: #78be21;
   border-radius: 10px;
   padding: 6px 10px;
   text-align: center;
+  position: relative;
+  z-index: 20;
 }
 
 .ginseng-experience a {
@@ -48,46 +142,9 @@ main a {
   transform: scale(1.02);
 }
 
-.img-custom {
-  max-height: 400px; /* Set the maximum height you want */
-  object-fit: fill; /* Ensures the image covers the element, maintaining aspect ratio */
-  width: auto; /* Optional: allows the image to scale proportionally */
-}
-
-.mnGrownLogo {
-  max-height: 75px;
-}
-
-.list-group-item {
-  background-color: transparent !important; /* Removes the background color */
-  border: none !important; /* Optional: Removes the border */
-}
-
-.homepage-btn {
-  background-color: #fdb913 !important;
-  font-size: 1.1rem !important;
-  width: 35%;
-}
-
-.market-address {
-  color: green;
-}
-
-.market-address:hover {
-  color: #78be21;
-}
-
-.follow-us {
-  color: green;
-}
-
-.follow-us:hover {
-  color: #78be21;
-}
-
-@media (max-width: 1200px) {
-  .homepage-btn {
-    width: 50%;
+@media (max-width: 1000px) {
+  .hero-text-wrapper p {
+    font-size: 1.1rem;
   }
 }
 /* Styles for mobile responsiveness */
@@ -96,56 +153,68 @@ main a {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
-  #about-us-div,
-  #why-choose-us-div,
-  #benefits-div,
-  #find-us-div {
-    flex-direction: column !important;
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero-text-wrapper {
+    padding: 0;
     text-align: center;
-  }
-
-  #find-us-div,
-  #why-choose-us-div {
-    flex-direction: column-reverse !important;
-  }
-
-  #about-us-div p {
-    font-size: 0.7rem;
-  }
-
-  #find-us-div p {
-    font-size: 1rem !important;
-  }
-
-  img.img-custom {
     width: 100%;
+  }
+
+  .hero-top,
+  .hero-bottom {
+    padding: 0.8rem;
+  }
+
+  .hero-top h1 {
+    font-size: 3rem !important;
+  }
+
+  .hero-bottom h2 {
+    font-size: 2.5rem !important;
+  }
+
+  .hero-images {
+    padding: 1rem 0;
+    width: 100%;
+  }
+
+  .main-hero-image img {
     height: auto;
-    margin-bottom: 20px;
-    object-fit: contain;
+    max-height: 350px;
+    width: 90%;
   }
 
-  .homepage-btn {
-    width: 70% !important;
-    margin-bottom: 10px;
-    font-size: 1rem !important;
+  .sub-hero-images {
+    justify-content: center;
   }
 
-  .p-3 {
-    padding: 1rem !important;
+  .sub-hero-images img {
+    height: auto;
+    width: 45%;
   }
 
-  .mt-4,
-  .mb-5 {
-    margin-top: 2rem !important;
-    margin-bottom: 2rem !important;
+  main p {
+    font-size: 1rem;
   }
 
-  .follow-us {
-    font-size: 0.7rem !important;
+  main a {
+    font-size: 1.1rem !important;
   }
 
-  a {
-    font-size: 1rem !important;
+  .shop-now-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .ginseng-experience a {
+    font-size: 0.9rem !important;
+    padding: 10px 20px;
   }
 }
 
@@ -154,28 +223,5 @@ main a {
   #homepage-top-div {
     padding-left: 5px !important;
     padding-right: 5px !important;
-  }
-
-  #find-us-div,
-  #why-choose-us-div {
-    flex-direction: column-reverse !important;
-  }
-
-  .homepage-btn {
-    width: 100%;
-    font-size: 0.8rem !important;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  p,
-  li {
-    font-size: 1rem;
-  }
-
-  .follow-us {
-    font-size: 0.8rem !important;
   }
 }

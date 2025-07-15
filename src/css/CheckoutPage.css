@@ -1,18 +1,31 @@
-.cart-summary {
-  width: 75% !important;
-  margin: 0 auto;
-  table-layout: auto;
+.checkout-page {
+  background-color: #f9f9f9;
+  min-height: 75vh;
 }
 
-.cart-summary th,
-.cart-summary td {
-  padding: 15px; /* Add padding for readability */
-  text-align: center; /* Default alignment for all cells */
+.checkout-empty {
+  padding: 40px 0;
 }
 
-.cart-summary td:nth-child(2),
-.cart-summary td:nth-child(3),
-.cart-summary td:nth-child(4),
-.cart-summary tr td.text-end {
-  text-align: right; /* Align numbers (price, quantity, totals) to the right */
+.cart-summary-box {
+  background-color: #fff;
+  position: sticky;
+  top: 20px;
+  border: 1px solid #ddd;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.summary-line.total {
+  font-size: 1.25rem;
+  margin-top: 15px;
+}
+
+.checkout-info p {
+  margin-bottom: 0.5rem;
 }

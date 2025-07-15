@@ -1,5 +1,5 @@
 nav {
-  background-color: #d2b48c !important;
+  background-color: #faf9f8 !important;
 }
 
 .navbar-nav .nav-link,
@@ -27,8 +27,45 @@ nav {
 
 .custom-dropdown {
   right: 5px;
-  width: 275px;
+  width: 300px;
   display: none;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.custom-dropdown.show {
+  display: block;
+}
+
+.custom-dropdown li {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.custom-dropdown .btn-outline-secondary {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 6px;
+}
+
+.custom-dropdown .fw-semibold {
+  font-weight: 600;
+}
+
+.custom-dropdown .checkout-button {
+  background-color: #78be21 !important;
+  color: black !important;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.custom-dropdown .checkout-button:hover {
+  background-color: #5a9c1e !important;
+}
+
+.custom-dropdown .text-muted {
+  color: #888 !important;
 }
 
 .dropdown-menu a:hover {
@@ -49,18 +86,6 @@ nav {
 
 .about-us-dropdown {
   color: black !important;
-}
-
-.custom-dropdown.show {
-  display: block;
-}
-
-.custom-dropdown .dropdown-item:nth-child(odd) {
-  background-color: #f8f9fa;
-}
-
-.custom-dropdown .dropdown-item:nth-child(even) {
-  background-color: #e9ecef;
 }
 
 .checkout-button {
