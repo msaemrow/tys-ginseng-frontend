@@ -2,23 +2,17 @@ nav {
   background-color: #d2b48c !important;
 }
 
-.navbar-nav {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .navbar-nav .nav-link,
 .navbar-brand .nav-text {
   font-size: 1rem;
 }
 
 .navbar-nav .nav-link {
-  color: black !important; /* Custom link color */
+  color: black !important;
 }
 
 .navbar-brand {
-  font-size: 1.5rem; /* Larger brand font size */
+  font-size: 1.5rem;
 }
 
 .navbar-logo {
