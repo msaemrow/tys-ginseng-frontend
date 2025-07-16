@@ -77,25 +77,25 @@ const PictureList = () => {
           <span className="visually-hidden">Previous</span>
         </button>
         <button
-          className="carousel-control-next"
+          className="carousel-control-next carousel-arrow"
           type="button"
           data-bs-target="#our-ginseng-carousel"
           data-bs-slide="next"
         >
           <span
-            className="carousel-control-next-icon carousel-arrow"
+            className="carousel-control-next-icon"
             aria-hidden="true"
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <div className="picture-list d-flex flex-wrap justify-content-center">
+      <div className="grid-container">
         {images.map((image, index) => (
           <img
             key={index}
             src={image.url}
             alt={image.description}
-            className="img-fluid img-custom-grid rounded m-4"
+            className="img-fluid img-custom-grid"
             onClick={() => handleImageClick(image)}
           />
         ))}

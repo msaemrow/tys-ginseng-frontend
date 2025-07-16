@@ -1,32 +1,110 @@
 .our-process-page {
-  padding: 5px 150px;
+  padding: 1.5rem 2.5rem;
 }
 
-.our-process-image {
-  height: aut0;
-  width: 70%;
-  max-height: 350px;
-  object-fit: contain;
-}
-
-#planting-beds {
-  object-fit: cover !important;
-}
-
-#digging-roots {
-  object-fit: cover !important;
-  width: 50% !important;
+.tab-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  margin-bottom: 3rem;
   height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (max-width: 750px) {
-  .our-process-page {
-    padding-left: 5px !important;
-    padding-right: 5px !important;
+.nav-tabs {
+  border-bottom: 2px solid #ccc;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  background: none;
+  font-weight: 600;
+  color: #555;
+  padding: 0.75rem 1.5rem !important;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px 8px 0 0;
+}
+
+.nav-tabs .nav-link:hover {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #78be21;
+  color: white;
+  font-weight: 700;
+  border-bottom: 3px solid #78be21;
+}
+
+.tab-content {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 2rem;
+  border-radius: 0 0 12px 12px;
+  height: 100%;
+  flex-grow: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: start !important;
+}
+
+.img-custom {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .tab-container {
+    padding: 1rem;
   }
 
-  .our-process-image {
-    max-height: 250px;
-    object-fit: contain;
+  .tab-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .tab-layout {
+    flex-direction: column;
+  }
+
+  .img-custom {
+    margin-bottom: 1rem;
+  }
+
+  .nav-tabs {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-tabs .nav-link {
+    padding: 0.5rem 0.6rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .our-process-page {
+    padding: 1.5rem 0.5rem;
+  }
+  .nav-tabs {
+    gap: 0.4rem;
+    flex-wrap: wrap;
   }
 }
