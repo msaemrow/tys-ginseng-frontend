@@ -1,6 +1,7 @@
 .checkout-page {
   background-color: #f9f9f9;
   min-height: 75vh;
+  padding-bottom: 2rem;
 }
 
 .checkout-empty {

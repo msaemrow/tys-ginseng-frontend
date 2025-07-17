@@ -54,9 +54,9 @@ const Product = ({
         )}
 
         {category === "Bulk Roots" && (
-          <button className="btn add-to-cart-btn m-2">
-            Contact for ordering
-          </button>
+          <a href="tel:5073842390" className="btn add-to-cart-btn m-2">
+            Call to Order
+          </a>
         )}
       </div>
     </div>

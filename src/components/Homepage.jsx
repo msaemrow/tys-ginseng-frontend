@@ -8,7 +8,7 @@ import ginsengPlant from "../assets/ginseng_plant.webp";
 import logo from "../assets/TysGinsengLogo.png";
 import TabContainer from "./TabContainer";
 import mnGrownLogo from "../assets/mn-grown-logo.png";
-import homepageMainImage from "../assets/homepage-main-image.jpg";
+import homepageMainImage from "../assets/homepage-main-image-1.jpg";
 import subImage1 from "../assets/homepage-subimage-1.jpg";
 import subImage2 from "../assets/homepage-subimage-2.jpg";
 
@@ -35,7 +35,7 @@ const Homepage = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       {/* main element of homepages */}
-      <main className="mt-1 px-md-5">
+      <main className="mt-1 px-lg-5">
         <div className="w-100 mt-4 mb-0 ginseng-experience text-center">
           <a
             className="fs-5 text-white text-decoration-none fw-semibold d-inline-block"

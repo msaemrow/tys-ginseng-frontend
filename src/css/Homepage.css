@@ -15,7 +15,7 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 240px;
+  height: 230px;
   background-color: #faf9f8;
   z-index: 0;
 }
@@ -74,7 +74,7 @@ main a {
 }
 
 .hero-top h1 {
-  font-size: 4rem;
+  font-size: 3.5rem !important;
 }
 
 .hero-bottom {
@@ -132,7 +132,7 @@ main a {
   padding: 12px 24px;
   border-radius: 8px;
   color: white;
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -154,10 +154,14 @@ main a {
     padding-right: 15px !important;
   }
 
+  .navbar-spacer {
+    height: 212px;
+  }
+
   .hero-section {
     flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .hero-text-wrapper {
@@ -166,17 +170,12 @@ main a {
     width: 100%;
   }
 
-  .hero-top,
+  .hero-top {
+    padding-top: 0.3rem;
+    padding-bottom: 0;
+  }
   .hero-bottom {
-    padding: 0.8rem;
-  }
-
-  .hero-top h1 {
-    font-size: 3rem !important;
-  }
-
-  .hero-bottom h2 {
-    font-size: 2.5rem !important;
+    padding: 0.4rem;
   }
 
   .hero-images {
@@ -223,5 +222,11 @@ main a {
   #homepage-top-div {
     padding-left: 5px !important;
     padding-right: 5px !important;
+  }
+}
+
+@media (max-width: 470px) {
+  .navbar-spacer {
+    height: 235px;
   }
 }
