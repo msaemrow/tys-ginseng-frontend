@@ -30,7 +30,6 @@ const CheckoutPage = () => {
         return weight * product.quantity;
       })
       .reduce((total, weight) => total + weight, 0);
-    console.log("TOTal weight", totalOrderWeight);
     if (totalOrderWeight < 4.0) {
       return 500;
     } else if (totalOrderWeight >= 4 && totalOrderWeight < 8) {
