@@ -226,9 +226,6 @@ main a {
 }
 
 @media (max-width: 470px) {
-  .hero-section {
-    flex-direction: column-reverse;
-  }
   .navbar-spacer {
     height: 235px;
   }

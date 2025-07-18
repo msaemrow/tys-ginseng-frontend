@@ -43,7 +43,7 @@ const Homepage = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            🌿 New! Book Your "Wild Ginseng Experience" tour →
+            🌿 New! Book Your "Wild Experience" Ginseng Tour →
           </a>
         </div>
         <div className="navbar-spacer" />

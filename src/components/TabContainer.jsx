@@ -71,7 +71,7 @@ function InfoTabs({ images }) {
                   Combined 70 years of experience in growing ginseng
                 </li>
               </ul>
-              <div className="d-flex justify-content-center flex-column flex-md-row w-100 gap-2 mt-auto">
+              <div className="d-flex justify-content-center flex-column flex-md-row w-100 gap-2 mt-md-2 mt-4">
                 <Link className="homepage-btn btn" to="/products">
                   Buy Online Now
                 </Link>
@@ -103,7 +103,7 @@ function InfoTabs({ images }) {
             </div>
             <div
               style={{ flex: "0 0 60%" }}
-              className="d-flex flex-column justify-content-center align-items-center p-3"
+              className="d-flex flex-column justify-content-center align-items-center p-3 h-100"
             >
               <h2>Benefits of Ginseng</h2>
               <ul className="list-group">
@@ -116,7 +116,7 @@ function InfoTabs({ images }) {
                   Potential benefits against cancer
                 </li>
               </ul>
-              <div className="d-flex flex-column flex-md-row justify-content-center w-100 gap-2 mt-auto">
+              <div className="d-flex flex-column flex-md-row justify-content-center w-100 gap-2 mt-5">
                 <Link className="homepage-btn btn" to="/recipes">
                   How to Use Ginseng
                 </Link>
@@ -157,7 +157,7 @@ function InfoTabs({ images }) {
             >
               <h2>Where to Find Us</h2>
               <p className="fs-5 fw-bold mb-0">Minneapolis Farmers Market</p>
-              <div className="mt-auto">
+              <div className="mt-auto mt-2">
                 <p className="mb-0">
                   We are at the Minneapolis Farmers Market 6am-1pm on Saturdays
                   and Sundays from June - September. Check our Instagram and
@@ -194,7 +194,7 @@ function InfoTabs({ images }) {
                   </a>
                 </div>
               </div>
-              <Link className="homepage-btn btn mt-2" to="/products">
+              <Link className="homepage-btn btn mt-4" to="/products">
                 Buy Online Now
               </Link>
             </div>

@@ -30,14 +30,14 @@ const CheckoutPage = () => {
         return weight * product.quantity;
       })
       .reduce((total, weight) => total + weight, 0);
-
-    if (totalOrderWeight <= 4.0) {
+    console.log("TOTal weight", totalOrderWeight);
+    if (totalOrderWeight < 4.0) {
       return 500;
-    } else if (totalOrderWeight > 4 && totalOrderWeight < 8) {
+    } else if (totalOrderWeight >= 4 && totalOrderWeight < 8) {
       return 800;
-    } else if (totalOrderWeight > 8 && totalOrderWeight < 12) {
+    } else if (totalOrderWeight >= 8 && totalOrderWeight < 12) {
       return 1200;
-    } else if (totalOrderWeight > 12 && totalOrderWeight < 16) {
+    } else if (totalOrderWeight >= 12 && totalOrderWeight < 16) {
       return 1600;
     } else {
       return 2000;

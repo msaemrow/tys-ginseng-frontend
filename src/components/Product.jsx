@@ -53,6 +53,12 @@ const Product = ({
           </button>
         )}
 
+        {category === "Special" && (
+          <button className="btn add-to-cart-btn m-1" onClick={handleAddToCart}>
+            Add to cart
+          </button>
+        )}
+
         {category === "Bulk Roots" && (
           <a href="tel:5073842390" className="btn add-to-cart-btn m-2">
             Call to Order
