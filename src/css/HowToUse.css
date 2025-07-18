@@ -1,0 +1,54 @@
+.how-to-use-page {
+  padding: 2rem 1rem;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #2c2c2c;
+}
+
+.recipe-card {
+  background-color: #fff;
+  border-left: 5px solid #78be21;
+  transition: transform 0.2s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px);
+}
+
+.recipe-title {
+  color: #2c2c2c;
+  font-weight: 600;
+}
+
+.recipe-instructions {
+  font-size: 1rem;
+  color: #333;
+}
+
+.ingredient-list {
+  list-style: none !important;
+  padding-left: 0;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.ingredient-list li::before {
+  content: "• ";
+  color: #78be21; /* or any accent color that fits your brand */
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.ingredient-list li {
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

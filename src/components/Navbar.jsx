@@ -55,12 +55,8 @@ const NavBar = () => {
     navigate("/checkout");
   };
 
-  const handleClearCart = () => {
-    clearCart();
-  };
-
-  const handleRemoveFromCart = (productId) => {
-    removeFromCart(productId);
+  const handleRemoveFromCart = (productId, product) => {
+    removeFromCart(productId, product);
   };
 
   const handleIncrementCartItem = (sku, product) => {
@@ -100,7 +96,7 @@ const NavBar = () => {
       <div className="container pb-0 pt-1">
         {/* Brand name or logo */}
         <NavLink
-          className="navbar-brand nav-title mb-1"
+          className="navbar-brand nav-title"
           to="/"
           onClick={handleMobileNavLinkClick}
         >
@@ -257,59 +253,69 @@ const NavBar = () => {
 
               {isCartShowing && (
                 <ul
-                  className="dropdown-menu show custom-dropdown"
+                  className="dropdown-menu show custom-dropdown p-3 rounded shadow"
                   ref={cartRef}
                 >
                   {cartContents.contents === 0 ? (
-                    <li className="dropdown text-center">Cart is empty</li>
+                    <li className="text-center text-muted small">
+                      Your cart is empty
+                    </li>
                   ) : (
                     Object.entries(cartContents)
                       .filter(([key]) => key !== "contents")
                       .map(([productId, product]) => (
-                        <li key={productId} className="dropdown-item pt-2 pb-2">
-                          <p className="m-0 fw-bold">
-                            {product.name}
-                            <button
-                              className="btn pt-0 pb-0 ps-2 pe-2 ms-1"
-                              onClick={() => handleRemoveFromCart(productId)}
-                            >
-                              <i className="fa-solid fa-minus"></i>
-                            </button>
-                            <button
-                              className="btn pt-0 pb-0 ps-2 pe-2"
-                              onClick={() =>
-                                handleIncrementCartItem(product.sku, product)
-                              }
-                            >
-                              <i className="fa-solid fa-plus"></i>
-                            </button>
-                          </p>
-                          <p className="m-0">QTY: {product.quantity}</p>
-                          <p className="m-0">
-                            Price ${(product.price * product.quantity) / 100}
-                          </p>
+                        <li key={productId} className="mb-3 border-bottom pb-2">
+                          <p className="m-0 fw-semibold">{product.name}</p>
+                          <div className="d-flex align-items-center justify-content-between mt-1">
+                            <div className="d-flex align-items-center">
+                              <button
+                                className="btn btn-sm btn-outline-secondary me-2"
+                                onClick={() =>
+                                  handleRemoveFromCart(productId, product)
+                                }
+                              >
+                                <i className="fa-solid fa-minus"></i>
+                              </button>
+                              <span>{product.quantity}</span>
+                              <button
+                                className="btn btn-sm btn-outline-secondary ms-2"
+                                onClick={() =>
+                                  handleIncrementCartItem(product.sku, product)
+                                }
+                              >
+                                <i className="fa-solid fa-plus"></i>
+                              </button>
+                            </div>
+                            <div className="fw-semibold">
+                              $
+                              {(
+                                (product.price * product.quantity) /
+                                100
+                              ).toFixed(2)}
+                            </div>
+                          </div>
                         </li>
                       ))
                   )}
-                  <li className="cart-total border p-2 fw-bold d-flex justify-content-center">
-                    Order Subtotal: ${calculateTotal(cartContents)}
-                  </li>
 
-                  <li className="d-flex justify-content-center mb-0">
-                    <button
-                      onClick={navigateToCheckout}
-                      className="btn checkout-button m-2"
-                    >
-                      Go to Checkout
-                    </button>
-
-                    {/* <Link className="btn checkout-button m-2" to="/checkout">
-                      Go to cart
-                    </Link> */}
-                  </li>
-                  <li className="cart-shipping-msg mt-0">
-                    (Shipping calculated at checkout page)
-                  </li>
+                  {cartContents.contents !== 0 && (
+                    <>
+                      <li className="border-top pt-2 mt-2 text-center fw-bold">
+                        Subtotal: ${calculateTotal(cartContents).toFixed(2)}
+                      </li>
+                      <li className="text-center small text-muted">
+                        (Shipping calculated at checkout)
+                      </li>
+                      <li className="d-flex justify-content-center mt-2">
+                        <button
+                          onClick={navigateToCheckout}
+                          className="btn checkout-button w-100"
+                        >
+                          Go to Checkout
+                        </button>
+                      </li>
+                    </>
+                  )}
                 </ul>
               )}
             </li>

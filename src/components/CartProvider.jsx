@@ -44,7 +44,9 @@ export const CartProvider = ({ children }) => {
     toast.success(`${product.name} added to cart!`);
   };
 
-  const removeFromCart = (sku) => {
+  const removeFromCart = (sku, product) => {
+    let itemWasRemoved = false;
+
     setCartContents((prevCart) => {
       const newCart = { ...prevCart };
 
@@ -62,11 +64,15 @@ export const CartProvider = ({ children }) => {
           .filter((item) => item.quantity)
           .reduce((total, item) => total + item.quantity, 0);
 
-        toast.warn(`Removed item from cart!`);
-
-        return newCart;
+        itemWasRemoved = true; // this is still useful for dev debugging
       }
+
+      return newCart;
     });
+
+    // Always show the toast when this function is *called*
+    // (since item exists if you're triggering the function)
+    toast.warn(`${product?.name || "Item"} removed from cart!`);
   };
 
   const clearCart = () => {

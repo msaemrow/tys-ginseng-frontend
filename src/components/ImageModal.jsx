@@ -6,10 +6,10 @@ const ImageModal = ({ imageUrl, imageAlt, isOpen, onClose }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
+      <button className="close-button" onClick={onClose}>
+        &times;
+      </button>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-button" onClick={onClose}>
-          &times;
-        </button>
         <img className="modal-image" src={imageUrl} alt={imageAlt} />
       </div>
     </div>

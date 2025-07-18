@@ -1,17 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Product from "./Product";
 import productsArr from "../assets/products";
 import GinsengApi from "../apiGinsengAPI/api";
 import { Helmet } from "react-helmet-async";
 import "../css/ProductList.css";
-import { CartContext } from "./CartProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../assets/TysGinsengLogo.png";
 import SkeletonProduct from "./SkeletonProduct";
 
 const ProductList = () => {
-  const { cartContents, isCartShowing } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -59,8 +57,8 @@ const ProductList = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       <ToastContainer position="top-right" autoClose={2000} />
-      <h2 className="mb-2">Shop Ginseng Products </h2>
-      <div className="d-flex  flex-column flex-md-row align-items-center gap-2 px-3 ms-3 rounded">
+      <h2 className="mb-3 text-center">Shop Ginseng Products </h2>
+      <div className="d-flex  flex-column flex-md-row align-items-center gap-2 px-3 ms-md-3 ms-0 rounded">
         <h6 className="mb-0">Product Filters:</h6>
         <div className="d-flex align-items-center gap-2 ms-1 rounded">
           {categories.map((cat) => (
@@ -77,38 +75,47 @@ const ProductList = () => {
         </div>
       </div>
       {isLoading ? (
-        <div className="d-flex flex-wrap justify-content-center">
-          {[...Array(3)].map((_, i) => (
-            <SkeletonProduct key={i} />
-          ))}
+        <div className="container mt-1 pt-0">
+          <div className="product-grid">
+            {[...Array(4)].map((_, i) => (
+              <SkeletonProduct key={i} />
+            ))}
+          </div>
         </div>
       ) : (
-        <div className="d-flex flex-wrap justify-content-center">
+        <div className="container mt-1 pt-0">
           {filteredProducts.length === 0 ? (
-            <p className="text-center mt-4 no-products">
-              No products found in this category.
-            </p>
+            <div
+              className="d-flex justify-content-center align-items-center"
+              style={{ minHeight: "300px" }}
+            >
+              <p className="text-center no-products pt-5">
+                No products found in this category.
+              </p>
+            </div>
           ) : (
-            filteredProducts.map((product) => {
-              const itemData = product.item_data;
-              const variation = itemData.variations?.[0]?.item_variation_data;
+            <div className="product-grid">
+              {filteredProducts.map((product) => {
+                const itemData = product.item_data;
+                const variation = itemData.variations?.[0]?.item_variation_data;
 
-              return (
-                <Product
-                  key={product.id}
-                  id={product.id}
-                  sku={variation?.sku}
-                  name={itemData.name}
-                  price={variation?.price_money?.amount}
-                  description={itemData.description_plaintext}
-                  imageUrls={product.image_urls || []}
-                  type={itemData.product_type}
-                  ecomUri={itemData.ecom_uri}
-                  category={product.category?.name || "Other"}
-                  variationID={itemData.variations[0].id}
-                />
-              );
-            })
+                return (
+                  <Product
+                    key={product.id}
+                    id={product.id}
+                    sku={variation?.sku}
+                    name={itemData.name}
+                    price={variation?.price_money?.amount}
+                    description={itemData.description_plaintext}
+                    imageUrls={product.image_urls || []}
+                    type={itemData.product_type}
+                    ecomUri={itemData.ecom_uri}
+                    category={product.category?.name || "Other"}
+                    variationID={itemData.variations[0].id}
+                  />
+                );
+              })}
+            </div>
           )}
         </div>
       )}
