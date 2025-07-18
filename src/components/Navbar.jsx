@@ -96,7 +96,7 @@ const NavBar = () => {
       <div className="container pb-0 pt-1">
         {/* Brand name or logo */}
         <NavLink
-          className="navbar-brand nav-title mb-1"
+          className="navbar-brand nav-title"
           to="/"
           onClick={handleMobileNavLinkClick}
         >

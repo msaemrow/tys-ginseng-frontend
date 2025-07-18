@@ -9,3 +9,27 @@
 .no-products {
   min-height: 50vh;
 }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* default: 3 columns */
+  gap: 0.5rem;
+  padding: 0.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small screens: 1 column */
+@media (max-width: 575px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
