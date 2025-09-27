@@ -37,14 +37,12 @@ const Homepage = () => {
       {/* main element of homepages */}
       <main className="mt-1 px-lg-5">
         <div className="w-100 mt-4 mb-0 ginseng-experience text-center">
-          <a
+          <Link
             className="fs-5 text-white text-decoration-none fw-semibold d-inline-block"
-            href="https://book.squareup.com/appointments/vr4nm9pupnu29k/location/LCN2GNEA2T9HY/services"
-            target="_blank"
-            rel="noopener noreferrer"
+            to="/products"
           >
-            🌿 New! Book Your "Wild Experience" Ginseng Tour →
-          </a>
+            Experience the power of premium ginseng
+          </Link>
         </div>
         <div className="navbar-spacer" />
         <section className="hero-section">
