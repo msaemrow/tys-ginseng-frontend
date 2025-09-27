@@ -41,7 +41,7 @@ const Homepage = () => {
             className="fs-5 text-white text-decoration-none fw-semibold d-inline-block"
             to="/products"
           >
-            Experience the power of premium ginseng
+            Experience the Power of Premium Ginseng
           </Link>
         </div>
         <div className="navbar-spacer" />
