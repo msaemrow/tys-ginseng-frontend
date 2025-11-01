@@ -1,9 +1,18 @@
-.view-cart-btn {
-  background-color: #78be21 !important;
-}
-
 .selected-btn {
   background-color: #78be21 !important;
+  color: white !important;
+  border-radius: 10px !important;
+}
+
+.btn-outline-dark {
+  border-radius: 10px !important;
+  font-weight: 500 !important;
+}
+
+.btn-outline-dark:hover {
+  background-color: #78be21 !important;
+  color: white !important;
+  border: none !important;
 }
 
 .no-products {

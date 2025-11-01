@@ -47,20 +47,14 @@ const Product = ({
 
         <h3 className="product-price">${(price / 100).toFixed(2)}</h3>
 
-        {category === "Powder" && (
-          <button className="btn add-to-cart-btn m-1" onClick={handleAddToCart}>
-            Add to cart
-          </button>
-        )}
-
-        {category === "Special" && (
-          <button className="btn add-to-cart-btn m-1" onClick={handleAddToCart}>
+        {category !== "Bulk Roots" && (
+          <button className="add-to-cart-btn m-1" onClick={handleAddToCart}>
             Add to cart
           </button>
         )}
 
         {category === "Bulk Roots" && (
-          <a href="tel:5073842390" className="btn add-to-cart-btn m-2">
+          <a href="tel:5073842390" className="add-to-cart-btn m-2">
             Call to Order
           </a>
         )}

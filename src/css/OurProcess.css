@@ -35,10 +35,10 @@
 }
 
 .nav-tabs .nav-link.active {
-  background-color: #78be21;
-  color: white;
+  background-color: #78be21 !important;
+  color: white !important;
   font-weight: 700;
-  border-bottom: 3px solid #78be21;
+  border-bottom: 3px solid #78be21 !important;
 }
 
 .tab-content {
