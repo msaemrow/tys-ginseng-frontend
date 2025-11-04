@@ -14,6 +14,8 @@
   --primary-color: goldenrod;
   --secondary-color: rgb(254, 23, 23);
   --tertiary-color: green;
+  --yellow-button: #fdb913;
+  --yellow-button-hover: #e2a80f;
 }
 
 .bg-custom-gold {

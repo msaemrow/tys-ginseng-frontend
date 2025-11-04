@@ -18,7 +18,6 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         let productList = await GinsengApi.getAllProducts();
-
         setProducts(productList.products);
         setIsLoading(false);
       } catch (err) {
@@ -38,7 +37,7 @@ const ProductList = () => {
     });
 
   return (
-    <div className="pt-5">
+    <div className="py-5 px-4">
       <Helmet>
         <title>Ty's Ginseng | Products</title>
         <meta
@@ -56,9 +55,16 @@ const ProductList = () => {
         />
         <meta property="og:image" content={logo} />
       </Helmet>
+
       <ToastContainer position="top-right" autoClose={2000} />
-      <h2 className="mb-3 text-center">Shop Ginseng Products </h2>
-      <div className="d-flex  flex-column flex-md-row align-items-center gap-2 px-3 ms-md-3 ms-0 rounded">
+
+      <header className="mb-3 text-center">
+        <h2 className="text-bold">Shop Ginseng Products </h2>
+        <p className="text-muted">Premium Woods Grown Ginseng Roots & Powder</p>
+      </header>
+
+      {/* Filter Buttons */}
+      <div className="d-flex  flex-column flex-md-row align-items-center gap-2 px-3 ms-md-3 ms-0 rounded mb-3">
         <h6 className="mb-0">Product Filters:</h6>
         <div className="d-flex align-items-center gap-2 ms-1 rounded">
           {categories.map((cat) => (
@@ -74,53 +80,48 @@ const ProductList = () => {
           ))}
         </div>
       </div>
+
+      {/* Product Grid */}
       {isLoading ? (
-        <div className="container mt-1 pt-0">
-          <div className="product-grid">
-            {[...Array(4)].map((_, i) => (
-              <SkeletonProduct key={i} />
-            ))}
-          </div>
+        <div className="row g-4">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="col-12 col-sm-6 col-md-4 col-lg-3">
+              <SkeletonProduct />
+            </div>
+          ))}
+        </div>
+      ) : filteredProducts.length === 0 ? (
+        <div className="text-center py-5">
+          <p className="text-muted">No products found in this category.</p>
         </div>
       ) : (
-        <div className="container mt-1 pt-0">
-          {filteredProducts.length === 0 ? (
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{ minHeight: "300px" }}
-            >
-              <p className="text-center no-products pt-5">
-                No products found in this category.
-              </p>
-            </div>
-          ) : (
-            <div className="product-grid">
-              {filteredProducts.map((product) => {
-                const itemData = product.item_data;
-                const variation = itemData.variations?.[0]?.item_variation_data;
-
-                return (
-                  <Product
-                    key={product.id}
-                    id={product.id}
-                    sku={variation?.sku}
-                    name={itemData.name}
-                    price={variation?.price_money?.amount}
-                    description={itemData.description_plaintext}
-                    imageUrls={product.image_urls || []}
-                    type={itemData.product_type}
-                    ecomUri={itemData.ecom_uri}
-                    category={product.category?.name || "Other"}
-                    variationID={itemData.variations[0].id}
-                  />
-                );
-              })}
-            </div>
-          )}
+        <div className="row g-4">
+          {filteredProducts.map((product) => {
+            const itemData = product.item_data;
+            const variation = itemData.variations?.[0]?.item_variation_data;
+            return (
+              <div
+                key={product.id}
+                className="col-12 col-sm-6 col-md-4 col-lg-3"
+              >
+                <Product
+                  id={product.id}
+                  sku={variation?.sku}
+                  name={itemData.name}
+                  price={variation?.price_money?.amount}
+                  description={itemData.description_plaintext}
+                  imageUrls={product.image_urls || []}
+                  type={itemData.product_type}
+                  ecomUri={itemData.ecom_uri}
+                  category={product.category?.name || "Other"}
+                  variationID={itemData.variations[0].id}
+                />
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
   );
 };
-
 export default ProductList;
