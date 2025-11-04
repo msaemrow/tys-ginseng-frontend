@@ -86,7 +86,7 @@
 
 /* Homepage button tweaks */
 .homepage-btn {
-  background-color: #fdb913 !important;
+  background-color: var(--yellow-button) !important;
   color: #000;
   border-radius: 8px;
   font-weight: 600;
@@ -96,7 +96,7 @@
 }
 
 .homepage-btn:hover {
-  background-color: #e2a80f !important;
+  background-color: var(--yellow-button-hover) !important;
   transform: scale(1.03);
   color: #000;
 }
