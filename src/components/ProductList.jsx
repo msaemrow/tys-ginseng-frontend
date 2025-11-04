@@ -8,7 +8,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../assets/TysGinsengLogo.png";
 import SkeletonProduct from "./SkeletonProduct";
-import { prefetchDNS } from "react-dom";
 
 const ProductList = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +18,6 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         let productList = await GinsengApi.getAllProducts();
-        console.log("Product List", productList);
         setProducts(productList.products);
         setIsLoading(false);
       } catch (err) {
