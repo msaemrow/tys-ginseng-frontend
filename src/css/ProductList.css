@@ -29,6 +29,33 @@
   width: 100%;
 }
 
+.product-banner {
+  background-color: var(--logo-green-color);
+  border-radius: 10px;
+  padding: 6px 10px;
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  font-size: 1rem;
+}
+
+.product-banner a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem !important;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.product-banner a:hover {
+  background-color: var(--logo-green-hover-color);
+  transform: scale(1.02);
+}
+
 @media (max-width: 991px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -40,5 +67,13 @@
   .product-grid {
     grid-template-columns: 1fr;
     justify-items: center;
+  }
+
+  .product-banner {
+    padding: 6px 6px;
+  }
+  .product-banner a {
+    font-size: 0.7rem !important;
+    padding: 6px 6px;
   }
 }

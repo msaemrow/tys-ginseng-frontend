@@ -30,3 +30,41 @@
 .checkout-info p {
   margin-bottom: 0.5rem;
 }
+
+.checkout-banner {
+  background-color: var(--logo-green-color);
+  border-radius: 10px;
+  padding: 6px 10px;
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  font-size: 1rem !important;
+}
+
+.checkout-banner a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem !important;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.checkout-banner a:hover {
+  background-color: var(--logo-green-hover-color);
+  transform: scale(1.02);
+}
+
+@media (max-width: 575px) {
+  .checkout-banner {
+    padding: 6px 6px;
+    width: 100%;
+  }
+  .checkout-banner a {
+    font-size: 0.7rem !important;
+    padding: 6px 6px;
+  }
+}

@@ -14,7 +14,7 @@ class GinsengApi {
 
   static async getAllProducts() {
     try {
-      let res = await axios.get(`/api/products/all`);
+      let res = await axios.get(`${BASE_URL}/api/products/all`);
       return res.data;
     } catch (err) {
       console.error("ERROR. ", err.response.data);
@@ -23,7 +23,7 @@ class GinsengApi {
 
   static async getProduct(barcode) {
     try {
-      let res = await axios.get(`/api/products/${barcode}`);
+      let res = await axios.get(`${BASE_URL}/api/products/${barcode}`);
       return res.data;
     } catch (err) {
       console.error("ERROR. ", err.response.data);
