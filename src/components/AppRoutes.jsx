@@ -18,6 +18,7 @@ import AdminLogin from "./Admin/AdminLogin";
 import AdminRoute from "./AdminRoute";
 import UnauthorizedPage from "./Admin/UnauthorizedPage";
 import ProductSpecial from "./ProductSpecial";
+import GiveawayDeails from "./GiveawayDetails";
 import "../css/AppRoutes.css";
 
 const AppRoutes = () => {
@@ -36,6 +37,7 @@ const AppRoutes = () => {
         <Route path="/our-process" element={<OurProcess />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        <Route path="/giveaway-details" element={<GiveawayDeails />} />
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
         <Route path="/admin-login" element={<AdminLogin />} />
 

@@ -16,11 +16,11 @@ const CheckoutPage = () => {
   const navigate = useNavigate();
   const { cartContents, calculateTotal, clearCart } = useContext(CartContext);
   const [isLoading, setIsLoading] = useState(false);
+  const displayCheckoutBanner = true;
 
   useEffect(() => {
     setIsLoading(false);
   }, []);
-
   const calculateShippingCost = () => {
     const totalOrderWeight = Object.entries(cartContents)
       .filter(([key]) => key !== "contents")
@@ -65,7 +65,7 @@ const CheckoutPage = () => {
 
       const checkoutUrl = await SquareApi.generateCheckoutUrl(
         squareCheckoutItems,
-        shippingCost
+        shippingCost,
       );
 
       if (checkoutUrl.url) {
@@ -83,14 +83,14 @@ const CheckoutPage = () => {
       } else {
         setIsLoading(false);
         toast.error(
-          `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know.`
+          `There was an error processing your cart. Please try again. If this issue persists, please contact us to let us know.`,
         );
       }
     } catch (error) {
       setIsLoading(false);
       let urlError = error;
       toast.error(
-        `There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`
+        `There was an error gathering the checkout URL. Please try again. If this issue persists, please contact us to let us know.`,
       );
       console.error("Error generating checkout URL", error);
     }
@@ -113,6 +113,27 @@ const CheckoutPage = () => {
       </Helmet>
       <ToastContainer position="top-center" autoClose={10000} />
       <h1>Checkout</h1>
+      {displayCheckoutBanner && calculateTotal(cartContents) >= 70 && (
+        <div className="mt-0 pt-2 px-4 mb-4 checkout-banner text-center">
+          <div className="text-white text-decoration-none fw-semibold d-flex flex-column align-items-center justify-content-center">
+            <span>
+              Congratulations! Your order qualifies for our giveaway. You will
+              be entered for a chance to win 2 Savanna Bananas baseball tickets.
+            </span>
+
+            <span className="ms-2 fw-light">
+              Drawing will be August 1st and winner will be contacted via email
+              provided at checkout.{" "}
+              <Link
+                to="/giveaway-details"
+                className="text-white p-2 fw-light text-decoration-none"
+              >
+                Click here for full details
+              </Link>
+            </span>
+          </div>
+        </div>
+      )}
       {isLoading && <LoadingOverlay />}
 
       {isLoading && <LoadingOverlay />}

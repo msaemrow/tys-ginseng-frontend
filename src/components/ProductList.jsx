@@ -8,11 +8,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../assets/TysGinsengLogo.png";
 import SkeletonProduct from "./SkeletonProduct";
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const displayProductBanner = true;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -27,7 +29,7 @@ const ProductList = () => {
     fetchProducts();
   }, []);
 
-  const categories = ["All", "Powder", "Bulk Roots", "Specials"];
+  const categories = ["All", "Powder", "Bulk Roots", "Honey", "Specials"];
 
   const filteredProducts = products
     .filter((product) => product.item_data?.product_type === "REGULAR")
@@ -59,6 +61,23 @@ const ProductList = () => {
       <ToastContainer position="top-right" autoClose={2000} />
 
       <header className="mb-3 text-center">
+        {displayProductBanner && (
+          <div className="w-100 mt-0 mb-2 product-banner text-center">
+            <div className="text-white text-decoration-none fw-semibold d-flex flex-column align-items-center justify-content-center">
+              <span className="text-white">
+                GIVEAWAY! Spend $70 or more and be automatically entered for a
+                chance to win 2 Savanna Bananas baseball tickets on August 8th
+                at Target Field.
+              </span>
+              <Link
+                to="/giveaway-details"
+                className="text-white text-decoration-none"
+              >
+                Click here for full details
+              </Link>
+            </div>
+          </div>
+        )}
         <h2 className="text-bold">Shop Ginseng Products </h2>
         <p className="text-muted">Premium Woods Grown Ginseng Roots & Powder</p>
       </header>

@@ -14,6 +14,8 @@ import subImage2 from "../assets/homepage-subimage-2.jpg";
 
 const Homepage = () => {
   const [activeTab, setActiveTab] = useState("Why");
+  const displayBanner = true;
+
   return (
     <div id="homepage-top-div" className="container-fluid px-5">
       {/* Helmet component which sets meta data */}
@@ -35,15 +37,24 @@ const Homepage = () => {
         <meta property="og:image" content={logo} />
       </Helmet>
       {/* main element of homepages */}
-      <main className="mt-1 px-lg-5">
-        <div className="w-100 mt-4 mb-0 ginseng-experience text-center">
-          <Link
-            className="fs-5 text-white text-decoration-none fw-semibold d-inline-block"
-            to="/products"
-          >
-            Experience the Power of Premium Ginseng
-          </Link>
-        </div>
+      <main className="main-content mt-1 px-lg-5">
+        {displayBanner && (
+          <div className="w-100 mt-4 mb-0 homepage-banner text-center">
+            <Link
+              className="text-white text-decoration-none fw-semibold d-flex flex-column align-items-center justify-content-center"
+              to="/products"
+            >
+              <span>
+                GIVEAWAY! Spend $70 be automatically entered for a
+                chance to win 2 Savanna Bananas baseball tickets.
+              </span>
+
+              <span className="ms-2 fw-light">
+                Game is on Aug 8th at Target Field in Minneapolis.
+              </span>
+            </Link>
+          </div>
+        )}
         <div className="navbar-spacer" />
         <section className="hero-section">
           <div className="hero-text-wrapper">
