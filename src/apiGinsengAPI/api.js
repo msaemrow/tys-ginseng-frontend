@@ -23,7 +23,7 @@ class GinsengApi {
 
   static async getProduct(barcode) {
     try {
-      let res = await axios.get(`$/api/products/${barcode}`);
+      let res = await axios.get(`/api/products/${barcode}`);
       return res.data;
     } catch (err) {
       console.error("ERROR. ", err.response.data);
