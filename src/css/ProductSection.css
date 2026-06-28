@@ -1,0 +1,202 @@
+/* ProductCard.css */
+/* Drop this alongside ProductCard.jsx. Inherits your app's CSS variables. */
+
+/* ─── Section layout ──────────────────────────────────────────── */
+
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid currentColor;
+  border-bottom-color: rgba(128, 128, 128, 0.15);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.product-card--reverse {
+  direction: rtl;
+}
+
+.product-card--reverse > * {
+  direction: ltr;
+}
+
+/* ─── Image column ────────────────────────────────────────────── */
+
+.product-card__image-col {
+  width: 100%;
+}
+
+.product-card__image-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background-color: rgba(218, 165, 32, 0.07);
+  border: 1px dashed rgba(218, 165, 32, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Replace .product-card__image-placeholder with an <img> tag once you have images:
+   <img src={imageUrl} alt={imageAlt} className="product-card__image" />
+   .product-card__image { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; } */
+
+.product-card__image-label {
+  font-size: 0.8rem;
+  color: rgba(218, 165, 32, 0.4);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ─── Content column ──────────────────────────────────────────── */
+
+.product-card__content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ─── Badge ───────────────────────────────────────────────────── */
+
+.product-card__badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1200;
+  background-color: var(--primary-color, goldenrod);
+  padding: 0.25em 0.75em;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+/* ─── Text ────────────────────────────────────────────────────── */
+
+.product-card__name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: inherit;
+  margin: 0 0 0.35rem 0;
+  line-height: 1.15;
+  font-family: "Aleo", serif;
+}
+
+.product-card__tagline {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-color, goldenrod);
+  margin: 0 0 1.1rem 0;
+}
+
+.product-card__description {
+  font-size: 1rem;
+  line-height: 1.75;
+  opacity: 0.7;
+  margin: 0 0 1.5rem 0;
+}
+
+/* ─── Benefits ────────────────────────────────────────────────── */
+
+.product-card__benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-card__benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  opacity: 0.85;
+}
+
+.product-card__benefit-icon {
+  color: var(--primary-color, goldenrod);
+  font-size: 0.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* ─── Footer ──────────────────────────────────────────────────── */
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+.homepage-btn {
+  background-color: var(--yellow-button) !important;
+  color: #000;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+  min-width: 150px;
+  width: 50%;
+}
+
+.product-card-button {
+  width: 75%;
+  background-color: var(--yellow-button) !important;
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.product-card-button:hover {
+  background-color: var(--yellow-button-hover) !important;
+  color: #1a1200;
+  transform: scale(1.03);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (min-width: 100px) {
+  .product-card-button {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .product-card--reverse {
+    direction: ltr;
+  }
+
+  .product-card__name {
+    font-size: 1.6rem;
+  }
+
+  .product-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .product-card-button {
+    width: 100%;
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem;
+  }
+}

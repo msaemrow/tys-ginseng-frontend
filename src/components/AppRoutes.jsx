@@ -19,6 +19,7 @@ import AdminRoute from "./AdminRoute";
 import UnauthorizedPage from "./Admin/UnauthorizedPage";
 import ProductSpecial from "./ProductSpecial";
 import GiveawayDeails from "./GiveawayDetails";
+import UpdatedProductPage from "./ProductPage";
 import "../css/AppRoutes.css";
 
 const AppRoutes = () => {
@@ -28,7 +29,7 @@ const AppRoutes = () => {
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Homepage />} />
-        <Route path="/products" element={<ProductList />} />
+        <Route path="/products" element={<UpdatedProductPage />} />
         <Route path="/products-bulk" element={<BulkProductList />} />
         <Route path="/products/deals" element={<ProductSpecial />} />
         <Route path="/pictures" element={<PictureList />} />

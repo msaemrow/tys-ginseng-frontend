@@ -147,7 +147,7 @@ const NavBar = () => {
                 to="/products"
                 onClick={handleMobileNavLinkClick}
               >
-                Shop Ginseng
+                Our Products
               </NavLink>
             </li>
             <li>
