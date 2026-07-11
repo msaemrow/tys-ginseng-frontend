@@ -36,8 +36,8 @@ const AppRoutes = () => {
         <Route path="/recipes" element={<HowToUse />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/our-process" element={<OurProcess />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
+        {/* <Route path="/order-confirmation" element={<OrderConfirmation />} /> */}
         <Route path="/giveaway-details" element={<GiveawayDeails />} />
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
         <Route path="/admin-login" element={<AdminLogin />} />
