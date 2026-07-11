@@ -13,9 +13,9 @@ export default function ProductPage() {
         <p className="product-page__eyebrow">Rooted in Nature</p>
         <h1 className="product-page__title">Our Products</h1>
         <p className="product-page__subtitle">
-          Small-batch ginseng crafted for people who care what they put in their
-          bodies. Every product starts with the same root — grown with patience,
-          processed with care.
+          Minnesota grown American ginseng, grown for people who care what they
+          put in their bodies. Every product starts with the same root — grown
+          with patience, processed with care.
         </p>
       </header>
 

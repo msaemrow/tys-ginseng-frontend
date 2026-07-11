@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FARM_TO_TABLE_LINK } from "../constants";
 import "../css/TabContainer.css";
 
 function InfoTabs({ images }) {
@@ -64,17 +65,22 @@ function InfoTabs({ images }) {
                 </li>
                 <li className="list-group-item">Woods grown</li>
                 <li className="list-group-item">6+ year old roots</li>
-                <li className="list-group-item">Premium quality</li>
-                <li className="list-group-item">Family owned</li>
+                <li className="list-group-item">Hnad dug roots</li>
+                <li className="list-group-item">Family operated</li>
                 <li className="list-group-item">Minnesota Grown member</li>
                 <li className="list-group-item">
                   Combined 70 years of experience in growing ginseng
                 </li>
               </ul>
               <div className="d-flex justify-content-center flex-column flex-md-row w-100 gap-2 mt-md-2 mt-4">
-                <Link className="homepage-btn btn" to="/products">
+                <a
+                  className="homepage-btn btn"
+                  href={FARM_TO_TABLE_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Buy Online Now
-                </Link>
+                </a>
                 <Link className="homepage-btn btn" to="/pictures">
                   See Photos
                 </Link>
@@ -107,14 +113,11 @@ function InfoTabs({ images }) {
             >
               <h2>Benefits of Ginseng</h2>
               <ul className="list-group">
-                <li className="list-group-item">Increases Energy</li>
-                <li className="list-group-item">Reduces Inflammation</li>
-                <li className="list-group-item">Improves Brain Function</li>
+                <li className="list-group-item">Fights Fatigue</li>
+                <li className="list-group-item">Mental Clarity</li>
                 <li className="list-group-item">Boosts Immune System</li>
+                <li className="list-group-item">Reduces Inflammation</li>
                 <li className="list-group-item">Lowers Blood Sugar</li>
-                <li className="list-group-item">
-                  Potential benefits against cancer
-                </li>
               </ul>
               <div className="d-flex flex-column flex-md-row justify-content-center w-100 gap-2 mt-5">
                 <Link className="homepage-btn btn" to="/recipes">
@@ -158,10 +161,8 @@ function InfoTabs({ images }) {
               <h2>Where to Find Us</h2>
               <p className="fs-5 fw-bold mb-0">Minneapolis Farmers Market</p>
               <div className="mt-auto mt-2">
-                <p className="mb-0">
-                  We are at the Minneapolis Farmers Market 6am-1pm on Saturdays
-                  and Sundays from June - September. Check our Instagram and
-                  Facebook for when we will be at the market.
+                <p className="mb-0 find-us-subtext">
+                  6am-1pm on Saturdays and Sundays from June - September.
                 </p>
                 <div className="mt-2 text-center">
                   <a
@@ -170,8 +171,31 @@ function InfoTabs({ images }) {
                     rel="noopener noreferrer"
                     className="market-address d-block"
                   >
-                    312 East Lyndale Ave N<br />
-                    Minneapolis, MN 55405
+                    312 East Lyndale Ave N Minneapolis, MN 55405
+                  </a>
+                </div>
+                <p className="fs-5 fw-bold mb-0 mt-1">
+                  International Market at The Shops At End
+                </p>
+                <p className="find-us-subtext">
+                  For hours and additional details,{" "}
+                  <a
+                    href="https://www.facebook.com/p/International-Market-West-End-SLP-61575653128180/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="find-us-subtext-link"
+                  >
+                    click here
+                  </a>
+                </p>
+                <div className="mt-2 text-center">
+                  <a
+                    href="https://maps.app.goo.gl/V8tLJeqPhRrXMHup9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="market-address d-block"
+                  >
+                    1622 West End Blvd St. Louis, MN 55416
                   </a>
                 </div>
                 <h4 className="mt-3 mb-1">Follow Us</h4>
@@ -194,9 +218,14 @@ function InfoTabs({ images }) {
                   </a>
                 </div>
               </div>
-              <Link className="homepage-btn btn mt-4" to="/products">
+              <a
+                className="homepage-btn btn mt-4"
+                href={FARM_TO_TABLE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Buy Online Now
-              </Link>
+              </a>
             </div>
           </div>
         )}

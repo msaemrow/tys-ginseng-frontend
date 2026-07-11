@@ -54,11 +54,20 @@
 /* ─── Responsive ──────────────────────────────────────────────── */
 
 @media (max-width: 768px) {
+  .product-page {
+    padding: 0 1.5rem 2rem;
+  }
   .product-page__title {
     font-size: 2.2rem;
   }
 
   .product-page__header {
     padding: 2.5rem 0.5rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-page {
+    padding: 0;
   }
 }

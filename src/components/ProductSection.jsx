@@ -17,6 +17,8 @@ export default function ProductSection({ product, reverse = false }) {
     purchaseUrl,
     badge,
     imageAlt,
+    imageUrl,
+    phoneLink,
   } = product;
 
   return (
@@ -26,9 +28,7 @@ export default function ProductSection({ product, reverse = false }) {
       aria-label={name}
     >
       <div className="product-card__image-col">
-        <div className="product-card__image-placeholder" aria-label={imageAlt}>
-          <span className="product-card__image-label">{imageAlt}</span>
-        </div>
+        <img src={imageUrl} alt={imageAlt} className="product-card__image" />
       </div>
 
       <div className="product-card__content-col">
@@ -60,15 +60,21 @@ export default function ProductSection({ product, reverse = false }) {
         </ul>
 
         <div className="product-card__footer">
-          <a
-            href={purchaseUrl}
-            className="product-card-button btn"
-            aria-label={`${buttonText} — ${name}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {buttonText}
-          </a>
+          {phoneLink === "true" ? (
+            <a href="tel:5073842390" className="product-card-button btn">
+              Call to Order
+            </a>
+          ) : (
+            <a
+              href={purchaseUrl}
+              className="product-card-button btn"
+              aria-label={`${buttonText} — ${name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {buttonText}
+            </a>
+          )}
         </div>
       </div>
     </section>

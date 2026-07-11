@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../css/Footer.css";
 import Logo from "../assets/TysGinsengLogo.png";
 import SmallLogo from "../assets/TysGinsengLogo.webp";
+import { EMAIL_SIGN_UP_LINK } from "../constants";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
       <div className="d-flex align-items-center justify-content-between newsletter-bar">
         <p className="mb-0 fw-semibold fs-6 text-dark">Join our newsletter</p>
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfO6-44gdODdqjiBr3AJx7jqLGKolyL3I9cLwtnfjuCVm82Gg/viewform?pli=1"
+          href={EMAIL_SIGN_UP_LINK}
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-sm"

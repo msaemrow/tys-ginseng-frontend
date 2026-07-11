@@ -11,6 +11,7 @@ import mnGrownLogo from "../assets/mn-grown-logo.png";
 import homepageMainImage from "../assets/homepage-main-image-1.jpg";
 import subImage1 from "../assets/homepage-subimage-1.jpg";
 import subImage2 from "../assets/homepage-subimage-2.jpg";
+import { FARM_TO_TABLE_LINK, PRODUCTS_PAGE_LINK } from "../constants";
 
 const Homepage = () => {
   const [activeTab, setActiveTab] = useState("Why");
@@ -42,11 +43,11 @@ const Homepage = () => {
           <div className="w-100 mt-4 mb-0 homepage-banner text-center">
             <Link
               className="text-white text-decoration-none fw-semibold d-flex flex-column align-items-center justify-content-center"
-              to="/products"
+              to="/giveaway-details"
             >
               <span>
-                GIVEAWAY! Spend $70 be automatically entered for a
-                chance to win 2 Savanna Bananas baseball tickets.
+                GIVEAWAY! Spend $70 be automatically entered for a chance to win
+                2 Savanna Bananas baseball tickets.
               </span>
 
               <span className="ms-2 fw-light">
@@ -80,10 +81,10 @@ const Homepage = () => {
                 grandfather's legacy of excellence in ginseng farming.
               </p>
               <Link
-                to="/products"
+                to={PRODUCTS_PAGE_LINK}
                 className="btn shop-now-btn btn-lg px-4 py-2"
               >
-                SHOP NOW
+                VIEW PRODUCTS
               </Link>
             </div>
           </div>
@@ -93,7 +94,7 @@ const Homepage = () => {
             </div>
             <div className="sub-hero-images">
               <img src={subImage1} alt="Ginseng field" />
-              <img src={subImage2} alt="Ginseng roots" />
+              <img src="/images/ginseng_products.jpg" alt="Ginseng roots" />
             </div>
           </div>
         </section>
