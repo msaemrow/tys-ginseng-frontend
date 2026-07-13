@@ -5,6 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 import { UserContext } from "./UserProvider";
 import Logo from "../assets/TysGinsengLogo.png";
 import SmallLogo from "../assets/TysGinsengLogo.webp";
+import { FARM_TO_TABLE_LINK } from "../constants";
 import "../css/Navbar.css";
 
 const NavBar = () => {
@@ -147,7 +148,7 @@ const NavBar = () => {
                 to="/products"
                 onClick={handleMobileNavLinkClick}
               >
-                Shop Ginseng
+                Our Products
               </NavLink>
             </li>
             <li>
@@ -218,19 +219,20 @@ const NavBar = () => {
             id="cart-dropdown"
             className="navbar-nav ms-auto d-flex flex-direction-column align-items-center justify-content-center"
           >
-            {!adminUser && (
-              <li>
-                <Link
-                  className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
-                  to="/products"
-                  onClick={handleMobileNavLinkClick}
-                >
-                  Buy Online Now
-                </Link>
-              </li>
-            )}
+            <li>
+              <Link
+                className="btn navbar-buy-now-btn d-flex justify-content-center align-items-center"
+                to={FARM_TO_TABLE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleMobileNavLinkClick}
+              >
+                Buy Online Now
+              </Link>
+            </li>
 
-            <li className="nav-item">
+            {/* Hiding due to using farm to table link for now. Can be re-enabled if we want to use our own cart system in the future. */}
+            {/* <li className="nav-item">
               {isMobile === true ? (
                 <button
                   onClick={mobileNavigateToCheckout}
@@ -318,7 +320,8 @@ const NavBar = () => {
                   )}
                 </ul>
               )}
-            </li>
+            </li> */}
+
             {adminUser && adminUser.role === "admin" && (
               <li className="nav-item">
                 <button

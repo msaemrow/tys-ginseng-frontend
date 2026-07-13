@@ -30,3 +30,27 @@
   color: black;
   line-height: 1.7;
 }
+
+.giveaway-btn {
+  background-color: var(--yellow-button) !important;
+  color: #000;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+  min-width: 150px;
+  width: 50%;
+}
+
+.giveaway-btn:hover {
+  background-color: var(--yellow-button-hover) !important;
+  transform: scale(1.03);
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .giveaway-btn {
+    width: 100%;
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem;
+  }
+}
