@@ -19,6 +19,7 @@ import AdminRoute from "./AdminRoute";
 import UnauthorizedPage from "./Admin/UnauthorizedPage";
 import ProductSpecial from "./ProductSpecial";
 import GiveawayDeails from "./GiveawayDetails";
+import UpdatedProductPage from "./ProductPage";
 import "../css/AppRoutes.css";
 
 const AppRoutes = () => {
@@ -28,15 +29,15 @@ const AppRoutes = () => {
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Homepage />} />
-        <Route path="/products" element={<ProductList />} />
+        <Route path="/products" element={<UpdatedProductPage />} />
         <Route path="/products-bulk" element={<BulkProductList />} />
         <Route path="/products/deals" element={<ProductSpecial />} />
         <Route path="/pictures" element={<PictureList />} />
         <Route path="/recipes" element={<HowToUse />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/our-process" element={<OurProcess />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
+        {/* <Route path="/order-confirmation" element={<OrderConfirmation />} /> */}
         <Route path="/giveaway-details" element={<GiveawayDeails />} />
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
         <Route path="/admin-login" element={<AdminLogin />} />

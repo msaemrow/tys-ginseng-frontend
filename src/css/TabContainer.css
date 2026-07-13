@@ -112,11 +112,29 @@
   color: #78be21;
 }
 
+.find-us-subtext {
+  font-size: 1rem !important;
+  color: black;
+}
+
+.find-us-subtext-link {
+  font-size: 1rem !important;
+  color: black;
+  text-decoration: underline;
+}
+
+.find-us-subtext-link:hover {
+  font-size: 1rem !important;
+  color: gray !important;
+  text-decoration: underline;
+}
+
 /* Market address */
 .market-address {
   color: green;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.9rem !important;
 }
 
 .market-address:hover {
