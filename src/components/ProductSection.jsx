@@ -3,6 +3,7 @@
 
 import React from "react";
 import "../css/ProductSection.css";
+import { trackEvent } from "../utils/analytics";
 
 export default function ProductSection({ product, reverse = false }) {
   const {
@@ -71,6 +72,14 @@ export default function ProductSection({ product, reverse = false }) {
               aria-label={`${buttonText} — ${name}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("shop_now_click", {
+                  button_text: buttonText,
+                  link_location: "product_card",
+                  product_id: id,
+                  product_name: name,
+                })
+              }
             >
               {buttonText}
             </a>

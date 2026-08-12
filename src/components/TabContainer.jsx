@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FARM_TO_TABLE_LINK } from "../constants";
+import { trackEvent } from "../utils/analytics";
 import "../css/TabContainer.css";
 
 function InfoTabs({ images }) {
@@ -78,6 +79,12 @@ function InfoTabs({ images }) {
                   href={FARM_TO_TABLE_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("shop_now_click", {
+                      button_text: "Buy Online Now",
+                      link_location: "homepage_why_tab",
+                    })
+                  }
                 >
                   Buy Online Now
                 </a>
@@ -223,6 +230,12 @@ function InfoTabs({ images }) {
                 href={FARM_TO_TABLE_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("shop_now_click", {
+                    button_text: "Buy Online Now",
+                    link_location: "homepage_find_tab",
+                  })
+                }
               >
                 Buy Online Now
               </a>

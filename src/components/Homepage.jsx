@@ -12,10 +12,11 @@ import homepageMainImage from "../assets/homepage-main-image-1.jpg";
 import subImage1 from "../assets/homepage-subimage-1.jpg";
 import subImage2 from "../assets/homepage-subimage-2.jpg";
 import { FARM_TO_TABLE_LINK, PRODUCTS_PAGE_LINK } from "../constants";
+import { trackEvent } from "../utils/analytics";
 
 const Homepage = () => {
   const [activeTab, setActiveTab] = useState("Why");
-  const displayBanner = true;
+  const displayBanner = false;
 
   return (
     <div id="homepage-top-div" className="container-fluid px-5">
@@ -83,6 +84,11 @@ const Homepage = () => {
               <Link
                 to={PRODUCTS_PAGE_LINK}
                 className="btn shop-now-btn btn-lg px-4 py-2"
+                onClick={() =>
+                  trackEvent("view_products_click", {
+                    link_location: "homepage_hero",
+                  })
+                }
               >
                 VIEW PRODUCTS
               </Link>
