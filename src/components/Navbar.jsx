@@ -6,6 +6,7 @@ import { UserContext } from "./UserProvider";
 import Logo from "../assets/TysGinsengLogo.png";
 import SmallLogo from "../assets/TysGinsengLogo.webp";
 import { FARM_TO_TABLE_LINK } from "../constants";
+import { trackEvent } from "../utils/analytics";
 import "../css/Navbar.css";
 
 const NavBar = () => {
@@ -146,7 +147,12 @@ const NavBar = () => {
                 className="nav-link"
                 aria-current="page"
                 to="/products"
-                onClick={handleMobileNavLinkClick}
+                onClick={() => {
+                  trackEvent("our_products_nav_click", {
+                    link_location: "navbar",
+                  });
+                  handleMobileNavLinkClick();
+                }}
               >
                 Our Products
               </NavLink>
@@ -225,7 +231,13 @@ const NavBar = () => {
                 to={FARM_TO_TABLE_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={handleMobileNavLinkClick}
+                onClick={() => {
+                  trackEvent("shop_now_click", {
+                    button_text: "Buy Online Now",
+                    link_location: "navbar",
+                  });
+                  handleMobileNavLinkClick();
+                }}
               >
                 Buy Online Now
               </Link>

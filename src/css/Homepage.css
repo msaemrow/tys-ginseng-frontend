@@ -37,15 +37,10 @@ main p {
   font-size: 1.4vw;
 }
 
-main a {
-  font-size: 1.5vw !important;
-}
-
 .hero-section {
   display: flex;
   flex-wrap: wrap;
   align-items: start;
-  min-height: 100vh;
   width: 100%;
   position: relative;
   z-index: 20;
@@ -224,13 +219,8 @@ main a {
     font-size: 1rem;
   }
 
-  main a {
-    font-size: 1.1rem;
-  }
-
   .shop-now-btn {
     padding: 10px 20px;
-    font-size: 1rem;
   }
 
   .ginseng-experience a {

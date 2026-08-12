@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/GiveawayDetails.css";
 import { FARM_TO_TABLE_LINK } from "../constants";
+import { trackEvent } from "../utils/analytics";
 
 const GiveawayDetails = () => {
   return (
@@ -24,6 +25,12 @@ const GiveawayDetails = () => {
             href={FARM_TO_TABLE_LINK}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent("shop_now_click", {
+                button_text: "Buy Online Now",
+                link_location: "giveaway_page",
+              })
+            }
           >
             Buy Online Now
           </a>

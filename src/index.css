@@ -62,6 +62,12 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+button:not(.btn-sm),
+.btn:not(.btn-sm) {
+  font-size: clamp(1.05rem, calc(1vw + 0.25rem), 1.2rem);
+}
+
 button:hover {
   border-color: #646cff;
 }
