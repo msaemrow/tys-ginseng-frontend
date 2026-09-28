@@ -66,7 +66,7 @@ function InfoTabs({ images }) {
                 </li>
                 <li className="list-group-item">Woods grown</li>
                 <li className="list-group-item">6+ year old roots</li>
-                <li className="list-group-item">Hnad dug roots</li>
+                <li className="list-group-item">Hand dug roots</li>
                 <li className="list-group-item">Family operated</li>
                 <li className="list-group-item">Minnesota Grown member</li>
                 <li className="list-group-item">
