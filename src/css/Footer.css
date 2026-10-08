@@ -1,7 +1,7 @@
 .footer {
   background-color: #fdb913;
   align-items: stretch;
-  height: 325px;
+  min-height: 325px;
   display: flex;
   flex-direction: row;
 }
@@ -59,6 +59,57 @@
 
 .admin-link:hover {
   color: gray;
+}
+
+.footer-policies {
+  width: 100%;
+  max-width: 850px;
+  margin-top: 1.5rem;
+  padding: 1rem 1rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  color: #212529;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.footer-policies p {
+  margin-bottom: 0.75rem;
+}
+
+.footer-policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  background-color: transparent !important;
+}
+
+.footer .footer-policy-links a,
+.footer .footer-policy-links button {
+  font-size: inherit;
+  color: #212529;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-policy-links button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 500;
+  border-radius: 0;
+}
+
+.footer-policy-links a:hover,
+.footer-policy-links button:hover {
+  color: #30500e;
+}
+
+.footer-policy-links a:focus-visible,
+.footer-policy-links button:focus-visible {
+  outline: 2px solid #212529;
+  outline-offset: 4px;
 }
 
 @media (max-width: 576px) {

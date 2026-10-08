@@ -1,13 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Footer.css";
 import Logo from "../assets/TysGinsengLogo.png";
-import SmallLogo from "../assets/TysGinsengLogo.webp";
 import { EMAIL_SIGN_UP_LINK } from "../constants";
+import { showCookieSettings } from "../utils/cookieConsent";
 
 const Footer = () => {
   return (
-    <div className="footer d-flex flex-column align-items-center justify-content-center py-4">
+    <footer className="footer d-flex flex-column align-items-center justify-content-center py-4">
       <div className="d-flex align-items-center justify-content-between newsletter-bar">
         <p className="mb-0 fw-semibold fs-6 text-dark">Join our newsletter</p>
         <a
@@ -21,7 +20,7 @@ const Footer = () => {
       </div>
       <div className="d-flex justify-content-center align-items-center gap-4">
         <div className="d-flex flex-column justify-content-center align-items-center h-100">
-          <h4 className="fs-2">Ty's Ginseng</h4>
+          <h4 className="fs-2">Ty&apos;s Ginseng</h4>
           <img className="footer-logo" src={Logo} alt="Ty's Ginseng Logo" />
         </div>
         <div className="divider h-100"></div>
@@ -50,7 +49,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="social-links"
               >
-                <i className="fa-brands fa-facebook"></i> Facebook: Ty's Ginseng
+                <i className="fa-brands fa-facebook"></i> Facebook: Ty&apos;s Ginseng
               </a>
             </span>
           </div>
@@ -59,7 +58,15 @@ const Footer = () => {
           </Link> */}
         </div>
       </div>
-    </div>
+      <div className="footer-policies">
+        <p>We use Microsoft Clarity and Google Analytics to understand how visitors use our website and improve the user experience.</p>
+        <nav aria-label="Legal" className="footer-policy-links">
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/cookies-policy">Cookies Policy</Link>
+          <button type="button" onClick={showCookieSettings}>Cookie Settings</button>
+        </nav>
+      </div>
+    </footer>
   );
 };
 

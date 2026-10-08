@@ -1,13 +1,18 @@
 import "./App.css";
-import React from "react";
+import { useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AppRoutes from "./components/AppRoutes";
 import { CartProvider } from "./components/CartProvider";
 import { UserProvider } from "./components/UserProvider";
+import { initializeCookieConsent } from "./utils/cookieConsent";
 
 function App() {
+  useEffect(() => {
+    initializeCookieConsent();
+  }, []);
+
   return (
     <>
       <HelmetProvider>

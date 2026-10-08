@@ -1,0 +1,57 @@
+.policy-page {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 3rem;
+  text-align: left;
+  color: #212529;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.policy-page h1 {
+  font-size: clamp(1.875rem, 4.5vw, 2.5rem);
+}
+
+.policy-page p,
+.policy-page li {
+  font-size: 0.8rem;
+}
+
+.policy-page p a,
+.policy-page li a,
+.policy-page li code,
+.policy-page li strong {
+  font-size: inherit;
+}
+
+.policy-page h2 {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}
+
+.policy-page .policy-updated {
+  color: #555;
+  font-size: 0.7rem;
+}
+
+.policy-page a {
+  color: #30500e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.policy-page li + li {
+  margin-top: 1rem;
+}
+
+.policy-page .policy-settings-button {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  font: inherit;
+  color: #30500e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
