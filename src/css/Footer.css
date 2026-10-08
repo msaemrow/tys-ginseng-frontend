@@ -40,6 +40,10 @@
   height: 100px;
 }
 
+.footer-details {
+  gap: 1.5rem;
+}
+
 .divider {
   width: 1px;
   background-color: black;
@@ -112,7 +116,7 @@
   outline-offset: 4px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .footer {
     flex-direction: column;
     height: auto;
@@ -126,8 +130,36 @@
     width: 100%;
   }
 
-  .divider {
-    width: 80%;
-    height: 1px;
+  .footer-details {
+    width: 100%;
+    max-width: 440px;
+    gap: 0.5rem;
+  }
+
+  .footer-brand {
+    flex: 0 1 35%;
+    min-width: 0;
+  }
+
+  .footer-brand h4 {
+    font-size: clamp(1.1rem, 4vw, 1.5rem) !important;
+  }
+
+  .footer-logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+  }
+
+  .footer-contact {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.875rem;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-details .divider {
+    flex-shrink: 0;
   }
 }
