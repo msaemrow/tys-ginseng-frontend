@@ -20,6 +20,7 @@ import UnauthorizedPage from "./Admin/UnauthorizedPage";
 import ProductSpecial from "./ProductSpecial";
 import GiveawayDeails from "./GiveawayDetails";
 import UpdatedProductPage from "./ProductPage";
+import { PrivacyPolicy, CookiesPolicy } from "./PolicyPages";
 import "../css/AppRoutes.css";
 
 const AppRoutes = () => {
@@ -36,6 +37,8 @@ const AppRoutes = () => {
         <Route path="/recipes" element={<HowToUse />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/our-process" element={<OurProcess />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/cookies-policy" element={<CookiesPolicy />} />
         {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
         {/* <Route path="/order-confirmation" element={<OrderConfirmation />} /> */}
         <Route path="/giveaway-details" element={<GiveawayDeails />} />
