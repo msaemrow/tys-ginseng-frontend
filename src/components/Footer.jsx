@@ -18,13 +18,13 @@ const Footer = () => {
           Sign Up
         </a>
       </div>
-      <div className="d-flex justify-content-center align-items-center gap-4">
-        <div className="d-flex flex-column justify-content-center align-items-center h-100">
+      <div className="footer-details d-flex justify-content-center align-items-center">
+        <div className="footer-brand d-flex flex-column justify-content-center align-items-center h-100">
           <h4 className="fs-2">Ty&apos;s Ginseng</h4>
           <img className="footer-logo" src={Logo} alt="Ty's Ginseng Logo" />
         </div>
         <div className="divider h-100"></div>
-        <div className="d-flex flex-column justify-content-center align-items-center h-100 pt-3">
+        <div className="footer-contact d-flex flex-column justify-content-center align-items-center h-100 pt-3">
           <h5 className="fw-bold">Contact Us</h5>
           <p className="m-0">Phone: 507-384-2390</p>
           <p className="m-0">Email: tylersaemrow@gmail.com</p>

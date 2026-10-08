@@ -51,32 +51,24 @@ main p {
   flex-direction: column;
   width: 50%;
   height: 100%;
-}
-
-.hero-text-wrapper h1,
-.hero-text-wrapper h2 {
-  font-family: "Georgia", serif;
-  color: #2c2c2c;
+  padding-top: 3rem;
 }
 
 .hero-text-wrapper p {
   font-size: 1.3rem;
 }
 
-.hero-top {
-  padding-top: 3rem;
+.hero-heading {
+  font-family: "Georgia", serif;
+  color: #2c2c2c;
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.hero-top h1 {
-  font-size: 4.5rem !important;
-}
-
-.hero-bottom {
-  padding-top: 1rem;
-}
-
-.hero-bottom h2 {
-  font-size: 4.5rem !important;
+.shop-now-btn {
+  background-color: #78be21 !important;
+  margin-top: auto;
+  width: 100%;
 }
 
 .hero-images {
@@ -104,12 +96,6 @@ main p {
   width: 50%;
   object-fit: cover;
   border-radius: 8px;
-}
-
-.shop-now-btn {
-  background-color: #78be21 !important;
-  margin-top: auto;
-  width: 100%;
 }
 
 .homepage-banner {
@@ -187,15 +173,12 @@ main p {
     width: 100%;
   }
 
-  .hero-top {
-    padding-top: 0.3rem;
-    padding-bottom: 0;
-  }
-  .hero-bottom {
-    padding: 0.4rem;
+  .hero-heading {
+    display: none;
   }
 
   .hero-images {
+    order: -1;
     padding: 1rem 0;
     width: 100%;
   }
@@ -219,10 +202,6 @@ main p {
     font-size: 1rem;
   }
 
-  .shop-now-btn {
-    padding: 10px 20px;
-  }
-
   .ginseng-experience a {
     font-size: 0.9rem !important;
     padding: 10px 20px;
@@ -236,13 +215,6 @@ main p {
     padding-right: 5px !important;
   }
 
-  .hero-top h1 {
-    font-size: 3.5rem !important;
-  }
-
-  .hero-bottom h2 {
-    font-size: 3.5rem !important;
-  }
 }
 
 @media (max-width: 470px) {
