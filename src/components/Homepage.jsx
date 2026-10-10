@@ -9,6 +9,7 @@ import homepageMainImage from "../assets/homepage-main-image-1.jpg";
 import subImage1 from "../assets/homepage-subimage-1.jpg";
 import { PRODUCTS_PAGE_LINK } from "../constants";
 import { trackEvent } from "../utils/analytics";
+import InTheNews from "./InTheNews";
 
 const Homepage = () => {
   const displayBanner = false;
@@ -97,6 +98,7 @@ const Homepage = () => {
           </div>
         </section>
         <TabContainer images={images} />
+        <InTheNews />
       </main>
     </div>
   );
