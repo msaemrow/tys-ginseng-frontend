@@ -8,7 +8,7 @@ export default function InTheNews() {
 
   return (
     <section className="news-section" aria-labelledby="news-heading">
-      <h2 id="news-heading">In the News</h2>
+      <h2 id="news-heading">As Featured On</h2>
       <div className="news-grid">
         {newsFeatures.map((feature) => {
           const external = feature.type === "external";
