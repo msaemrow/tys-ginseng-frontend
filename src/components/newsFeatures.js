@@ -1,6 +1,7 @@
 import midwestAccessImage from "../assets/midwest_acces.png";
 import hometownHypeImage from "../assets/hometown_hype.png";
 import madeForTheOutdoorsImage from "../assets/made_for_the_outdoors.png";
+import agWeekImage from "../assets/ag-week.webp";
 
 // Use type: "external" for a new-tab link, or an embed type for the modal.
 // For the 2027 episode, change the final entry to type: "youtube" and set
@@ -30,6 +31,16 @@ export const newsFeatures = [
     vertical: false,
   },
   {
+    id: "agweek",
+    source: "Agweek",
+    title: "Ty's Ginseng Featured in Agweek",
+    thumbnail: agWeekImage,
+    thumbnailAlt: "Ty's Ginseng featured in Agweek",
+    type: "external",
+    url: "https://www.agweek.com/agribusiness/morristown-family-business-turns-woods-grown-ginseng-into-powder-and-honey-pouches",
+    action: "Read the article",
+  },
+  {
     id: "made-for-the-outdoors",
     source: "Made for the Outdoors",
     title: "Ty's Ginseng – Made for the Outdoors",
@@ -55,7 +66,9 @@ export function getEmbedUrl(feature, dimensions = { width: 400, height: 711 }) {
   }
   if (feature.type === "facebook-post") {
     return `https://www.facebook.com/plugins/post.php?${new URLSearchParams({
-      href: feature.url, show_text: "true", width: String(dimensions?.width || 500),
+      href: feature.url,
+      show_text: "true",
+      width: String(dimensions?.width || 500),
     })}`;
   }
   return feature.embedUrl;
