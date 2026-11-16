@@ -7,12 +7,12 @@ import logo from "../assets/TysGinsengLogo.png";
 import TabContainer from "./TabContainer";
 import homepageMainImage from "../assets/homepage-main-image-1.jpg";
 import subImage1 from "../assets/homepage-subimage-1.jpg";
-import { PRODUCTS_PAGE_LINK } from "../constants";
+import { PRODUCTS_PAGE_LINK, FARM_TO_TABLE_LINK } from "../constants";
 import { trackEvent } from "../utils/analytics";
 import InTheNews from "./InTheNews";
 
 const Homepage = () => {
-  const displayBanner = false;
+  const displayBanner = true;
 
   return (
     <div id="homepage-top-div" className="container-fluid px-5">
@@ -40,15 +40,17 @@ const Homepage = () => {
           <div className="w-100 mt-4 mb-0 homepage-banner text-center">
             <Link
               className="text-white text-decoration-none fw-semibold d-flex flex-column align-items-center justify-content-center"
-              to="/giveaway-details"
+              to={FARM_TO_TABLE_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span>
-                GIVEAWAY! Spend $70 be automatically entered for a chance to win
-                2 Savanna Bananas baseball tickets.
+                HOLIDAY SALE! Special pricing on ginseng powder! Plus, buy a
+                honey pouch container and get 5 extra honey pouches free.
               </span>
 
               <span className="ms-2 fw-light">
-                Game is on Aug 8th at Target Field in Minneapolis.
+                Now through December 31 - Shop now!
               </span>
             </Link>
           </div>
@@ -57,16 +59,18 @@ const Homepage = () => {
         <section className="hero-section">
           <div className="hero-text-wrapper">
             <h1 className="hero-heading">
-              PREMIUM<br />GINSENG
+              PREMIUM
+              <br />
+              GINSENG
             </h1>
             <p className="lead">
               At Ty&apos;s Ginseng, we&apos;re proud to be a small, family-owned
               business, where every customer has the opportunity to interact
-              directly with the owner. My family and I grow ginseng in
-              southern Minnesota and our Minnesota weather creates the perfect
-              conditions for ginseng to grow in our woods. We take great pride
-              in our roots to make sure that you get only the best quality
-              woods grown ginseng.
+              directly with the owner. My family and I grow ginseng in southern
+              Minnesota and our Minnesota weather creates the perfect conditions
+              for ginseng to grow in our woods. We take great pride in our roots
+              to make sure that you get only the best quality woods grown
+              ginseng.
             </p>
             <p className="lead">
               I founded my ginseng business in 2012, building on the knowledge
